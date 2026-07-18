@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import "./App.css";
 
@@ -47,7 +48,7 @@ function HomePage() {
         </a>
 
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#modules">Modules</a>
+          <Link to="/modules">Modules</Link>
           <a href="#about">About</a>
           <a href="#progress">My Progress</a>
         </nav>
