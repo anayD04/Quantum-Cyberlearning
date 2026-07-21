@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ModulesPage.css";
 
 const modules = [
@@ -65,7 +66,14 @@ const modules = [
 ];
 
 function ModulesPage({ onStartModule }) {
+  const navigate = useNavigate();
+
   const handleStart = (module) => {
+    if (module.id === 1) {
+      navigate("/modules/1");
+      return;
+    }
+
     if (onStartModule) {
       onStartModule(module);
       return;
