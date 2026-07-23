@@ -1,38 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import "./App.css";
 
 const modules = [
   {
+    id: 1,
     number: "01",
     icon: "⚛️",
     title: "Introduction to QC",
-    description:
-      "Discover what quantum computing is, how it differs from classical computing, and why it matters.",
+    description: "Discover what quantum computing is, how it differs from classical computing, and why it matters.",
     topics: ["Qubits", "Superposition", "Measurement"],
     accent: "purple",
   },
   {
+    id: 2,
     number: "02",
-    icon: "✨",
-    title: "Quantum Gates",
-    description:
-      "Learn how quantum gates change qubits and form the basic building blocks of quantum programs.",
-    topics: ["X Gate", "Hadamard Gate", "CNOT Gate"],
+    icon: "💻",
+    title: "Classical vs Quantum Programming",
+    description: "Compare classical and quantum programs through simple examples.",
+    topics: ["Classical", "Quantum", "Qiskit"],
     accent: "blue",
   },
   {
+    id: 3,
     number: "03",
+    icon: "✨",
+    title: "Quantum Gates",
+    description: "Learn how quantum gates change qubits and form the basic building blocks of quantum programs.",
+    topics: ["X Gate", "Hadamard Gate", "CNOT Gate"],
+    accent: "pink",
+  },
+  {
+    id: 4,
+    number: "04",
     icon: "🔗",
     title: "Quantum Circuits",
-    description:
-      "Combine gates into simple circuits and explore how quantum algorithms are created.",
+    description: "Combine gates into simple circuits and explore how quantum algorithms are created.",
     topics: ["Circuit Design", "Entanglement", "Simulation"],
     accent: "orange",
+  },
+  {
+    id: 5,
+    number: "05",
+    icon: "🌐",
+    title: "Entanglement",
+    description: "Learn how qubits can become connected and investigate one of the most fascinating ideas in quantum physics.",
+    topics: ["Bell States", "Correlation", "Applications"],
+    accent: "green",
   },
 ];
 
 function HomePage() {
+  const navigate = useNavigate();
   const scrollToModules = () => {
     document
       .getElementById("modules")
@@ -166,11 +185,14 @@ function HomePage() {
                   ))}
                 </div>
 
-                <button className="module-link" type="button">
-                  Explore Module
-                  <span aria-hidden="true">→</span>
-                </button>
-              </article>
+                  <button 
+                    className="module-link" 
+                    type="button" 
+                    onClick={() => navigate(`/modules/${module.id}`)}>
+                    Explore Module
+                    <span aria-hidden="true">→</span>
+                  </button>
+               </article>
             ))}
           </div>
         </section>
