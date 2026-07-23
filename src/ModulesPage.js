@@ -69,10 +69,18 @@ function ModulesPage({ onStartModule }) {
   const navigate = useNavigate();
 
   const handleStart = (module) => {
-    if (module.id === 1) {
-      navigate("/modules/1");
-      return;
-    }
+  if (module.id === 1) {
+    navigate("/modules/1");
+    return;
+  }
+  if (module.id === 2) {
+    navigate("/modules/2");
+    return;
+  }
+  if (module.id === 3) {
+    navigate("/modules/3");
+    return;
+  }
 
     if (onStartModule) {
       onStartModule(module);

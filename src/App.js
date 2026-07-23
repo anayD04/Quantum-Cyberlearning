@@ -3,6 +3,7 @@ import HomePage from "./HomePage";
 import ModulesPage from "./ModulesPage";
 import IntroModule from "./IntroModule";
 import ClassicalVsQuantumModule from "./ClassicalVsQuantumModule";
+import QuantumGatesModule from "./QuantumGatesModule";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/modules" element={<ModulesPage />} />
         <Route path="/modules/1" element={<IntroModule />} />
         <Route path="/modules/2" element={<ClassicalVsQuantumModule />} />
+        <Route path="/modules/3" element={<QuantumGatesModule />} />
       </Routes>
     </BrowserRouter>
   );
