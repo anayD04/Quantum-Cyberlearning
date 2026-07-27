@@ -5,6 +5,7 @@ import IntroModule from "./IntroModule";
 import ClassicalVsQuantumModule from "./ClassicalVsQuantumModule";
 import QuantumGatesModule from "./QuantumGatesModule";
 import QuantumCircuitsModule from "./QuantumCircuitsModule";
+import EntanglementModule from "./EntanglementModule";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/modules/2" element={<ClassicalVsQuantumModule />} />
         <Route path="/modules/3" element={<QuantumGatesModule />} />
         <Route path="/modules/4" element={<QuantumCircuitsModule />} />
+        <Route path="/modules/5" element={<EntanglementModule />} />
       </Routes>
     </BrowserRouter>
   );

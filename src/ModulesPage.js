@@ -87,6 +87,11 @@ function ModulesPage({ onStartModule }) {
   return;
   }
 
+  if (module.id === 5) {
+  navigate("/modules/5");
+  return;
+  }
+
     if (onStartModule) {
       onStartModule(module);
       return;
