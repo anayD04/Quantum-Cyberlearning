@@ -69,7 +69,7 @@ function HomePage() {
         <nav className="nav-links" aria-label="Main navigation">
           <Link to="/modules">Modules</Link>
           <a href="#about">About</a>
-          <a href="#progress">My Progress</a>
+          <Link to="/progress">My Progress</Link>
         </nav>
 
         <button className="nav-button" type="button" onClick={scrollToModules}>
