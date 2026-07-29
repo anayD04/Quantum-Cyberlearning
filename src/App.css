@@ -750,3 +750,75 @@ footer > span {
     width: 100%;
   }
 }
+.homepage-module-locked {
+  opacity: 0.68;
+  background: #f7f7fb;
+}
+
+.homepage-module-locked .topic-list,
+.homepage-module-locked > p {
+  opacity: 0.8;
+}
+
+.homepage-module-completed {
+  border-color: rgba(45, 155, 116, 0.35);
+}
+
+.homepage-module-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.homepage-module-heading h3 {
+  margin-right: auto;
+}
+
+.homepage-completed-badge,
+.homepage-locked-badge {
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.homepage-completed-badge {
+  background: #e7f8f1;
+  color: #2d9b74;
+}
+
+.homepage-locked-badge {
+  background: #ececf3;
+  color: #73758a;
+}
+
+.homepage-unlock-message {
+  margin: 14px 0 0;
+  color: #77798b;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.homepage-locked-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: not-allowed;
+  color: #77798b;
+}
+
+.homepage-locked-button:hover {
+  transform: none;
+}
+
+.homepage-lock-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

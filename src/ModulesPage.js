@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useProgress } from "./ProgressContext";
 import "./ModulesPage.css";
 
 const modules = [
@@ -65,39 +66,47 @@ const modules = [
   },
 ];
 
+function LockIcon() {
+  return (
+    <svg
+      className="module-lock-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+
 function ModulesPage({ onStartModule }) {
   const navigate = useNavigate();
+  const {
+    completedModules,
+    isModuleCompleted,
+    totalPoints = 0,
+  } = useProgress();
+
+  const completedCount = completedModules.length;
+  const progressPercentage = Math.round(
+    (completedCount / modules.length) * 100
+  );
+
+  const isModuleLocked = (moduleId) => {
+    if (moduleId === 1) {
+      return false;
+    }
+
+    return !isModuleCompleted(moduleId - 1);
+  };
 
   const handleStart = (module) => {
-  if (module.id === 1) {
-    navigate("/modules/1");
-    return;
-  }
-  if (module.id === 2) {
-    navigate("/modules/2");
-    return;
-  }
-  if (module.id === 3) {
-    navigate("/modules/3");
-    return;
-  }
-
-  if (module.id === 4) {
-  navigate("/modules/4");
-  return;
-  }
-
-  if (module.id === 5) {
-  navigate("/modules/5");
-  return;
-  }
-
-    if (onStartModule) {
-      onStartModule(module);
+    if (isModuleLocked(module.id)) {
       return;
     }
 
-    console.log(`Starting module: ${module.title}`);
+    navigate(`/modules/${module.id}`);
   };
 
   return (
@@ -110,15 +119,20 @@ function ModulesPage({ onStartModule }) {
 
         <nav className="modules-nav-links" aria-label="Main navigation">
           <a href="/">Home</a>
+
           <a className="active" href="/modules">
             Modules
           </a>
+
           <a href="/#about">About</a>
-          <a href="/#progress">My Progress</a>
+
+          <a href="/progress">My Progress</a>
         </nav>
 
-        <a className="modules-progress-button" href="/#progress">
-          <span className="progress-circle">0%</span>
+        <a className="modules-progress-button" href="/progress">
+          <span className="progress-circle">
+            {progressPercentage}%
+          </span>
           My Progress
         </a>
       </header>
@@ -154,15 +168,15 @@ function ModulesPage({ onStartModule }) {
               <div className="summary-divider" />
 
               <div className="summary-item">
-                <strong>25+</strong>
-                <span>Lessons</span>
+                <strong>{completedCount}</strong>
+                <span>Completed</span>
               </div>
 
               <div className="summary-divider" />
 
               <div className="summary-item">
-                <strong>~1 hr</strong>
-                <span>Total time</span>
+                <strong>{totalPoints}</strong>
+                <span>Points</span>
               </div>
             </div>
           </div>
@@ -170,25 +184,34 @@ function ModulesPage({ onStartModule }) {
           <div className="modules-hero-visual" aria-hidden="true">
             <div className="learning-path-line" />
 
-            <div className="path-node path-node-one">
-              <span>1</span>
-            </div>
+            {modules.map((module) => {
+              const locked = isModuleLocked(module.id);
+              const completed = isModuleCompleted(module.id);
 
-            <div className="path-node path-node-two">
-              <span>2</span>
-            </div>
-
-            <div className="path-node path-node-three">
-              <span>3</span>
-            </div>
-
-            <div className="path-node path-node-four">
-              <span>4</span>
-            </div>
-
-            <div className="path-node path-node-five">
-              <span>5</span>
-            </div>
+              return (
+                <div
+                  className={[
+                    "path-node",
+                    `path-node-${[
+                      "one",
+                      "two",
+                      "three",
+                      "four",
+                      "five",
+                    ][module.id - 1]}`,
+                    completed ? "completed" : "",
+                    locked ? "locked" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  key={module.id}
+                >
+                  <span>
+                    {completed ? "✓" : locked ? "🔒" : module.id}
+                  </span>
+                </div>
+              );
+            })}
 
             <div className="floating-label floating-label-start">
               Start here
@@ -204,82 +227,135 @@ function ModulesPage({ onStartModule }) {
           <div className="modules-section-heading">
             <div>
               <p className="modules-section-label">COURSE MODULES</p>
-              <h2>Choose where to begin</h2>
+              <h2>Follow the learning path</h2>
             </div>
 
             <p>
-              We recommend completing the modules in order, but you can explore
-              any topic that interests you.
+              Complete each module to unlock the next one. Module 1 is always
+              available.
             </p>
           </div>
 
           <div className="modules-list">
-            {modules.map((module) => (
-              <article
-                className={`learning-module-card module-${module.accent}`}
-                key={module.id}
-              >
-                <div className="module-accent-bar" />
+            {modules.map((module) => {
+              const locked = isModuleLocked(module.id);
+              const completed = isModuleCompleted(module.id);
 
-                <div className="module-card-number">{module.number}</div>
-
-                <div className="module-card-icon" aria-hidden="true">
-                  {module.icon}
-                </div>
-
-                <div className="module-card-content">
-                  <div className="module-card-heading">
-                    <h3>{module.title}</h3>
-
-                    <span
-                      className={`difficulty-badge difficulty-${module.difficulty
-                        .toLowerCase()
-                        .replace("+", "plus")}`}
-                    >
-                      {module.difficulty}
-                    </span>
-                  </div>
-
-                  <p>{module.description}</p>
-
-                  <div className="module-metadata">
-                    <span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <circle cx="12" cy="12" r="9" />
-                        <path d="M12 7v5l3 2" />
-                      </svg>
-                      {module.duration}
-                    </span>
-
-                    <span>
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        focusable="false"
-                      >
-                        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5z" />
-                        <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z" />
-                      </svg>
-                      {module.lessons} lessons
-                    </span>
-                  </div>
-                </div>
-
-                <button
-                  className="module-start-button"
-                  type="button"
-                  onClick={() => handleStart(module)}
-                  aria-label={`Start ${module.title}`}
+              return (
+                <article
+                  className={[
+                    "learning-module-card",
+                    `module-${module.accent}`,
+                    locked ? "module-locked" : "",
+                    completed ? "module-completed" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  key={module.id}
+                  aria-disabled={locked}
                 >
-                  Start
-                  <span aria-hidden="true">→</span>
-                </button>
-              </article>
-            ))}
+                  <div className="module-accent-bar" />
+
+                  <div className="module-card-number">
+                    {module.number}
+                  </div>
+
+                  <div className="module-card-icon" aria-hidden="true">
+                    {locked ? "🔒" : module.icon}
+                  </div>
+
+                  <div className="module-card-content">
+                    <div className="module-card-heading">
+                      <h3>{module.title}</h3>
+
+                      <div className="module-card-badges">
+                        <span
+                          className={`difficulty-badge difficulty-${module.difficulty
+                            .toLowerCase()
+                            .replace("+", "plus")}`}
+                        >
+                          {module.difficulty}
+                        </span>
+
+                        {completed && (
+                          <span className="module-completed-badge">
+                            ✓ Completed
+                          </span>
+                        )}
+
+                        {locked && (
+                          <span className="module-locked-badge">
+                            Locked
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <p>{module.description}</p>
+
+                    <div className="module-metadata">
+                      <span>
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          <circle cx="12" cy="12" r="9" />
+                          <path d="M12 7v5l3 2" />
+                        </svg>
+
+                        {module.duration}
+                      </span>
+
+                      <span>
+                        <svg
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                          focusable="false"
+                        >
+                          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5z" />
+                          <path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5z" />
+                        </svg>
+
+                        {module.lessons} lessons
+                      </span>
+                    </div>
+
+                    {locked && (
+                      <p className="module-unlock-message">
+                        Complete Module {module.id - 1} to unlock this module.
+                      </p>
+                    )}
+                  </div>
+
+                  {locked ? (
+                    <button
+                      className="module-start-button module-lock-button"
+                      type="button"
+                      disabled
+                      aria-label={`${module.title} is locked. Complete Module ${
+                        module.id - 1
+                      } first.`}
+                    >
+                      <LockIcon />
+                      Locked
+                    </button>
+                  ) : (
+                    <button
+                      className="module-start-button"
+                      type="button"
+                      onClick={() => handleStart(module)}
+                      aria-label={`${
+                        completed ? "Review" : "Start"
+                      } ${module.title}`}
+                    >
+                      {completed ? "Review" : "Start"}
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  )}
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -291,6 +367,7 @@ function ModulesPage({ onStartModule }) {
           <div>
             <p className="modules-section-label">LEARNING TIP</p>
             <h2>Take your time and experiment.</h2>
+
             <p>
               Quantum computing can feel unusual at first. Complete the
               activities, revisit difficult ideas, and focus on understanding
@@ -303,7 +380,7 @@ function ModulesPage({ onStartModule }) {
             type="button"
             onClick={() => handleStart(modules[0])}
           >
-            Start Module 1
+            {isModuleCompleted(1) ? "Review Module 1" : "Start Module 1"}
             <span aria-hidden="true">→</span>
           </button>
         </section>

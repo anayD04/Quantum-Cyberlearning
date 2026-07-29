@@ -1,5 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useProgress } from "./ProgressContext";
 import "./App.css";
 
 const modules = [
@@ -8,7 +9,8 @@ const modules = [
     number: "01",
     icon: "⚛️",
     title: "Introduction to QC",
-    description: "Discover what quantum computing is, how it differs from classical computing, and why it matters.",
+    description:
+      "Discover what quantum computing is, how it differs from classical computing, and why it matters.",
     topics: ["Qubits", "Superposition", "Measurement"],
     accent: "purple",
   },
@@ -17,7 +19,8 @@ const modules = [
     number: "02",
     icon: "💻",
     title: "Classical vs Quantum Programming",
-    description: "Compare classical and quantum programs through simple examples.",
+    description:
+      "Compare classical and quantum programs through simple examples.",
     topics: ["Classical", "Quantum", "Qiskit"],
     accent: "blue",
   },
@@ -26,7 +29,8 @@ const modules = [
     number: "03",
     icon: "✨",
     title: "Quantum Gates",
-    description: "Learn how quantum gates change qubits and form the basic building blocks of quantum programs.",
+    description:
+      "Learn how quantum gates change qubits and form the basic building blocks of quantum programs.",
     topics: ["X Gate", "Hadamard Gate", "CNOT Gate"],
     accent: "pink",
   },
@@ -35,7 +39,8 @@ const modules = [
     number: "04",
     icon: "🔗",
     title: "Quantum Circuits",
-    description: "Combine gates into simple circuits and explore how quantum algorithms are created.",
+    description:
+      "Combine gates into simple circuits and explore how quantum algorithms are created.",
     topics: ["Circuit Design", "Entanglement", "Simulation"],
     accent: "orange",
   },
@@ -44,18 +49,51 @@ const modules = [
     number: "05",
     icon: "🌐",
     title: "Entanglement",
-    description: "Learn how qubits can become connected and investigate one of the most fascinating ideas in quantum physics.",
+    description:
+      "Learn how qubits can become connected and investigate one of the most fascinating ideas in quantum physics.",
     topics: ["Bell States", "Correlation", "Applications"],
     accent: "green",
   },
 ];
 
+function LockIcon() {
+  return (
+    <svg
+      className="homepage-lock-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
+}
+
 function HomePage() {
   const navigate = useNavigate();
+  const { isModuleCompleted } = useProgress();
+
   const scrollToModules = () => {
     document
       .getElementById("modules")
       ?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const isModuleLocked = (moduleId) => {
+    if (moduleId === 1) {
+      return false;
+    }
+
+    return !isModuleCompleted(moduleId - 1);
+  };
+
+  const handleModuleClick = (module) => {
+    if (isModuleLocked(module.id)) {
+      return;
+    }
+
+    navigate(`/modules/${module.id}`);
   };
 
   return (
@@ -95,8 +133,8 @@ function HomePage() {
 
             <p className="hero-description">
               Explore the strange and exciting world of quantum computing
-              through simple lessons, interactive activities, and beginner-
-              friendly examples made for high school students.
+              through simple lessons, interactive activities, and
+              beginner-friendly examples made for high school students.
             </p>
 
             <div className="hero-actions">
@@ -160,40 +198,95 @@ function HomePage() {
             </div>
 
             <p>
-              Begin with the fundamentals and build your knowledge one module
-              at a time.
+              Begin with the fundamentals and complete each module to unlock
+              the next step in your learning path.
             </p>
           </div>
 
           <div className="module-grid">
-            {modules.map((module) => (
-              <article
-                className={`module-card module-card-${module.accent}`}
-                key={module.title}
-              >
-                <div className="module-top">
-                  <span className="module-number">{module.number}</span>
-                  <span className="module-icon">{module.icon}</span>
-                </div>
+            {modules.map((module) => {
+              const locked = isModuleLocked(module.id);
+              const completed = isModuleCompleted(module.id);
 
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
+              return (
+                <article
+                  className={[
+                    "module-card",
+                    `module-card-${module.accent}`,
+                    locked ? "homepage-module-locked" : "",
+                    completed ? "homepage-module-completed" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                  key={module.id}
+                  aria-disabled={locked}
+                >
+                  <div className="module-top">
+                    <span className="module-number">{module.number}</span>
 
-                <div className="topic-list">
-                  {module.topics.map((topic) => (
-                    <span key={topic}>{topic}</span>
-                  ))}
-                </div>
+                    <span className="module-icon" aria-hidden="true">
+                      {locked ? "🔒" : module.icon}
+                    </span>
+                  </div>
 
-                  <button 
-                    className="module-link" 
-                    type="button" 
-                    onClick={() => navigate(`/modules/${module.id}`)}>
-                    Explore Module
-                    <span aria-hidden="true">→</span>
-                  </button>
-               </article>
-            ))}
+                  <div className="homepage-module-heading">
+                    <h3>{module.title}</h3>
+
+                    {completed && (
+                      <span className="homepage-completed-badge">
+                        ✓ Completed
+                      </span>
+                    )}
+
+                    {locked && (
+                      <span className="homepage-locked-badge">
+                        Locked
+                      </span>
+                    )}
+                  </div>
+
+                  <p>{module.description}</p>
+
+                  <div className="topic-list">
+                    {module.topics.map((topic) => (
+                      <span key={topic}>{topic}</span>
+                    ))}
+                  </div>
+
+                  {locked && (
+                    <p className="homepage-unlock-message">
+                      Complete Module {module.id - 1} to unlock.
+                    </p>
+                  )}
+
+                  {locked ? (
+                    <button
+                      className="module-link homepage-locked-button"
+                      type="button"
+                      disabled
+                      aria-label={`${module.title} is locked. Complete Module ${
+                        module.id - 1
+                      } first.`}
+                    >
+                      <LockIcon />
+                      Locked
+                    </button>
+                  ) : (
+                    <button
+                      className="module-link"
+                      type="button"
+                      onClick={() => handleModuleClick(module)}
+                      aria-label={`${
+                        completed ? "Review" : "Explore"
+                      } ${module.title}`}
+                    >
+                      {completed ? "Review Module" : "Explore Module"}
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  )}
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -217,6 +310,7 @@ function HomePage() {
           <div>
             <p className="section-label">YOUR LEARNING PATH</p>
             <h2>Ready to think differently?</h2>
+
             <p>
               Complete lessons, test your knowledge, and watch your quantum
               skills grow.
@@ -226,9 +320,9 @@ function HomePage() {
           <button
             className="primary-button"
             type="button"
-            onClick={scrollToModules}
+            onClick={() => handleModuleClick(modules[0])}
           >
-            Start Module 1
+            {isModuleCompleted(1) ? "Review Module 1" : "Start Module 1"}
             <span aria-hidden="true">→</span>
           </button>
         </section>
