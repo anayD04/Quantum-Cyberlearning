@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./QuantumCircuitsModule.css";
+import { useProgress } from "./ProgressContext";
 
 const availableGates = {
   X: {
@@ -190,6 +191,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function QuantumCircuitsModule() {
+  const { addPoints, completeModule, isModuleCompleted } = useProgress();
   const [circuitGates, setCircuitGates] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -257,6 +259,10 @@ function QuantumCircuitsModule() {
 
   const checkScore = () => {
     setShowSummary(true);
+    if (!isModuleCompleted(4)) {
+        addPoints(4, 20);
+        completeModule(4);
+    }
 
     setTimeout(() => {
       document

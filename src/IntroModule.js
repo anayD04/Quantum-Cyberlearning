@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./IntroModule.css";
+import { useProgress } from "./ProgressContext";
 
 const tracerSteps = [
   {
@@ -101,6 +102,7 @@ const quizQuestions = [
 ];
 
 function IntroModule() {
+  const { addPoints, completeModule, isModuleCompleted } = useProgress();
   const [tracerStep, setTracerStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
@@ -142,6 +144,10 @@ function IntroModule() {
 
   const checkQuiz = () => {
     setShowSummary(true);
+    if (!isModuleCompleted(1)) {
+    addPoints(1, 20);
+    completeModule(1);
+  }
 
     document
       .getElementById("quiz-summary")

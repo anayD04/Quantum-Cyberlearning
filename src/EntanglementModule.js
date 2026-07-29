@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./EntanglementModule.css";
+import { useProgress } from "./ProgressContext";
 
 const quizQuestions = [
   {
@@ -155,6 +156,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function EntanglementModule() {
+  const { addPoints, completeModule, isModuleCompleted } = useProgress();
   const [activeStep, setActiveStep] = useState(0);
   const [measurement, setMeasurement] = useState(null);
   const [measurementHistory, setMeasurementHistory] = useState([]);
@@ -215,6 +217,11 @@ function EntanglementModule() {
 
   const checkScore = () => {
     setShowSummary(true);
+
+    if (!isModuleCompleted(5)) {
+    addPoints(5, 20);
+    completeModule(5);
+  }
 
     setTimeout(() => {
       document

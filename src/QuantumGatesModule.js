@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./QuantumGatesModule.css";
+import { useProgress } from "./ProgressContext";
 
 const gates = {
   x: {
@@ -136,6 +137,7 @@ function ProbabilityBars({ zero, one, label }) {
 }
 
 function QuantumGatesModule() {
+  const { addPoints, completeModule, isModuleCompleted } = useProgress();
   const [selectedGate, setSelectedGate] = useState("x");
   const [animationKey, setAnimationKey] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -172,6 +174,10 @@ function QuantumGatesModule() {
 
   const checkScore = () => {
     setShowSummary(true);
+    if (!isModuleCompleted(3)) {
+      addPoints(3, 20);
+      completeModule(3);
+    }
 
     setTimeout(() => {
       document

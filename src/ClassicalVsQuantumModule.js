@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./ClassicalVsQuantumModule.css";
+import { useProgress } from "./ProgressContext";
 
 const approachData = {
   classical: {
@@ -94,6 +95,7 @@ const quizQuestions = [
 ];
 
 function ClassicalVsQuantumModule() {
+  const { addPoints, completeModule, isModuleCompleted } = useProgress();
   const [activeApproach, setActiveApproach] = useState("classical");
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
@@ -121,6 +123,11 @@ function ClassicalVsQuantumModule() {
 
   const handleCheckScore = () => {
     setShowSummary(true);
+
+    if (!isModuleCompleted(2)) {
+      addPoints(2, 20);
+      completeModule(2);
+    }
 
     setTimeout(() => {
       document
