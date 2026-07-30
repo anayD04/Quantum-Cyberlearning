@@ -219,7 +219,6 @@ function HomePage() {
                     .filter(Boolean)
                     .join(" ")}
                   key={module.id}
-                  aria-disabled={locked}
                 >
                   <div className="module-top">
                     <span className="module-number">{module.number}</span>

@@ -252,7 +252,6 @@ function ModulesPage({ onStartModule }) {
                     .filter(Boolean)
                     .join(" ")}
                   key={module.id}
-                  aria-disabled={locked}
                 >
                   <div className="module-accent-bar" />
 
