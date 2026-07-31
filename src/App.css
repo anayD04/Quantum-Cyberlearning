@@ -822,3 +822,92 @@ footer > span {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+/* Navbar Actions */
+
+.navbar-actions,
+.modules-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Level Badge */
+
+.level-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.12),
+    rgba(66, 135, 245, 0.12)
+  );
+
+  border: 1px solid rgba(108, 92, 231, 0.18);
+
+  color: #5b4bd8;
+
+  text-decoration: none;
+
+  font-size: 0.86rem;
+
+  font-weight: 700;
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.25s ease;
+}
+
+.level-pill:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 28px rgba(108, 92, 231, 0.18);
+
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.18),
+    rgba(66, 135, 245, 0.18)
+  );
+}
+
+.level-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #6c5ce7,
+    #4287f5
+  );
+
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.45);
+}
+
+.level-pill strong {
+  color: #4d3dc9;
+}
+
+@media (max-width: 900px) {
+  .navbar-actions,
+  .modules-navbar-actions {
+    gap: 10px;
+  }
+
+  .level-pill {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .level-pill {
+    display: none;
+  }
+}

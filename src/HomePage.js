@@ -71,6 +71,7 @@ function LockIcon() {
 }
 
 function HomePage() {
+  const { totalPoints, currentLevel } = useProgress();
   const navigate = useNavigate();
   const { isModuleCompleted } = useProgress();
 
@@ -110,9 +111,22 @@ function HomePage() {
           <Link to="/progress">My Progress</Link>
         </nav>
 
-        <button className="nav-button" type="button" onClick={scrollToModules}>
-          Start Learning
-        </button>
+        <div className="navbar-actions">
+          <Link to="/progress" className="level-pill">
+            <span className="level-dot" />
+            <strong>{currentLevel}</strong>
+            <span>•</span>
+            <span>{totalPoints} pts</span>
+          </Link>
+
+          <button
+            className="nav-button"
+            type="button"
+            onClick={scrollToModules}
+          >
+            Start Learning
+          </button>
+        </div>
       </header>
 
       <main id="top">

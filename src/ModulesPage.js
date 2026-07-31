@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useProgress } from "./ProgressContext";
 import "./ModulesPage.css";
 
@@ -85,7 +85,8 @@ function ModulesPage({ onStartModule }) {
   const {
     completedModules,
     isModuleCompleted,
-    totalPoints = 0,
+    totalPoints,
+    currentLevel,
   } = useProgress();
 
   const completedCount = completedModules.length;
@@ -120,14 +121,22 @@ function ModulesPage({ onStartModule }) {
         <nav className="modules-nav-links" aria-label="Main navigation">
           <a href="/">Home</a>
 
-          <a className="active" href="/modules">
-            Modules
-          </a>
+        <a className="active" href="/modules">
+          Modules
+        </a>
 
-          <a href="/#about">About</a>
+        <a href="/#about">About</a>
 
-          <a href="/progress">My Progress</a>
-        </nav>
+        <a href="/progress">My Progress</a>
+      </nav>
+
+      <div className="modules-navbar-actions">
+        <Link to="/progress" className="level-pill">
+          <span className="level-dot" />
+          <strong>{currentLevel}</strong>
+          <span>•</span>
+          <span>{totalPoints} pts</span>
+        </Link>
 
         <a className="modules-progress-button" href="/progress">
           <span className="progress-circle">
@@ -135,7 +144,8 @@ function ModulesPage({ onStartModule }) {
           </span>
           My Progress
         </a>
-      </header>
+      </div>
+    </header>
 
       <main>
         <section className="modules-hero">
