@@ -32,12 +32,12 @@ const quizQuestions = [
     id: 2,
     question: "What does each horizontal wire usually represent?",
     options: [
+      "A probability answer",
       "A qubit",
       "A computer monitor",
       "A classical program",
-      "A probability answer",
     ],
-    answer: 0,
+    answer: 1,
     explanation:
       "Each horizontal wire represents a qubit moving through the circuit.",
   },
@@ -45,12 +45,12 @@ const quizQuestions = [
     id: 3,
     question: "What happens if an X gate is applied to |0⟩?",
     options: [
-      "It becomes |1⟩",
       "It stays |0⟩",
       "It becomes two qubits",
+      "It becomes |1⟩",
       "It is automatically measured",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
       "The X gate flips the computational basis states, so |0⟩ becomes |1⟩.",
   },
@@ -59,14 +59,121 @@ const quizQuestions = [
     question:
       "Which statement best describes a quantum circuit compared with a classical circuit?",
     options: [
-      "Quantum circuits can manipulate superposition states",
       "Quantum circuits never use gates",
       "Classical circuits use qubits",
       "Quantum circuits always produce the same output",
+      "Quantum circuits can manipulate superposition states",
+    ],
+    answer: 3,
+    explanation:
+      "Quantum circuits can transform superpositions and other quantum states, while classical circuits process definite bits.",
+  },
+  {
+    id: 5,
+    question: "What is a quantum circuit?",
+    options: [
+      "A sequence of quantum gates applied to one or more qubits",
+      "A list of classical passwords",
+      "A type of computer screen",
+      "A measurement result with no gates",
     ],
     answer: 0,
     explanation:
-      "Quantum circuits can transform superpositions and other quantum states, while classical circuits process definite bits.",
+      "A quantum circuit is an ordered sequence of quantum gates that changes the state of one or more qubits.",
+  },
+  {
+    id: 6,
+    question: "Why is the order of gates important in a quantum circuit?",
+    options: [
+      "Gate order only changes the color of the diagram",
+      "Each gate acts on the state produced by the gates before it",
+      "All gates always produce the same result",
+      "Only measurement gates have an order",
+    ],
+    answer: 1,
+    explanation:
+      "Each gate receives the state left by the previous gate, so changing the order can change the final quantum state.",
+  },
+  {
+    id: 7,
+    question:
+      "Which statement about applying H then X compared with X then H is correct?",
+    options: [
+      "They must always produce identical quantum states",
+      "The second gate is ignored",
+      "The two orders can produce different states because gate order matters",
+      "Both sequences immediately measure the qubit",
+    ],
+    answer: 2,
+    explanation:
+      "Quantum gates do not always commute, so applying H then X can produce a different state from applying X then H.",
+  },
+  {
+    id: 8,
+    question: "What does a gate symbol placed on a wire mean?",
+    options: [
+      "The wire stops at that point",
+      "The qubit is deleted",
+      "The gate acts on every qubit in the circuit",
+      "That gate is applied to the qubit represented by the wire",
+    ],
+    answer: 3,
+    explanation:
+      "A gate symbol on a wire shows that the corresponding operation is applied to that qubit at that point in the circuit.",
+  },
+  {
+    id: 9,
+    question: "What happens when a qubit in superposition is measured?",
+    options: [
+      "It produces a classical result such as 0 or 1",
+      "It remains in every possible state forever",
+      "It becomes a new quantum gate",
+      "It always produces 1",
+    ],
+    answer: 0,
+    explanation:
+      "Measurement converts the quantum state into a classical result, such as 0 or 1.",
+  },
+  {
+    id: 10,
+    question: "Where is measurement usually shown in a simple circuit?",
+    options: [
+      "Before the starting state",
+      "Near the end, after the gates have been applied",
+      "Outside the circuit diagram",
+      "Only on classical wires",
+    ],
+    answer: 1,
+    explanation:
+      "Measurement is usually placed near the end so the circuit can first transform the qubit and then record a classical result.",
+  },
+  {
+    id: 11,
+    question:
+      "What is a common difference between classical and quantum circuit outputs?",
+    options: [
+      "Classical circuits never use wires",
+      "Quantum circuits cannot contain gates",
+      "Classical outputs are often deterministic, while quantum measurements can be probabilistic",
+      "Quantum circuits always output every answer",
+    ],
+    answer: 2,
+    explanation:
+      "Classical logic circuits usually give a definite output for known inputs, while quantum measurements may produce different outcomes with specific probabilities.",
+  },
+  {
+    id: 12,
+    question:
+      "If a Hadamard gate creates equal probabilities for 0 and 1, what might repeated measurements show?",
+    options: [
+      "Only 0 every time",
+      "Only 1 every time",
+      "No classical results",
+      "A mixture of 0 and 1 results over many runs",
+    ],
+    answer: 3,
+    explanation:
+      "A balanced superposition gives a 50% probability for each result, so repeated runs should produce a mixture of 0s and 1s.",
   },
 ];
 
@@ -971,7 +1078,7 @@ function QuantumCircuitsModule() {
 
               <div className="qcm-score-circle">
                 <strong>{answeredCount}</strong>
-                <span>of 4 answered</span>
+                <span>of {quizQuestions.length}</span>
               </div>
 
               <div className="qcm-progress-track">
@@ -1008,7 +1115,7 @@ function QuantumCircuitsModule() {
               role="status"
             >
               <div className="qcm-summary-icon">
-                {correctCount === 4 ? "🎉" : correctCount >= 3 ? "⭐" : "📘"}
+                {correctCount === quizQuestions.length ? "🎉" : correctCount >= quizQuestions.length - 1 ? "⭐" : "📘"}
               </div>
 
               <div>
@@ -1019,13 +1126,13 @@ function QuantumCircuitsModule() {
                 </h3>
 
                 <p>
-                  {correctCount === 4 &&
+                  {correctCount === quizQuestions.length &&
                     "Excellent work! You can read and explain a basic quantum circuit."}
 
-                  {correctCount === 3 &&
+                  {correctCount === quizQuestions.length - 1 &&
                     "Great job! You have a strong understanding of quantum circuits."}
 
-                  {correctCount < 3 &&
+                  {correctCount < quizQuestions - 1 &&
                     "Good effort. Review the circuit builder and try the quiz again."}
                 </p>
               </div>

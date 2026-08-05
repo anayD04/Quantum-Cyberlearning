@@ -20,12 +20,12 @@ const quizQuestions = [
     id: 2,
     question: "Which two gates can create a Bell pair from |00⟩?",
     options: [
-      "Hadamard followed by CNOT",
       "Two measurement gates",
+      "Hadamard followed by CNOT",
       "Only an X gate",
       "AND followed by NOT",
     ],
-    answer: 0,
+    answer: 1,
     explanation:
       "Applying H to the first qubit and then CNOT creates the Bell state (|00⟩ + |11⟩) / √2.",
   },
@@ -34,12 +34,12 @@ const quizQuestions = [
     question:
       "What results can appear when the Bell pair in this lesson is measured?",
     options: [
-      "00 or 11",
       "Only 01",
       "Only 10",
+      "00 or 11",
       "00, 01, 10, and 11 equally",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
       "The Bell pair produces correlated outcomes: both qubits are measured as 0 or both are measured as 1.",
   },
@@ -47,14 +47,122 @@ const quizQuestions = [
     id: 4,
     question: "Which statement about entanglement is correct?",
     options: [
-      "It creates correlations that cannot be fully explained by predetermined classical values",
       "It allows instant messages to be sent faster than light",
       "It means both qubits always have known classical values",
       "It is identical to copying two classical bits",
+      "It creates correlations that cannot be fully explained by predetermined classical values",
+    ],
+    answer: 3,
+    explanation:
+      "Entanglement produces genuinely quantum correlations, but it cannot be used by itself to send information faster than light.",
+  },
+  {
+    id: 5,
+    question: "What is a Bell state?",
+    options: [
+      "A maximally entangled state involving two qubits",
+      "A classical bit stored twice",
+      "A measurement device",
+      "A qubit that is always |0⟩",
     ],
     answer: 0,
     explanation:
-      "Entanglement produces genuinely quantum correlations, but it cannot be used by itself to send information faster than light.",
+      "A Bell state is a maximally entangled two-qubit state with strong quantum correlations.",
+  },
+  {
+    id: 6,
+    question:
+      "What does the Hadamard gate do before the CNOT gate creates entanglement?",
+    options: [
+      "It measures both qubits",
+      "It places the control qubit into superposition",
+      "It deletes the target qubit",
+      "It turns both qubits into classical bits",
+    ],
+    answer: 1,
+    explanation:
+      "The Hadamard gate first places the control qubit into superposition, allowing the following CNOT gate to entangle the pair.",
+  },
+  {
+    id: 7,
+    question: "What is the role of the CNOT gate when creating a Bell pair?",
+    options: [
+      "It measures the first qubit",
+      "It creates a third qubit",
+      "It flips the target depending on the control qubit",
+      "It removes superposition from every qubit",
+    ],
+    answer: 2,
+    explanation:
+      "The CNOT gate flips the target qubit when the control is |1⟩, linking the two qubits into a shared state.",
+  },
+  {
+    id: 8,
+    question:
+      "If one qubit in the Bell state (|00⟩ + |11⟩) / √2 is measured as 1, what will the other qubit be measured as?",
+    options: [
+      "It must be 0",
+      "It could be any decimal number",
+      "It disappears",
+      "It will also be 1",
+    ],
+    answer: 3,
+    explanation:
+      "In this Bell state, the measurement results are correlated, so measuring one qubit as 1 means the other is also measured as 1.",
+  },
+  {
+    id: 9,
+    question:
+      "How is classical correlation different from quantum entanglement?",
+    options: [
+      "Classical correlation can be explained by values chosen in advance",
+      "Classical correlation always uses qubits",
+      "Entanglement is caused by ordinary wires",
+      "There is no difference",
+    ],
+    answer: 0,
+    explanation:
+      "Classically correlated objects can carry predetermined values, while entangled systems can produce correlations that cannot be fully explained that way.",
+  },
+  {
+    id: 10,
+    question:
+      "Why does measuring one entangled qubit not allow faster-than-light communication?",
+    options: [
+      "Entangled qubits cannot be measured",
+      "The individual result is random and cannot be controlled",
+      "The second qubit always disappears",
+      "CNOT gates are too slow",
+    ],
+    answer: 1,
+    explanation:
+      "Although the results are correlated, a person cannot choose the outcome of an individual measurement, so no controllable message is sent.",
+  },
+  {
+    id: 11,
+    question: "Why is entanglement useful in quantum computing?",
+    options: [
+      "It makes every calculation instantly correct",
+      "It replaces all classical computers",
+      "It allows qubits to share correlations used by quantum algorithms",
+      "It prevents qubits from changing",
+    ],
+    answer: 2,
+    explanation:
+      "Entanglement allows quantum algorithms to coordinate information across multiple qubits in ways classical systems cannot directly reproduce.",
+  },
+  {
+    id: 12,
+    question: "Which application can use quantum entanglement?",
+    options: [
+      "Ordinary text formatting only",
+      "Classical light switches",
+      "Saving a normal image file",
+      "Quantum teleportation and quantum communication",
+    ],
+    answer: 3,
+    explanation:
+      "Entanglement is an important resource in quantum teleportation, quantum communication, and several quantum algorithms.",
   },
 ];
 
@@ -1108,7 +1216,7 @@ function EntanglementModule() {
 
               <div className="em-score-circle">
                 <strong>{answeredCount}</strong>
-                <span>of 4 answered</span>
+                <span>of {quizQuestions.length}</span>
               </div>
 
               <div className="em-progress-track">
@@ -1145,7 +1253,7 @@ function EntanglementModule() {
               role="status"
             >
               <div className="em-summary-icon">
-                {correctCount === 4 ? "🎉" : correctCount >= 3 ? "⭐" : "📘"}
+                {correctCount === quizQuestions.length ? "🎉" : correctCount >= quizQuestions.length - 1 ? "⭐" : "📘"}
               </div>
 
               <div>
@@ -1156,13 +1264,13 @@ function EntanglementModule() {
                 </h3>
 
                 <p>
-                  {correctCount === 4 &&
+                  {correctCount === quizQuestions.length &&
                     "Excellent work! You understand Bell pairs, correlated measurements, and the difference between classical and quantum correlation."}
 
-                  {correctCount === 3 &&
+                  {correctCount === quizQuestions.length - 1 &&
                     "Great job! You have a strong understanding of quantum entanglement."}
 
-                  {correctCount < 3 &&
+                  {correctCount < quizQuestions.length - 1 &&
                     "Good effort. Review the visualizer and comparison section, then try the quiz again."}
                 </p>
               </div>

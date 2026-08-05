@@ -99,6 +99,111 @@ const quizQuestions = [
     explanation:
       "Applying a Hadamard gate to |0⟩ creates a balanced superposition, giving equal measurement probabilities for 0 and 1.",
   },
+  {
+  id: 5,
+  question: "Which type of computer is used for most everyday tasks today?",
+  options: [
+    "A quantum computer",
+    "An entangled computer",
+    "A classical computer",
+    "A measurement computer",
+  ],
+  answer: 2,
+  explanation:
+    "Phones, laptops, game consoles, and most current devices are classical computers.",
+},
+{
+  id: 6,
+  question: "What usually happens when a qubit is measured?",
+  options: [
+    "It always becomes 0",
+    "It gives a result such as 0 or 1",
+    "It turns into a quantum gate",
+    "It produces every possible answer at once",
+  ],
+  answer: 1,
+  explanation:
+    "Measurement produces a classical result, such as 0 or 1, from the qubit's quantum state.",
+},
+{
+  id: 7,
+  question: "Why is a light switch a useful analogy for a classical bit?",
+  options: [
+    "It creates entanglement",
+    "It performs quantum measurements",
+    "It can be either off or on",
+    "It can be in every position at once",
+  ],
+  answer: 2,
+  explanation:
+    "A light switch has two clear states, off and on, similar to the classical values 0 and 1.",
+},
+{
+  id: 8,
+  question: "Why is a spinning coin sometimes used as a qubit analogy?",
+  options: [
+    "It proves that qubits are made from coins",
+    "It always lands on heads",
+    "It stores computer files",
+    "It helps represent more than one possible outcome before observation",
+  ],
+  answer: 3,
+  explanation:
+    "A spinning coin helps beginners imagine multiple possible outcomes before a final result is observed, although the analogy is not exact.",
+},
+{
+  id: 9,
+  question: "What is a quantum gate?",
+  options: [
+    "A measurement result",
+    "An operation that changes a qubit",
+    "A physical door on a computer",
+    "A type of classical memory",
+  ],
+  answer: 1,
+  explanation:
+    "A quantum gate is an operation or instruction that changes the state of one or more qubits.",
+},
+{
+  id: 10,
+  question:
+    "If a qubit has a 50% chance of being measured as 0 and a 50% chance of being measured as 1, what does that describe?",
+  options: [
+    "A guaranteed result of 1",
+    "A broken qubit",
+    "A balanced superposition",
+    "A classical bit equal to 0",
+  ],
+  answer: 2,
+  explanation:
+    "Equal measurement probabilities for 0 and 1 describe a balanced superposition.",
+},
+{
+  id: 11,
+  question: "Which statement about quantum computers is most accurate?",
+  options: [
+    "They have already replaced all laptops",
+    "They are designed to approach certain problems differently",
+    "They do not use instructions",
+    "They are faster than classical computers for every task",
+  ],
+  answer: 1,
+  explanation:
+    "Quantum computers are not simply faster versions of classical computers. They use a different model that may help with certain specialized problems.",
+},
+{
+  id: 12,
+  question: "Which idea comes from quantum physics?",
+  options: [
+    "A computer keyboard",
+    "Superposition",
+    "A web browser tab",
+    "A classical light switch",
+  ],
+  answer: 1,
+  explanation:
+    "Superposition is a quantum idea that allows a qubit to contain multiple quantum possibilities before measurement.",
+},
 ];
 
 function IntroModule() {
@@ -714,7 +819,7 @@ function IntroModule() {
 
               <div className="quiz-score-circle">
                 <strong>{answeredCount}</strong>
-                <span>of 4 answered</span>
+                <span>of {quizQuestions.length} answered</span>
               </div>
 
               <div className="quiz-progress-bar">
@@ -751,7 +856,7 @@ function IntroModule() {
               role="status"
             >
               <div className="quiz-summary-icon">
-                {correctCount === 4 ? "🎉" : correctCount >= 3 ? "⭐" : "📘"}
+                {correctCount === quizQuestions.length ? "🎉" : correctCount >= quizQuestions.length-1 ? "⭐" : "📘"}
               </div>
 
               <div>
@@ -761,13 +866,13 @@ function IntroModule() {
                 </h3>
 
                 <p>
-                  {correctCount === 4 &&
+                  {correctCount === quizQuestions.length &&
                     "Excellent work! You understand the main ideas in this lesson."}
 
-                  {correctCount === 3 &&
+                  {correctCount === quizQuestions.length - 1 &&
                     "Great job! You have a strong understanding of the basics."}
 
-                  {correctCount < 3 &&
+                  {correctCount < quizQuestions.length -1 &&
                     "Good effort. Review the lesson and try the questions again."}
                 </p>
               </div>

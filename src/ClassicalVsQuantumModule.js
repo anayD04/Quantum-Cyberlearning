@@ -57,12 +57,12 @@ const quizQuestions = [
     id: 2,
     question: "What does a quantum program use to change qubits?",
     options: [
-      "Quantum gates",
       "Web browsers",
+      "Quantum gates",
       "Classical switches only",
       "Image files",
     ],
-    answer: 0,
+    answer: 1,
     explanation:
       "Quantum programs apply quantum gates to change the state of qubits.",
   },
@@ -70,12 +70,12 @@ const quizQuestions = [
     id: 3,
     question: "What happens when a qubit is measured?",
     options: [
-      "It gives a classical result such as 0 or 1",
       "It disappears forever",
       "It always gives 0",
+      "It gives a classical result such as 0 or 1",
       "It becomes a Python variable",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
       "Measurement turns the qubit's quantum state into a classical result such as 0 or 1.",
   },
@@ -91,6 +91,110 @@ const quizQuestions = [
     answer: 2,
     explanation:
       "Classical and quantum computers have different strengths and solve problems using different models.",
+  },
+  {
+    id: 5,
+    question: "What kind of values do classical programs usually work with?",
+    options: [
+      "Only quantum amplitudes",
+      "Definite values stored in variables",
+      "Only random values",
+      "Values that cannot be measured",
+    ],
+    answer: 1,
+    explanation:
+      "Classical programs usually work with definite values stored in variables, such as numbers, text, and true-or-false values.",
+  },
+  {
+    id: 6,
+    question: "What is a qubit able to represent before measurement?",
+    options: [
+      "Only the value 1",
+      "A web page and an image",
+      "Quantum possibilities involving both 0 and 1",
+      "Only a fixed classical value",
+    ],
+    answer: 2,
+    explanation:
+      "Before measurement, a qubit can be in a superposition containing quantum possibilities for both 0 and 1.",
+  },
+  {
+    id: 7,
+    question: "Which tool is commonly used to write quantum programs in Python?",
+    options: [
+      "Qiskit",
+      "Microsoft Paint",
+      "A spreadsheet formula",
+      "A web browser bookmark",
+    ],
+    answer: 0,
+    explanation:
+      "Qiskit is a Python-based framework used to create and work with quantum circuits and quantum programs.",
+  },
+  {
+    id: 8,
+    question: "What is the main purpose of measurement in a quantum program?",
+    options: [
+      "To create a new programming language",
+      "To turn a classical bit into a qubit",
+      "To delete the circuit",
+      "To obtain a classical result from the quantum state",
+    ],
+    answer: 3,
+    explanation:
+      "Measurement converts quantum information into a classical result that the program can record and use.",
+  },
+  {
+    id: 9,
+    question: "Which statement best describes a classical program?",
+    options: [
+      "It follows instructions using definite data values",
+      "It always uses superposition",
+      "It can only run on a quantum computer",
+      "It never uses variables or conditions",
+    ],
+    answer: 0,
+    explanation:
+      "A classical program follows instructions while working with definite values, variables, conditions, loops, and functions.",
+  },
+  {
+    id: 10,
+    question: "Why do many quantum programs also include classical code?",
+    options: [
+      "Quantum gates cannot be represented in code",
+      "Classical code can prepare inputs and process measurement results",
+      "Classical code automatically creates entanglement",
+      "Quantum computers cannot perform any instructions",
+    ],
+    answer: 1,
+    explanation:
+      "Classical code is often used to prepare a quantum experiment, control repeated runs, and interpret the measurement results.",
+  },
+  {
+    id: 11,
+    question: "What does the Hadamard gate commonly do in a quantum program?",
+    options: [
+      "It prints text on the screen",
+      "It permanently measures the qubit",
+      "It can place a qubit into superposition",
+      "It converts Python into another language",
+    ],
+    answer: 2,
+    explanation:
+      "The Hadamard gate is commonly used to create a superposition from a qubit that begins in a definite basis state.",
+  },
+  {
+    id: 12,
+    question: "Which task is usually better suited to a classical computer?",
+    options: [
+      "Displaying a website and editing a document",
+      "Creating every possible quantum state at once",
+      "Replacing all qubits with entangled pairs",
+      "Running only quantum gates",
+    ],
+    answer: 0,
+    explanation:
+      "Everyday tasks such as browsing websites, editing documents, and running most applications are well suited to classical computers.",
   },
 ];
 
@@ -667,7 +771,7 @@ function ClassicalVsQuantumModule() {
 
               <div className="cvq-score-circle">
                 <strong>{answeredCount}</strong>
-                <span>of 4 answered</span>
+                <span>of {quizQuestions.length} answered</span>
               </div>
 
               <div className="cvq-progress-track">
@@ -704,7 +808,7 @@ function ClassicalVsQuantumModule() {
               role="status"
             >
               <div className="cvq-summary-icon">
-                {correctCount === 4 ? "🎉" : correctCount >= 3 ? "⭐" : "📘"}
+                {correctCount === quizQuestions.length ? "🎉" : correctCount >= quizQuestions.length - 1 ? "⭐" : "📘"}
               </div>
 
               <div>
@@ -714,13 +818,13 @@ function ClassicalVsQuantumModule() {
                 </h3>
 
                 <p>
-                  {correctCount === 4 &&
+                  {correctCount === quizQuestions.length &&
                     "Excellent work! You understand the main differences between classical and quantum programming."}
 
-                  {correctCount === 3 &&
+                  {correctCount === quizQuestions.length - 1 &&
                     "Great job! You have a strong understanding of the lesson."}
 
-                  {correctCount < 3 &&
+                  {correctCount < quizQuestions.length - 1 &&
                     "Good effort. Review the comparisons and try the quiz again."}
                 </p>
               </div>

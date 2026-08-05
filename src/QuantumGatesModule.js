@@ -106,6 +106,109 @@ const quizQuestions = [
     explanation:
       "Quantum gates can transform superpositions and other quantum states, while classical gates operate on definite bits.",
   },
+  {
+    id: 5,
+    question: "What happens when the X gate is applied to |1⟩?",
+    options: [
+      "The qubit stays in |1⟩",
+      "The qubit enters superposition",
+      "The qubit changes to |0⟩",
+      "The qubit is measured",
+    ],
+    answer: 2,
+    explanation:
+      "The X gate is a bit-flip gate, so it changes |1⟩ into |0⟩.",
+  },
+  {
+    id: 6,
+    question:
+      "If a Hadamard gate is applied to a qubit starting in |0⟩, what are the measurement probabilities?",
+    options: [
+      "100% for 0 and 0% for 1",
+      "50% for 0 and 50% for 1",
+      "25% for 0 and 75% for 1",
+      "0% for 0 and 100% for 1",
+    ],
+    answer: 1,
+    explanation:
+      "Applying a Hadamard gate to |0⟩ creates an equal superposition, so 0 and 1 each have a 50% measurement probability.",
+  },
+  {
+    id: 7,
+    question: "What is the role of the control qubit in a CNOT gate?",
+    options: [
+      "It decides whether the target qubit is flipped",
+      "It is always measured first",
+      "It is deleted after the gate runs",
+      "It always changes from |0⟩ to |1⟩",
+    ],
+    answer: 0,
+    explanation:
+      "The control qubit determines whether the target qubit is flipped. The target flips only when the control is |1⟩.",
+  },
+  {
+    id: 8,
+    question:
+      "What happens to the target qubit in a CNOT gate when the control qubit is |0⟩?",
+    options: [
+      "The target is always changed to |1⟩",
+      "The target enters superposition",
+      "The target is measured",
+      "The target stays unchanged",
+    ],
+    answer: 3,
+    explanation:
+      "When the control qubit is |0⟩, the CNOT gate does not flip the target qubit.",
+  },
+  {
+    id: 9,
+    question:
+      "What happens to the target qubit in a CNOT gate when the control qubit is |1⟩?",
+    options: [
+      "The target is deleted",
+      "The target is flipped",
+      "The target always becomes |0⟩",
+      "Nothing happens to either qubit",
+    ],
+    answer: 1,
+    explanation:
+      "When the control qubit is |1⟩, the CNOT gate flips the target qubit from |0⟩ to |1⟩ or from |1⟩ to |0⟩.",
+  },
+  {
+    id: 10,
+    question: "Which classical logic gate is most similar to the quantum X gate?",
+    options: ["AND gate", "OR gate", "NOT gate", "CNOT gate"],
+    answer: 2,
+    explanation:
+      "The classical NOT gate and the quantum X gate both flip 0 to 1 and 1 to 0 for definite basis states.",
+  },
+  {
+    id: 11,
+    question: "When does a classical AND gate output 1?",
+    options: [
+      "When at least one input is 1",
+      "When both inputs are 0",
+      "When the inputs are different",
+      "When both inputs are 1",
+    ],
+    answer: 3,
+    explanation:
+      "A classical AND gate outputs 1 only when both of its input bits are 1.",
+  },
+  {
+    id: 12,
+    question:
+      "Why can quantum gates do more than classical logic gates in some situations?",
+    options: [
+      "They can transform amplitudes and superposition states",
+      "They never require qubits",
+      "They always produce the same output",
+      "They replace every classical program",
+    ],
+    answer: 0,
+    explanation:
+      "Quantum gates can transform probability amplitudes and superposition states, which classical gates do not process.",
+  },
 ];
 
 function ProbabilityBars({ zero, one, label }) {
@@ -873,7 +976,7 @@ function QuantumGatesModule() {
 
               <div className="qgm-score-circle">
                 <strong>{answeredCount}</strong>
-                <span>of 4 answered</span>
+                <span>of {quizQuestions.length} answered</span>
               </div>
 
               <div className="qgm-progress-track">
@@ -910,7 +1013,7 @@ function QuantumGatesModule() {
               role="status"
             >
               <div className="qgm-summary-icon">
-                {correctCount === 4 ? "🎉" : correctCount >= 3 ? "⭐" : "📘"}
+                {correctCount === quizQuestions.length ? "🎉" : correctCount >= quizQuestions.length - 1 ? "⭐" : "📘"}
               </div>
 
               <div>
@@ -920,13 +1023,13 @@ function QuantumGatesModule() {
                 </h3>
 
                 <p>
-                  {correctCount === 4 &&
+                  {correctCount === quizQuestions.length &&
                     "Excellent work! You understand the X, Hadamard, and CNOT gates."}
 
-                  {correctCount === 3 &&
+                  {correctCount === quizQuestions.length - 1 &&
                     "Great job! You have a strong understanding of quantum gates."}
 
-                  {correctCount < 3 &&
+                  {correctCount < quizQuestions.length - 1 &&
                     "Good effort. Review the gate explorer and try the quiz again."}
                 </p>
               </div>
