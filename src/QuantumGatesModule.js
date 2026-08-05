@@ -276,11 +276,13 @@ function QuantumGatesModule() {
   };
 
   const checkScore = () => {
-    setShowSummary(true);
-    if (!isModuleCompleted(3)) {
-      addPoints(3, 20);
-      completeModule(3);
-    }
+  setShowSummary(true);
+  if (!isModuleCompleted(3)) {
+    const earnedPoints = correctCount * 2;
+    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+    addPoints(3, earnedPoints + bonusPoints);
+    completeModule(3);
+  }
 
     setTimeout(() => {
       document

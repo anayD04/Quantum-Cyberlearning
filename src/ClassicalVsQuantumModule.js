@@ -225,13 +225,14 @@ function ClassicalVsQuantumModule() {
     setShowSummary(false);
   };
 
-  const handleCheckScore = () => {
-    setShowSummary(true);
-
-    if (!isModuleCompleted(2)) {
-      addPoints(2, 20);
-      completeModule(2);
-    }
+ const checkScore = () => {
+  setShowSummary(true);
+  if (!isModuleCompleted(2)) {
+    const earnedPoints = correctCount * 2;
+    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+    addPoints(2, earnedPoints + bonusPoints);
+    completeModule(2);
+  }
 
     setTimeout(() => {
       document
@@ -790,7 +791,7 @@ function ClassicalVsQuantumModule() {
                 className="cvq-check-score-button"
                 type="button"
                 disabled={answeredCount !== quizQuestions.length}
-                onClick={handleCheckScore}
+                onClick={checkScore}
               >
                 Check my score
               </button>

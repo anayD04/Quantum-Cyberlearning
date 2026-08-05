@@ -247,10 +247,12 @@ function IntroModule() {
     setTracerStep(0);
   };
 
-  const checkQuiz = () => {
-    setShowSummary(true);
-    if (!isModuleCompleted(1)) {
-    addPoints(1, 20);
+  const checkScore = () => {
+  setShowSummary(true);
+  if (!isModuleCompleted(1)) {
+    const earnedPoints = correctCount * 2;
+    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+    addPoints(1, earnedPoints + bonusPoints);
     completeModule(1);
   }
 
@@ -838,7 +840,7 @@ function IntroModule() {
                 className="quiz-submit-button"
                 type="button"
                 disabled={answeredCount !== quizQuestions.length}
-                onClick={checkQuiz}
+                onClick={checkScore}
               >
                 Check my score
               </button>

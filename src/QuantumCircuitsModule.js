@@ -365,11 +365,13 @@ function QuantumCircuitsModule() {
   };
 
   const checkScore = () => {
-    setShowSummary(true);
-    if (!isModuleCompleted(4)) {
-        addPoints(4, 20);
-        completeModule(4);
-    }
+  setShowSummary(true);
+  if (!isModuleCompleted(4)) {
+    const earnedPoints = correctCount * 2;
+    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+    addPoints(4, earnedPoints + bonusPoints);
+    completeModule(4);
+  }
 
     setTimeout(() => {
       document

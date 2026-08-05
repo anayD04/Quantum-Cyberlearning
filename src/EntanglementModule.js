@@ -324,10 +324,11 @@ function EntanglementModule() {
   };
 
   const checkScore = () => {
-    setShowSummary(true);
-
-    if (!isModuleCompleted(5)) {
-    addPoints(5, 20);
+  setShowSummary(true);
+  if (!isModuleCompleted(5)) {
+    const earnedPoints = correctCount * 2;
+    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+    addPoints(5, earnedPoints + bonusPoints);
     completeModule(5);
   }
 
