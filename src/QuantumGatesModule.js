@@ -240,7 +240,7 @@ function ProbabilityBars({ zero, one, label }) {
 }
 
 function QuantumGatesModule() {
-  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
+  const { completeModule, updateBestScore } = useProgress();
   const [selectedGate, setSelectedGate] = useState("x");
   const [animationKey, setAnimationKey] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});

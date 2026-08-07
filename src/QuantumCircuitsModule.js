@@ -298,7 +298,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function QuantumCircuitsModule() {
-  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
+  const { completeModule, updateBestScore } = useProgress();
   const [circuitGates, setCircuitGates] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});

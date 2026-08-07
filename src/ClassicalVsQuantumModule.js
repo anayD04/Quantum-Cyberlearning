@@ -199,7 +199,7 @@ const quizQuestions = [
 ];
 
 function ClassicalVsQuantumModule() {
-  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
+  const { completeModule, updateBestScore } = useProgress();
   const [activeApproach, setActiveApproach] = useState("classical");
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);

@@ -264,7 +264,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function EntanglementModule() {
-  const { addPoints, completeModule, isModuleCompleted, updateBestScore} = useProgress();
+  const { completeModule, updateBestScore} = useProgress();
   const [activeStep, setActiveStep] = useState(0);
   const [measurement, setMeasurement] = useState(null);
   const [measurementHistory, setMeasurementHistory] = useState([]);

@@ -207,7 +207,7 @@ const quizQuestions = [
 ];
 
 function IntroModule() {
-  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
+  const { completeModule, updateBestScore } = useProgress();
   const [tracerStep, setTracerStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
