@@ -2595,3 +2595,7 @@ a {
     height: auto;
   }
 }
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 1;
+}

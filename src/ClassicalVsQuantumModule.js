@@ -217,13 +217,19 @@ function ClassicalVsQuantumModule() {
   }, [selectedAnswers]);
 
   const handleAnswer = (questionId, optionIndex) => {
-    setSelectedAnswers((currentAnswers) => ({
-      ...currentAnswers,
-      [questionId]: optionIndex,
-    }));
+    setSelectedAnswers((currentAnswers) => {
+      if (currentAnswers[questionId] !== undefined) {
+        return currentAnswers;
+      }
+
+      return {
+        ...currentAnswers,
+        [questionId]: optionIndex,
+      };
+    });
 
     setShowSummary(false);
-  };
+};
 
  const checkScore = () => {
   setShowSummary(true);
@@ -722,6 +728,7 @@ function ClassicalVsQuantumModule() {
                             onClick={() =>
                               handleAnswer(question.id, optionIndex)
                             }
+                            disabled={hasAnswered}
                           >
                             <span className="cvq-option-letter">
                               {String.fromCharCode(65 + optionIndex)}

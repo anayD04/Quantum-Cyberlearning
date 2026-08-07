@@ -1030,6 +1030,7 @@ function QuantumCircuitsModule() {
                             onClick={() =>
                               handleAnswer(question.id, optionIndex)
                             }
+                            disabled={hasAnswered}
                           >
                             <span className="qcm-option-letter">
                               {String.fromCharCode(65 + optionIndex)}

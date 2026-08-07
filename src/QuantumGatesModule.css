@@ -2033,3 +2033,7 @@ a {
     transform: rotate(90deg);
   }
 }
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 1;
+}

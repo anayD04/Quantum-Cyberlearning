@@ -225,13 +225,19 @@ function IntroModule() {
   }, [selectedAnswers]);
 
   const handleAnswer = (questionId, optionIndex) => {
-    setSelectedAnswers((currentAnswers) => ({
-      ...currentAnswers,
-      [questionId]: optionIndex,
-    }));
+    setSelectedAnswers((currentAnswers) => {
+      if (currentAnswers[questionId] !== undefined) {
+        return currentAnswers;
+      }
+
+      return {
+        ...currentAnswers,
+        [questionId]: optionIndex,
+      };
+    });
 
     setShowSummary(false);
-  };
+};
 
   const handleNextTracerStep = () => {
     setTracerStep((currentStep) =>
@@ -761,6 +767,7 @@ function IntroModule() {
                             onClick={() =>
                               handleAnswer(question.id, optionIndex)
                             }
+                            disabled={hasAnswered}
                           >
                             <span className="quiz-option-letter">
                               {String.fromCharCode(65 + optionIndex)}
@@ -896,7 +903,7 @@ function IntroModule() {
 
             <a 
               className="next-module-button" 
-              href = "modules/2"
+              href = "/modules/2"
             >
               Continue to Module 2
               <span aria-hidden="true">→</span>

@@ -315,13 +315,19 @@ function EntanglementModule() {
   };
 
   const handleAnswer = (questionId, optionIndex) => {
-    setSelectedAnswers((answers) => ({
-      ...answers,
-      [questionId]: optionIndex,
-    }));
+    setSelectedAnswers((currentAnswers) => {
+        if (currentAnswers[questionId] !== undefined) {
+        return currentAnswers;
+        }
+
+        return {
+        ...currentAnswers,
+        [questionId]: optionIndex,
+        };
+    });
 
     setShowSummary(false);
-  };
+};
 
   const checkScore = () => {
   setShowSummary(true);
@@ -1167,6 +1173,7 @@ function EntanglementModule() {
                             onClick={() =>
                               handleAnswer(question.id, optionIndex)
                             }
+                            disabled={hasAnswered}
                           >
                             <span className="em-option-letter">
                               {String.fromCharCode(65 + optionIndex)}

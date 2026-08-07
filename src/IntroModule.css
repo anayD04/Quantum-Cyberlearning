@@ -1669,3 +1669,7 @@ a {
     text-align: center;
   }
 }
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 1;
+}

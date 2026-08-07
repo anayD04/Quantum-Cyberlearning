@@ -2309,3 +2309,7 @@ a {
     display: none;
   }
 }
+.quiz-option:disabled {
+  cursor: default;
+  opacity: 1;
+}

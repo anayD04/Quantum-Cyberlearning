@@ -267,13 +267,19 @@ function QuantumGatesModule() {
   };
 
   const handleAnswer = (questionId, optionIndex) => {
-    setSelectedAnswers((currentAnswers) => ({
-      ...currentAnswers,
-      [questionId]: optionIndex,
-    }));
+    setSelectedAnswers((currentAnswers) => {
+      if (currentAnswers[questionId] !== undefined) {
+        return currentAnswers;
+      }
+
+      return {
+        ...currentAnswers,
+        [questionId]: optionIndex,
+      };
+    });
 
     setShowSummary(false);
-  };
+};
 
   const checkScore = () => {
   setShowSummary(true);
@@ -928,6 +934,7 @@ function QuantumGatesModule() {
                             onClick={() =>
                               handleAnswer(question.id, optionIndex)
                             }
+                            disabled={hasAnswered}
                           >
                             <span className="qgm-option-letter">
                               {String.fromCharCode(65 + optionIndex)}
