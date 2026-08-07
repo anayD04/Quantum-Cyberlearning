@@ -298,7 +298,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function QuantumCircuitsModule() {
-  const { addPoints, completeModule, isModuleCompleted } = useProgress();
+  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
   const [circuitGates, setCircuitGates] = useState([]);
   const [activeStep, setActiveStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -366,12 +366,10 @@ function QuantumCircuitsModule() {
 
   const checkScore = () => {
   setShowSummary(true);
-  if (!isModuleCompleted(4)) {
-    const earnedPoints = correctCount * 2;
-    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
-    addPoints(4, earnedPoints + bonusPoints);
-    completeModule(4);
-  }
+  const earnedPoints = correctCount * 2;
+  const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+  updateBestScore(4, earnedPoints + bonusPoints);
+  completeModule(4);
 
     setTimeout(() => {
       document
@@ -1145,23 +1143,24 @@ function QuantumCircuitsModule() {
             </div>
           )}
         </section>
+        {showSummary && (
+            <section className="qcm-complete-section">
+            <div>
+                <p className="qcm-section-label">MODULE COMPLETE</p>
+                <h2>You can now build and read a basic quantum circuit.</h2>
+                <p>
+                You learned how qubits move through gates, why gate order matters,
+                how measurement works, and how quantum circuits differ from
+                classical logic circuits.
+                </p>
+            </div>
 
-        <section className="qcm-complete-section">
-          <div>
-            <p className="qcm-section-label">MODULE COMPLETE</p>
-            <h2>You can now build and read a basic quantum circuit.</h2>
-            <p>
-              You learned how qubits move through gates, why gate order matters,
-              how measurement works, and how quantum circuits differ from
-              classical logic circuits.
-            </p>
-          </div>
-
-          <a className="qcm-next-module-button" href="/modules/5">
-            Continue to Module 5
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
+            <a className="qcm-next-module-button" href="/modules/5">
+                Continue to Module 5
+                <span aria-hidden="true">→</span>
+            </a>
+            </section>
+        )}
       </main>
 
       <footer className="qcm-footer">

@@ -240,7 +240,7 @@ function ProbabilityBars({ zero, one, label }) {
 }
 
 function QuantumGatesModule() {
-  const { addPoints, completeModule, isModuleCompleted } = useProgress();
+  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
   const [selectedGate, setSelectedGate] = useState("x");
   const [animationKey, setAnimationKey] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -277,12 +277,10 @@ function QuantumGatesModule() {
 
   const checkScore = () => {
   setShowSummary(true);
-  if (!isModuleCompleted(3)) {
-    const earnedPoints = correctCount * 2;
-    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
-    addPoints(3, earnedPoints + bonusPoints);
-    completeModule(3);
-  }
+  const earnedPoints = correctCount * 2;
+  const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+  updateBestScore(3, earnedPoints + bonusPoints);
+  completeModule(3);
 
     setTimeout(() => {
       document
@@ -1042,23 +1040,24 @@ function QuantumGatesModule() {
             </div>
           )}
         </section>
+        {showSummary && (
+          <section className="qgm-complete-section">
+            <div>
+              <p className="qgm-section-label">MODULE COMPLETE</p>
+              <h2>You can now explain three essential quantum gates.</h2>
+              <p>
+                You learned how the X gate flips qubits, how the Hadamard gate
+                creates superposition, and how CNOT uses a control and target
+                qubit.
+              </p>
+            </div>
 
-        <section className="qgm-complete-section">
-          <div>
-            <p className="qgm-section-label">MODULE COMPLETE</p>
-            <h2>You can now explain three essential quantum gates.</h2>
-            <p>
-              You learned how the X gate flips qubits, how the Hadamard gate
-              creates superposition, and how CNOT uses a control and target
-              qubit.
-            </p>
-          </div>
-
-          <a className="qgm-next-module-button" href="/modules/4">
-            Continue to Module 4
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
+            <a className="qgm-next-module-button" href="/modules/4">
+              Continue to Module 4
+              <span aria-hidden="true">→</span>
+            </a>
+          </section>
+        )}
       </main>
 
       <footer className="qgm-footer">

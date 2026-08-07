@@ -207,7 +207,7 @@ const quizQuestions = [
 ];
 
 function IntroModule() {
-  const { addPoints, completeModule, isModuleCompleted } = useProgress();
+  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
   const [tracerStep, setTracerStep] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
@@ -249,12 +249,10 @@ function IntroModule() {
 
   const checkScore = () => {
   setShowSummary(true);
-  if (!isModuleCompleted(1)) {
     const earnedPoints = correctCount * 2;
     const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
-    addPoints(1, earnedPoints + bonusPoints);
+    updateBestScore(1, earnedPoints + bonusPoints);
     completeModule(1);
-  }
 
     document
       .getElementById("quiz-summary")
@@ -885,22 +883,26 @@ function IntroModule() {
             </div>
           )}
         </section>
+        {showSummary && (
+          <section className="lesson-complete-section">
+            <div>
+              <p className="intro-section-label">LESSON COMPLETE</p>
+              <h2>You have taken your first quantum step.</h2>
+              <p>
+                You now know the difference between bits and qubits, what
+                superposition means, and how a Hadamard gate changes a qubit.
+              </p>
+            </div>
 
-        <section className="lesson-complete-section">
-          <div>
-            <p className="intro-section-label">LESSON COMPLETE</p>
-            <h2>You have taken your first quantum step.</h2>
-            <p>
-              You now know the difference between bits and qubits, what
-              superposition means, and how a Hadamard gate changes a qubit.
-            </p>
-          </div>
-
-          <a className="next-module-button" href="/modules/2">
-            Continue to Module 2
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
+            <a 
+              className="next-module-button" 
+              href = "modules/2"
+            >
+              Continue to Module 2
+              <span aria-hidden="true">→</span>
+            </a>
+          </section>
+        )}
       </main>
 
       <footer className="intro-module-footer">

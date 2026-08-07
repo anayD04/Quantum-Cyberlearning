@@ -199,7 +199,7 @@ const quizQuestions = [
 ];
 
 function ClassicalVsQuantumModule() {
-  const { addPoints, completeModule, isModuleCompleted } = useProgress();
+  const { addPoints, completeModule, isModuleCompleted, updateBestScore } = useProgress();
   const [activeApproach, setActiveApproach] = useState("classical");
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showSummary, setShowSummary] = useState(false);
@@ -227,12 +227,10 @@ function ClassicalVsQuantumModule() {
 
  const checkScore = () => {
   setShowSummary(true);
-  if (!isModuleCompleted(2)) {
-    const earnedPoints = correctCount * 2;
-    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
-    addPoints(2, earnedPoints + bonusPoints);
-    completeModule(2);
-  }
+  const earnedPoints = correctCount * 2;
+  const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+  updateBestScore(2, earnedPoints + bonusPoints);
+  completeModule(2);
 
     setTimeout(() => {
       document
@@ -836,23 +834,27 @@ function ClassicalVsQuantumModule() {
             </div>
           )}
         </section>
+        {showSummary && (
+          <section className="cvq-complete-section">
+            <div>
+              <p className="cvq-section-label">MODULE COMPLETE</p>
+              <h2>You can now compare classical and quantum programs.</h2>
+              <p>
+                You learned how bits and qubits differ, how quantum gates act as
+                instructions, and why quantum computers are designed for
+                specialized problems.
+              </p>
+            </div>
 
-        <section className="cvq-complete-section">
-          <div>
-            <p className="cvq-section-label">MODULE COMPLETE</p>
-            <h2>You can now compare classical and quantum programs.</h2>
-            <p>
-              You learned how bits and qubits differ, how quantum gates act as
-              instructions, and why quantum computers are designed for
-              specialized problems.
-            </p>
-          </div>
-
-          <a className="cvq-next-module-button" href="/modules/3">
-            Continue to Module 3
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
+            <a 
+              className="next-module-button" 
+              href="/modules/3"
+            >
+              Continue to Module 3
+              <span aria-hidden="true">→</span>
+            </a>
+          </section>
+        )}
       </main>
 
       <footer className="cvq-footer">

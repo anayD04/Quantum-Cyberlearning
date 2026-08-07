@@ -264,7 +264,7 @@ function ProbabilityBar({ label, value }) {
 }
 
 function EntanglementModule() {
-  const { addPoints, completeModule, isModuleCompleted } = useProgress();
+  const { addPoints, completeModule, isModuleCompleted, updateBestScore} = useProgress();
   const [activeStep, setActiveStep] = useState(0);
   const [measurement, setMeasurement] = useState(null);
   const [measurementHistory, setMeasurementHistory] = useState([]);
@@ -325,12 +325,10 @@ function EntanglementModule() {
 
   const checkScore = () => {
   setShowSummary(true);
-  if (!isModuleCompleted(5)) {
-    const earnedPoints = correctCount * 2;
-    const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
-    addPoints(5, earnedPoints + bonusPoints);
-    completeModule(5);
-  }
+  const earnedPoints = correctCount * 2;
+  const bonusPoints = correctCount === quizQuestions.length ? 6 : 0;
+  updateBestScore(5, earnedPoints + bonusPoints);
+  completeModule(5);
 
     setTimeout(() => {
       document
@@ -1282,23 +1280,24 @@ function EntanglementModule() {
             </div>
           )}
         </section>
+        {showSummary && (
+            <section className="em-complete-section">
+            <div>
+                <p className="em-section-label">MODULE COMPLETE</p>
+                <h2>You can now explain the foundations of entanglement.</h2>
+                <p>
+                You learned how Hadamard and CNOT create a Bell pair, why
+                entangled measurements are correlated, and how quantum
+                correlation differs from classical shared information.
+                </p>
+            </div>
 
-        <section className="em-complete-section">
-          <div>
-            <p className="em-section-label">MODULE COMPLETE</p>
-            <h2>You can now explain the foundations of entanglement.</h2>
-            <p>
-              You learned how Hadamard and CNOT create a Bell pair, why
-              entangled measurements are correlated, and how quantum
-              correlation differs from classical shared information.
-            </p>
-          </div>
-
-          <a className="em-next-module-button" href="/modules">
-            Return to modules
-            <span aria-hidden="true">→</span>
-          </a>
-        </section>
+            <a className="em-next-module-button" href="/modules">
+                Return to modules
+                <span aria-hidden="true">→</span>
+            </a>
+            </section>
+        )}
       </main>
 
       <footer className="em-footer">

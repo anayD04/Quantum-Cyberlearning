@@ -111,6 +111,41 @@ export function ProgressProvider({ children }) {
     }));
   }, []);
 
+  const updateBestScore = useCallback((moduleId, newPoints) => {
+    const numericModuleId = Number(moduleId);
+    const numericPoints = Number(newPoints);
+
+    if (
+      !Number.isInteger(numericModuleId) ||
+      numericModuleId < 1 ||
+      numericModuleId > 5 ||
+      !Number.isFinite(numericPoints) ||
+      numericPoints < 0
+    ) {
+      console.warn(
+        "updateBestScore received an invalid module ID or point value."
+      );
+      return;
+    }
+
+    setProgress((currentProgress) => {
+      const currentBest =
+        currentProgress.pointsByModule[numericModuleId] || 0;
+
+      if (numericPoints <= currentBest) {
+        return currentProgress;
+      }
+
+      return {
+        ...currentProgress,
+        pointsByModule: {
+          ...currentProgress.pointsByModule,
+          [numericModuleId]: numericPoints,
+        },
+      };
+    });
+  }, []);
+
   const completeModule = useCallback((moduleId) => {
     const numericModuleId = Number(moduleId);
 
@@ -161,6 +196,7 @@ export function ProgressProvider({ children }) {
       totalPoints,
       currentLevel,
       addPoints,
+      updateBestScore,
       completeModule,
       resetProgress,
       isModuleCompleted,
@@ -171,6 +207,7 @@ export function ProgressProvider({ children }) {
       totalPoints,
       currentLevel,
       addPoints,
+      updateBestScore,
       completeModule,
       resetProgress,
       isModuleCompleted,
