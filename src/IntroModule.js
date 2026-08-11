@@ -48,162 +48,168 @@ const tracerSteps = [
 const quizQuestions = [
   {
     id: 1,
-    question: "What does a classical bit store?",
+    question:
+      "What makes a quantum computer fundamentally different from a classical computer?",
     options: [
-      "Only 0 or 1",
-      "0 and 1 at the same time",
-      "Any number from 0 to 100",
-      "Only letters",
+      "It uses quantum states such as superposition and entanglement",
+      "It always runs every program faster",
+      "It does not use information",
+      "It only works without instructions",
     ],
     answer: 0,
     explanation:
-      "A classical bit has one definite value at a time: either 0 or 1.",
+      "Quantum computers use quantum states and effects such as superposition, interference, and entanglement, which gives them a different model of computation.",
   },
   {
     id: 2,
-    question: "What is a qubit?",
+    question: "Which is a possible real-world application of quantum computing?",
     options: [
-      "A very small classical computer",
-      "The basic unit of quantum information",
-      "A type of quantum gate",
-      "A computer screen pixel",
+      "Changing the color of a keyboard",
+      "Drug discovery and molecular simulation",
+      "Replacing every smartphone app",
+      "Making web pages load instantly",
     ],
     answer: 1,
     explanation:
-      "A qubit is the basic unit of information used by a quantum computer.",
+      "Quantum computers may eventually help simulate molecules and materials, which could support drug discovery and chemistry research.",
   },
   {
     id: 3,
-    question: "What does superposition mean in this lesson?",
+    question:
+      "Why are researchers interested in quantum computing for cryptography?",
     options: [
-      "A qubit is broken",
-      "A qubit has possibilities for both 0 and 1 before measurement",
-      "A qubit always equals 1",
-      "A computer is running two websites",
+      "Quantum computers cannot perform mathematics",
+      "Cryptography only works on quantum computers",
+      "Large quantum computers could affect some current encryption methods",
+      "Quantum computers automatically make every password secure",
     ],
-    answer: 1,
+    answer: 2,
     explanation:
-      "Superposition allows a qubit to contain quantum possibilities for both 0 and 1 before it is measured.",
+      "Some important cryptographic systems rely on problems that sufficiently powerful quantum computers could solve differently, which is why post-quantum cryptography is being developed.",
   },
   {
     id: 4,
     question:
-      "What happens when a Hadamard gate is applied to a qubit starting in |0⟩?",
+      "What important idea did Richard Feynman discuss in 1981?",
     options: [
-      "The qubit is deleted",
-      "The qubit becomes a classical bit",
-      "The qubit enters an equal superposition of |0⟩ and |1⟩",
-      "The qubit must become |1⟩",
+      "That classical computers should replace physics experiments",
+      "That quantum computers were already ready for everyday use",
+      "That all encryption should be removed",
+      "That quantum systems might be better simulated by computers using quantum rules",
+    ],
+    answer: 3,
+    explanation:
+      "Feynman argued that simulating quantum physics with ordinary computers could be difficult and suggested using computers based on quantum principles.",
+  },
+  {
+    id: 5,
+    question: "What is the main difference between a classical bit and a qubit?",
+    options: [
+      "A classical bit stores a definite 0 or 1, while a qubit can exist in a quantum state involving both possibilities",
+      "A qubit can only store the number 2",
+      "A classical bit uses entanglement",
+      "A qubit is just a faster version of a normal bit",
+    ],
+    answer: 0,
+    explanation:
+      "A classical bit has one definite value at a time, while a qubit can exist in a superposition involving both |0⟩ and |1⟩ before measurement.",
+  },
+  {
+    id: 6,
+    question:
+      "Why is a wave analogy useful when learning about qubits?",
+    options: [
+      "Because qubits are made of water",
+      "Because quantum amplitudes can reinforce or cancel through interference",
+      "Because waves always represent the value 1",
+      "Because measurement creates ocean waves",
+    ],
+    answer: 1,
+    explanation:
+      "The wave analogy helps explain interference, where quantum amplitudes can strengthen or cancel one another.",
+  },
+  {
+    id: 7,
+    question: "What does superposition mean more accurately?",
+    options: [
+      "A qubit is secretly either 0 or 1 and nothing else",
+      "A qubit has no state until a computer turns on",
+      "A qubit can have quantum possibilities for both 0 and 1, including information that can interfere",
+      "A qubit always produces both 0 and 1 when measured",
     ],
     answer: 2,
     explanation:
-      "Applying a Hadamard gate to |0⟩ creates a balanced superposition, giving equal measurement probabilities for 0 and 1.",
+      "Superposition means the qubit's quantum state can involve both |0⟩ and |1⟩ possibilities, along with amplitude and phase information that affects interference.",
   },
   {
-  id: 5,
-  question: "Which type of computer is used for most everyday tasks today?",
-  options: [
-    "A quantum computer",
-    "An entangled computer",
-    "A classical computer",
-    "A measurement computer",
-  ],
-  answer: 2,
-  explanation:
-    "Phones, laptops, game consoles, and most current devices are classical computers.",
-},
-{
-  id: 6,
-  question: "What usually happens when a qubit is measured?",
-  options: [
-    "It always becomes 0",
-    "It gives a result such as 0 or 1",
-    "It turns into a quantum gate",
-    "It produces every possible answer at once",
-  ],
-  answer: 1,
-  explanation:
-    "Measurement produces a classical result, such as 0 or 1, from the qubit's quantum state.",
-},
-{
-  id: 7,
-  question: "Why is a light switch a useful analogy for a classical bit?",
-  options: [
-    "It creates entanglement",
-    "It performs quantum measurements",
-    "It can be either off or on",
-    "It can be in every position at once",
-  ],
-  answer: 2,
-  explanation:
-    "A light switch has two clear states, off and on, similar to the classical values 0 and 1.",
-},
-{
-  id: 8,
-  question: "Why is a spinning coin sometimes used as a qubit analogy?",
-  options: [
-    "It proves that qubits are made from coins",
-    "It always lands on heads",
-    "It stores computer files",
-    "It helps represent more than one possible outcome before observation",
-  ],
-  answer: 3,
-  explanation:
-    "A spinning coin helps beginners imagine multiple possible outcomes before a final result is observed, although the analogy is not exact.",
-},
-{
-  id: 9,
-  question: "What is a quantum gate?",
-  options: [
-    "A measurement result",
-    "An operation that changes a qubit",
-    "A physical door on a computer",
-    "A type of classical memory",
-  ],
-  answer: 1,
-  explanation:
-    "A quantum gate is an operation or instruction that changes the state of one or more qubits.",
-},
-{
-  id: 10,
-  question:
-    "If a qubit has a 50% chance of being measured as 0 and a 50% chance of being measured as 1, what does that describe?",
-  options: [
-    "A guaranteed result of 1",
-    "A broken qubit",
-    "A balanced superposition",
-    "A classical bit equal to 0",
-  ],
-  answer: 2,
-  explanation:
-    "Equal measurement probabilities for 0 and 1 describe a balanced superposition.",
-},
-{
-  id: 11,
-  question: "Which statement about quantum computers is most accurate?",
-  options: [
-    "They have already replaced all laptops",
-    "They are designed to approach certain problems differently",
-    "They do not use instructions",
-    "They are faster than classical computers for every task",
-  ],
-  answer: 1,
-  explanation:
-    "Quantum computers are not simply faster versions of classical computers. They use a different model that may help with certain specialized problems.",
-},
-{
-  id: 12,
-  question: "Which idea comes from quantum physics?",
-  options: [
-    "A computer keyboard",
-    "Superposition",
-    "A web browser tab",
-    "A classical light switch",
-  ],
-  answer: 1,
-  explanation:
-    "Superposition is a quantum idea that allows a qubit to contain multiple quantum possibilities before measurement.",
-},
+    id: 8,
+    question:
+      "Why is it misleading to say a quantum computer simply 'tries every answer at once'?",
+    options: [
+      "Quantum computers never use superposition",
+      "Quantum computers only try one answer",
+      "Measurement gives every answer at once",
+      "Quantum algorithms must use interference to make useful outcomes more likely",
+    ],
+    answer: 3,
+    explanation:
+      "Superposition alone is not enough. Quantum algorithms use interference so useful outcomes are amplified and unwanted outcomes are reduced.",
+  },
+  {
+    id: 9,
+    question: "What happens when a qubit in superposition is measured?",
+    options: [
+      "It produces a definite classical result such as 0 or 1",
+      "It reveals every possible value at once",
+      "It becomes permanently entangled",
+      "It turns into a classical computer",
+    ],
+    answer: 0,
+    explanation:
+      "Measurement produces a definite classical outcome, such as 0 or 1, from the qubit's quantum state.",
+  },
+  {
+    id: 10,
+    question:
+      "Why must quantum programmers be careful about measuring qubits too early?",
+    options: [
+      "Measurement makes the computer shut down",
+      "Measurement changes the quantum state and can destroy useful superposition",
+      "Measurement always changes 0 into 1",
+      "Measurement creates more qubits",
+    ],
+    answer: 1,
+    explanation:
+      "Measurement changes the state being used by the computation, so measuring too early can destroy superposition and interfere with the algorithm.",
+  },
+  {
+    id: 11,
+    question:
+      "Which statement best describes the relationship between classical and quantum computers?",
+    options: [
+      "Quantum computers will replace every classical computer",
+      "Classical computers cannot solve useful problems",
+      "They are different computing models with different strengths",
+      "Quantum computers are only useful for browsing the internet",
+    ],
+    answer: 2,
+    explanation:
+      "Classical and quantum computers use different models of computation and are suited to different kinds of problems.",
+  },
+  {
+    id: 12,
+    question:
+      "What is the most important question when thinking about quantum advantage?",
+    options: [
+      "Can a quantum computer make every task faster?",
+      "Can a quantum computer replace all laptops?",
+      "Can a quantum computer avoid measurement?",
+      "For which problems can quantum methods outperform the best classical approaches?",
+    ],
+    answer: 3,
+    explanation:
+      "Quantum computing is not about universal speed. The key question is which problems have structure that quantum algorithms can exploit better than classical methods.",
+  },
 ];
 
 function IntroModule() {
@@ -346,135 +352,588 @@ function IntroModule() {
         </section>
 
         <section className="lesson-section" id="lesson">
-          <div className="lesson-section-heading">
-            <p className="intro-section-label">LESSON 1</p>
-            <h2>What is quantum computing?</h2>
+  <div className="lesson-section-heading">
+    <p className="intro-section-label">LESSON 1</p>
+    <h2>What is quantum computing?</h2>
+    <p>
+      Let us begin with the big idea before learning any complicated
+      symbols or code.
+    </p>
+  </div>
+
+  <div className="lesson-content-grid">
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">01</span>
+
+      <div>
+        <h3>A different way of computing</h3>
+
+        <p>
+          Every time you use a phone, play a video game, search the
+          internet, or watch a video, you are using a{" "}
+          <strong>classical computer</strong>. Classical computers process
+          information using tiny units called bits.
+        </p>
+
+        <p>
+          A <strong>quantum computer</strong> also stores information and
+          follows instructions, but it uses the rules of quantum physics —
+          the physics scientists use to describe very small things such as
+          atoms, electrons, and particles of light.
+        </p>
+
+        <p>
+          Instead of ordinary bits, quantum computers use{" "}
+          <strong>qubits</strong>. This changes the way information can be
+          represented and manipulated.
+        </p>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            ✈️
+          </span>
+
+          <div>
+            <strong>Different does not simply mean faster</strong>
             <p>
-              Let us begin with the big idea before learning any complicated
-              symbols or code.
+              Think of a car and an airplane. Both move people, but they do
+              it in very different ways. Quantum computers and classical
+              computers are similar: both perform computations, but they
+              use different models of information.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">02</span>
+
+      <div>
+        <h3>Why does quantum computing matter?</h3>
+
+        <p>
+          Quantum computers are not expected to replace your phone or
+          laptop. Classical computers are still excellent for everyday
+          tasks such as browsing websites, writing documents, watching
+          videos, and playing games.
+        </p>
+
+        <p>
+          Quantum computers are exciting because they may eventually help
+          with certain problems that are extremely difficult for classical
+          computers.
+        </p>
+
+        <div className="simple-list">
+          <div>
+            <span>🧬</span>
+            <p>
+              <strong>Drug discovery:</strong> simulate molecules and help
+              researchers study new medicines and materials.
             </p>
           </div>
 
-          <div className="lesson-content-grid">
-            <article className="lesson-text-card">
-              <span className="lesson-card-number">01</span>
-
-              <div>
-                <h3>A new way of processing information</h3>
-
-                <p>
-                  A computer solves problems by storing information and
-                  following instructions. The phone, laptop, or game console
-                  you use every day is a <strong>classical computer</strong>.
-                </p>
-
-                <p>
-                  A <strong>quantum computer</strong> also stores information
-                  and follows instructions, but it uses ideas from quantum
-                  physics. These ideas describe how extremely small things,
-                  such as atoms and particles, behave.
-                </p>
-
-                <div className="analogy-box">
-                  <span className="analogy-icon" aria-hidden="true">
-                    🧭
-                  </span>
-
-                  <div>
-                    <strong>Think of it like choosing a route</strong>
-                    <p>
-                      A classical computer explores routes using definite
-                      choices. A quantum computer can represent several
-                      possibilities in a special quantum way before producing
-                      an answer.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className="lesson-text-card">
-              <span className="lesson-card-number">02</span>
-
-              <div>
-                <h3>Classical computers and quantum computers</h3>
-
-                <p>
-                  Classical computers are excellent for everyday tasks:
-                  browsing the internet, playing videos, writing documents,
-                  and running games.
-                </p>
-
-                <p>
-                  Quantum computers are not simply faster versions of normal
-                  computers. They are designed to approach certain problems in
-                  a different way.
-                </p>
-
-                <div className="simple-list">
-                  <div>
-                    <span>✓</span>
-                    <p>
-                      Classical computers use <strong>bits</strong>.
-                    </p>
-                  </div>
-
-                  <div>
-                    <span>✓</span>
-                    <p>
-                      Quantum computers use <strong>qubits</strong>.
-                    </p>
-                  </div>
-
-                  <div>
-                    <span>✓</span>
-                    <p>
-                      Quantum computers use effects such as{" "}
-                      <strong>superposition</strong> and{" "}
-                      <strong>entanglement</strong>.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className="lesson-text-card lesson-wide-card">
-              <span className="lesson-card-number">03</span>
-
-              <div>
-                <h3>Meet the qubit</h3>
-
-                <p>
-                  A <strong>qubit</strong>, short for quantum bit, is the basic
-                  unit of quantum information.
-                </p>
-
-                <p>
-                  A normal bit is like a light switch. It is either off,
-                  represented by 0, or on, represented by 1. A qubit is more
-                  like a dimmer control with special quantum rules. Before we
-                  measure it, it can contain possibilities for both 0 and 1.
-                </p>
-
-                <div className="analogy-box analogy-box-purple">
-                  <span className="analogy-icon" aria-hidden="true">
-                    🪙
-                  </span>
-
-                  <div>
-                    <strong>The spinning coin analogy</strong>
-                    <p>
-                      A coin resting on a table is clearly heads or tails. A
-                      spinning coin can help us imagine a qubit before
-                      measurement because both outcomes are possible. The
-                      analogy is not perfect, but it is a useful starting point.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div>
+            <span>🔐</span>
+            <p>
+              <strong>Cryptography:</strong> study new ways to protect data
+              and understand how future quantum computers could affect
+              current encryption.
+            </p>
           </div>
-        </section>
+
+          <div>
+            <span>📈</span>
+            <p>
+              <strong>Financial optimization:</strong> explore large
+              numbers of possible investment or risk-management choices.
+            </p>
+          </div>
+
+          <div>
+            <span>🤖</span>
+            <p>
+              <strong>Artificial intelligence:</strong> researchers are
+              investigating whether quantum methods can help with certain
+              machine-learning problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card lesson-wide-card">
+      <span className="lesson-card-number">03</span>
+
+      <div>
+        <h3>A short history of quantum computing</h3>
+
+        <p>
+          Quantum computing began as an idea long before useful quantum
+          computers existed.
+        </p>
+
+        <div className="simple-list">
+          <div>
+            <span>1981</span>
+            <p>
+              Physicist <strong>Richard Feynman</strong> argued that
+              simulating quantum physics with ordinary computers could be
+              extremely difficult. He proposed that a computer based on
+              quantum rules might simulate nature more naturally.
+            </p>
+          </div>
+
+          <div>
+            <span>1980s</span>
+            <p>
+              Researchers such as <strong>David Deutsch</strong> developed
+              theoretical models showing how general quantum computation
+              could work.
+            </p>
+          </div>
+
+          <div>
+            <span>1994</span>
+            <p>
+              <strong>Peter Shor</strong> developed a famous quantum
+              algorithm for factoring large numbers efficiently on a
+              sufficiently powerful quantum computer.
+            </p>
+          </div>
+
+          <div>
+            <span>1996</span>
+            <p>
+              <strong>Lov Grover</strong> introduced a quantum search
+              algorithm that can reduce the number of steps needed for some
+              search problems.
+            </p>
+          </div>
+
+          <div>
+            <span>Today</span>
+            <p>
+              Researchers around the world are building quantum processors,
+              reducing errors, and working toward larger and more reliable
+              quantum computers.
+            </p>
+          </div>
+        </div>
+
+        <div className="analogy-box analogy-box-purple">
+          <span className="analogy-icon" aria-hidden="true">
+            💡
+          </span>
+
+          <div>
+            <strong>Feynman's big question</strong>
+            <p>
+              Instead of forcing a classical computer to imitate quantum
+              physics, what if we built a computer that actually computes
+              using quantum physics?
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">04</span>
+
+      <div>
+        <h3>Classical bits vs qubits</h3>
+
+        <p>
+          A classical computer stores information using{" "}
+          <strong>bits</strong>. A bit has one definite value at a time:
+          either <strong>0</strong> or <strong>1</strong>.
+        </p>
+
+        <p>
+          A quantum computer uses <strong>qubits</strong>. When a qubit is
+          measured, it also produces a result of 0 or 1. Before measurement,
+          however, its quantum state can contain possibilities involving
+          both.
+        </p>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            💡
+          </span>
+
+          <div>
+            <strong>Light switch analogy</strong>
+            <p>
+              A classical bit is like a normal light switch: OFF is 0 and ON
+              is 1. It has one clear state at a time.
+            </p>
+          </div>
+        </div>
+
+        <div className="analogy-box analogy-box-purple">
+          <span className="analogy-icon" aria-hidden="true">
+            🧭
+          </span>
+
+          <div>
+            <strong>Compass analogy</strong>
+            <p>
+              Imagine a classical bit as a compass allowed to point only
+              north or south. A qubit can have a richer state, more like a
+              compass that can point in many directions before measurement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">05</span>
+
+      <div>
+        <h3>A qubit is more than an unknown bit</h3>
+
+        <p>
+          A qubit is not simply a classical bit whose value we have not
+          checked yet. Its state contains special quantum information called{" "}
+          <strong>amplitudes</strong>.
+        </p>
+
+        <p>
+          These amplitudes affect the probabilities of measuring 0 or 1,
+          but they can also interact through a quantum effect called{" "}
+          <strong>interference</strong>.
+        </p>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            🌊
+          </span>
+
+          <div>
+            <strong>Wave analogy</strong>
+            <p>
+              When two waves meet, they can strengthen each other or cancel
+              each other. Quantum amplitudes behave in a similar way. This
+              interference is one of the most important ideas behind quantum
+              algorithms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card lesson-wide-card">
+      <span className="lesson-card-number">06</span>
+
+      <div>
+        <h3>What superposition really means</h3>
+
+        <p>
+          You may hear people say that a qubit is{" "}
+          <strong>"0 and 1 at the same time."</strong> That is a useful first
+          idea, but it is not the full story.
+        </p>
+
+        <p>
+          A better explanation is that a qubit can exist in a quantum state
+          containing possibilities for both 0 and 1, together with
+          information about how those possibilities can interfere.
+        </p>
+
+        <p>
+          For example, a qubit can be prepared so that measuring it gives a
+          50% chance of 0 and a 50% chance of 1. This is called a{" "}
+          <strong>balanced superposition</strong>.
+        </p>
+
+        <div className="analogy-box analogy-box-purple">
+          <span className="analogy-icon" aria-hidden="true">
+            🪙
+          </span>
+
+          <div>
+            <strong>The spinning coin analogy</strong>
+            <p>
+              A coin resting on a table is clearly heads or tails. A spinning
+              coin helps us imagine multiple possible outcomes before a final
+              result is observed. The analogy is not exact, because a qubit
+              also has phase and interference effects that a normal coin does
+              not have.
+            </p>
+          </div>
+        </div>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            🧩
+          </span>
+
+          <div>
+            <strong>Why superposition is powerful</strong>
+            <p>
+              Quantum algorithms can manipulate combinations of
+              possibilities. The goal is not simply to "try every answer at
+              once," but to use interference so useful outcomes become more
+              likely and unwanted outcomes become less likely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">07</span>
+
+      <div>
+        <h3>Measurement turns quantum information into an answer</h3>
+
+        <p>
+          Eventually, a quantum program must produce a result that we can
+          read. This happens through <strong>measurement</strong>.
+        </p>
+
+        <p>
+          Suppose a qubit is in a balanced superposition. Before
+          measurement, the state contains possibilities for both 0 and 1.
+          When we measure it, we receive one definite classical result:
+          either 0 or 1.
+        </p>
+
+        <div className="simple-list">
+          <div>
+            <span>1</span>
+            <p>Prepare the qubit.</p>
+          </div>
+
+          <div>
+            <span>2</span>
+            <p>Apply quantum gates.</p>
+          </div>
+
+          <div>
+            <span>3</span>
+            <p>Manipulate the quantum state.</p>
+          </div>
+
+          <div>
+            <span>4</span>
+            <p>Measure and receive a classical result.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card">
+      <span className="lesson-card-number">08</span>
+
+      <div>
+        <h3>Why measurement matters for programming</h3>
+
+        <p>
+          In a classical program, you can usually inspect a variable without
+          fundamentally changing it.
+        </p>
+
+        <p>
+          Quantum programming is different. If an algorithm relies on a
+          qubit remaining in superposition, measuring it too early changes
+          the state and can destroy the quantum behavior the algorithm was
+          using.
+        </p>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            👀
+          </span>
+
+          <div>
+            <strong>Looking changes what happens</strong>
+            <p>
+              Measurement is not just checking an answer at the end. Quantum
+              programmers must carefully decide when to measure because the
+              act of measurement affects the quantum state.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card lesson-wide-card">
+      <span className="lesson-card-number">09</span>
+
+      <div>
+        <h3>Why quantum computing is fundamentally different</h3>
+
+        <p>
+          This is the most important idea in this module:{" "}
+          <strong>
+            quantum computing is not simply classical computing with faster
+            hardware.
+          </strong>
+        </p>
+
+        <p>
+          Classical computers process definite bit values using classical
+          logic. Quantum computers manipulate quantum states using effects
+          such as <strong>superposition</strong>,{" "}
+          <strong>interference</strong>, and{" "}
+          <strong>entanglement</strong>.
+        </p>
+
+        <div className="simple-list">
+          <div>
+            <span>💻</span>
+            <p>
+              A classical programmer often asks:{" "}
+              <strong>"What value does this variable contain?"</strong>
+            </p>
+          </div>
+
+          <div>
+            <span>⚛️</span>
+            <p>
+              A quantum programmer also asks:{" "}
+              <strong>"What quantum state have I prepared?"</strong>
+            </p>
+          </div>
+
+          <div>
+            <span>🌊</span>
+            <p>
+              They must think about how amplitudes will{" "}
+              <strong>interfere</strong>.
+            </p>
+          </div>
+
+          <div>
+            <span>🔗</span>
+            <p>
+              They may also need to think about whether qubits are{" "}
+              <strong>entangled</strong>.
+            </p>
+          </div>
+
+          <div>
+            <span>📊</span>
+            <p>
+              Finally, they must think about what probabilities will appear
+              when the system is <strong>measured</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div className="analogy-box analogy-box-purple">
+          <span className="analogy-icon" aria-hidden="true">
+            🚀
+          </span>
+
+          <div>
+            <strong>Different does not always mean faster</strong>
+            <p>
+              Quantum computers are not automatically faster for every task.
+              The important research question is: for which problems can
+              quantum computation provide a meaningful advantage over the
+              best classical methods?
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="lesson-text-card lesson-wide-card">
+      <span className="lesson-card-number">10</span>
+
+      <div>
+        <h3>A new way to think about programming</h3>
+
+        <p>
+          Classical programming teaches us to think about variables,
+          instructions, conditions, loops, and definite values.
+        </p>
+
+        <p>
+          Quantum programming adds a new question:
+        </p>
+
+        <div className="analogy-box">
+          <span className="analogy-icon" aria-hidden="true">
+            🧠
+          </span>
+
+          <div>
+            <strong>
+              What state is the system in, how can I transform that state,
+              and what will happen when I measure it?
+            </strong>
+            <p>
+              Learning to think about information this way is one of the
+              central goals of QuantumPath.
+            </p>
+          </div>
+        </div>
+
+        <div className="simple-list">
+          <div>
+            <span>1</span>
+            <p>
+              <strong>Module 1:</strong> Understand qubits, superposition,
+              and measurement.
+            </p>
+          </div>
+
+          <div>
+            <span>2</span>
+            <p>
+              <strong>Module 2:</strong> Compare classical and quantum
+              programming.
+            </p>
+          </div>
+
+          <div>
+            <span>3</span>
+            <p>
+              <strong>Module 3:</strong> Learn how quantum gates transform
+              qubits.
+            </p>
+          </div>
+
+          <div>
+            <span>4</span>
+            <p>
+              <strong>Module 4:</strong> Combine gates into quantum circuits.
+            </p>
+          </div>
+
+          <div>
+            <span>5</span>
+            <p>
+              <strong>Module 5:</strong> Explore quantum entanglement.
+            </p>
+          </div>
+        </div>
+
+        <div className="analogy-box analogy-box-purple">
+          <span className="analogy-icon" aria-hidden="true">
+            ⭐
+          </span>
+
+          <div>
+            <strong>Key takeaway</strong>
+            <p>
+              Classical computers process information using classical bits
+              and classical logic. Quantum computers encode and manipulate
+              information using quantum states, allowing algorithms to use
+              superposition, interference, and entanglement.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 
         <section className="comparison-section">
           <div className="lesson-section-heading">
