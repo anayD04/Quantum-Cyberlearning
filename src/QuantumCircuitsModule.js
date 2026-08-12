@@ -17,163 +17,171 @@ const availableGates = {
 const quizQuestions = [
   {
     id: 1,
-    question: "In a quantum circuit diagram, which direction does time move?",
+    question:
+      "What does a quantum circuit represent?",
     options: [
-      "From left to right",
-      "From right to left",
-      "From bottom to top",
-      "Time does not appear",
+      "A visual plan showing how quantum operations are applied to qubits",
+      "A list of passwords used by a quantum computer",
+      "A chart showing only measurement results",
+      "A classical program with no qubits",
     ],
     answer: 0,
     explanation:
-      "Quantum circuits are usually read from left to right, with gates applied in that order.",
+      "A quantum circuit is a visual and mathematical representation of a quantum program, showing qubits, gates, and measurements in order.",
   },
   {
     id: 2,
-    question: "What does each horizontal wire usually represent?",
+    question:
+      "What does a horizontal wire in a quantum circuit usually represent?",
     options: [
-      "A probability answer",
-      "A qubit",
-      "A computer monitor",
-      "A classical program",
+      "A classical output only",
+      "A qubit being tracked through the computation",
+      "A gate that has already finished",
+      "A probability value",
     ],
     answer: 1,
     explanation:
-      "Each horizontal wire represents a qubit moving through the circuit.",
+      "Each horizontal wire represents a qubit whose state changes as gates are applied along the circuit.",
   },
   {
     id: 3,
-    question: "What happens if an X gate is applied to |0⟩?",
+    question:
+      "How are operations usually read in a quantum circuit diagram?",
     options: [
-      "It stays |0⟩",
-      "It becomes two qubits",
-      "It becomes |1⟩",
-      "It is automatically measured",
+      "From bottom to top",
+      "From right to left",
+      "From left to right",
+      "In any order",
     ],
     answer: 2,
     explanation:
-      "The X gate flips the computational basis states, so |0⟩ becomes |1⟩.",
+      "Quantum circuit diagrams are usually read from left to right, with each gate acting on the state produced by earlier gates.",
   },
   {
     id: 4,
     question:
-      "Which statement best describes a quantum circuit compared with a classical circuit?",
+      "Why can H followed by X produce a different quantum state from X followed by H?",
     options: [
-      "Quantum circuits never use gates",
-      "Classical circuits use qubits",
-      "Quantum circuits always produce the same output",
-      "Quantum circuits can manipulate superposition states",
-    ],
-    answer: 3,
-    explanation:
-      "Quantum circuits can transform superpositions and other quantum states, while classical circuits process definite bits.",
-  },
-  {
-    id: 5,
-    question: "What is a quantum circuit?",
-    options: [
-      "A sequence of quantum gates applied to one or more qubits",
-      "A list of classical passwords",
-      "A type of computer screen",
-      "A measurement result with no gates",
+      "Some quantum gates do not commute, so order can change the result",
+      "The second gate is ignored",
+      "X automatically measures the qubit",
+      "H only works at the beginning of a circuit",
     ],
     answer: 0,
     explanation:
-      "A quantum circuit is an ordered sequence of quantum gates that changes the state of one or more qubits.",
+      "Quantum gates do not always commute. Changing their order can change the amplitudes or phase of the final state.",
+  },
+  {
+    id: 5,
+    question:
+      "What does it mean when two quantum gates do not commute?",
+    options: [
+      "They cannot appear in the same circuit",
+      "They always cancel each other",
+      "Changing their order can change the final quantum state",
+      "They can only act on classical bits",
+    ],
+    answer: 2,
+    explanation:
+      "Non-commuting gates can produce different results depending on the order in which they are applied.",
   },
   {
     id: 6,
-    question: "Why is the order of gates important in a quantum circuit?",
+    question:
+      "What is the purpose of a two-qubit gate such as CNOT?",
     options: [
-      "Gate order only changes the color of the diagram",
-      "Each gate acts on the state produced by the gates before it",
-      "All gates always produce the same result",
-      "Only measurement gates have an order",
+      "To delete one of the qubits",
+      "To measure both qubits immediately",
+      "To convert both qubits into classical bits",
+      "To allow the state of one qubit to affect another qubit",
     ],
-    answer: 1,
+    answer: 3,
     explanation:
-      "Each gate receives the state left by the previous gate, so changing the order can change the final quantum state.",
+      "CNOT creates an interaction between two qubits by using one as the control and the other as the target.",
   },
   {
     id: 7,
     question:
-      "Which statement about applying H then X compared with X then H is correct?",
+      "What is the role of the control qubit in a CNOT gate?",
     options: [
-      "They must always produce identical quantum states",
-      "The second gate is ignored",
-      "The two orders can produce different states because gate order matters",
-      "Both sequences immediately measure the qubit",
+      "It is always flipped",
+      "It is always measured",
+      "It determines whether the target qubit should be flipped",
+      "It becomes a classical variable",
     ],
     answer: 2,
     explanation:
-      "Quantum gates do not always commute, so applying H then X can produce a different state from applying X then H.",
+      "If the control qubit is |1⟩, the CNOT flips the target. If the control is |0⟩, the target is left unchanged.",
   },
   {
     id: 8,
-    question: "What does a gate symbol placed on a wire mean?",
+    question:
+      "Why is measurement usually placed near the end of a quantum circuit?",
     options: [
-      "The wire stops at that point",
-      "The qubit is deleted",
-      "The gate acts on every qubit in the circuit",
-      "That gate is applied to the qubit represented by the wire",
+      "Measurement only works on the final gate",
+      "Measurement makes gates run faster",
+      "Measurement creates new qubits",
+      "Measuring too early can destroy quantum state information needed by later gates",
     ],
     answer: 3,
     explanation:
-      "A gate symbol on a wire shows that the corresponding operation is applied to that qubit at that point in the circuit.",
+      "Measurement changes the quantum state, so circuits usually delay measurement until the quantum operations are finished.",
   },
   {
     id: 9,
-    question: "What happens when a qubit in superposition is measured?",
+    question:
+      "What does measurement produce from a quantum state?",
     options: [
-      "It produces a classical result such as 0 or 1",
-      "It remains in every possible state forever",
-      "It becomes a new quantum gate",
-      "It always produces 1",
-    ],
-    answer: 0,
-    explanation:
-      "Measurement converts the quantum state into a classical result, such as 0 or 1.",
-  },
-  {
-    id: 10,
-    question: "Where is measurement usually shown in a simple circuit?",
-    options: [
-      "Before the starting state",
-      "Near the end, after the gates have been applied",
-      "Outside the circuit diagram",
-      "Only on classical wires",
+      "A new quantum gate",
+      "A classical result such as 0 or 1",
+      "Every possible answer at the same time",
+      "A second copy of the qubit",
     ],
     answer: 1,
     explanation:
-      "Measurement is usually placed near the end so the circuit can first transform the qubit and then record a classical result.",
+      "Measurement converts quantum information into a classical result that can be recorded and analyzed.",
+  },
+  {
+    id: 10,
+    question:
+      "Which statement best compares classical and quantum circuits?",
+    options: [
+      "Quantum circuits never use gates",
+      "Classical circuits always give random outputs",
+      "Quantum circuits only work with one qubit",
+      "Classical circuits usually process definite bits, while quantum circuits can manipulate superposition and entanglement",
+    ],
+    answer: 3,
+    explanation:
+      "Classical circuits work with definite bit values, while quantum circuits can manipulate richer quantum states involving superposition, phase, and entanglement.",
   },
   {
     id: 11,
     question:
-      "What is a common difference between classical and quantum circuit outputs?",
+      "What does the famous Bell state circuit usually use to create entanglement from |00⟩?",
     options: [
-      "Classical circuits never use wires",
-      "Quantum circuits cannot contain gates",
-      "Classical outputs are often deterministic, while quantum measurements can be probabilistic",
-      "Quantum circuits always output every answer",
+      "Two measurement gates",
+      "Two X gates",
+      "A Hadamard gate followed by CNOT",
+      "A classical AND gate",
     ],
     answer: 2,
     explanation:
-      "Classical logic circuits usually give a definite output for known inputs, while quantum measurements may produce different outcomes with specific probabilities.",
+      "Applying H to the first qubit creates superposition, and a following CNOT can entangle the two qubits into a Bell state.",
   },
   {
     id: 12,
     question:
-      "If a Hadamard gate creates equal probabilities for 0 and 1, what might repeated measurements show?",
+      "Why are quantum circuits often called the language of quantum computing?",
     options: [
-      "Only 0 every time",
-      "Only 1 every time",
-      "No classical results",
-      "A mixture of 0 and 1 results over many runs",
+      "They replace all programming languages",
+      "They express quantum algorithms as sequences of operations that quantum hardware can execute",
+      "They only display final answers",
+      "They remove the need for quantum algorithms",
     ],
-    answer: 3,
+    answer: 1,
     explanation:
-      "A balanced superposition gives a 50% probability for each result, so repeated runs should produce a mixture of 0s and 1s.",
+      "Quantum circuits translate an algorithm's strategy into gates, interactions, and measurements that can be implemented on quantum hardware.",
   },
 ];
 
@@ -356,13 +364,19 @@ function QuantumCircuitsModule() {
   };
 
   const handleAnswer = (questionId, optionIndex) => {
-    setSelectedAnswers((currentAnswers) => ({
+  setSelectedAnswers((currentAnswers) => {
+    if (currentAnswers[questionId] !== undefined) {
+      return currentAnswers;
+    }
+
+    return {
       ...currentAnswers,
       [questionId]: optionIndex,
-    }));
+    };
+  });
 
-    setShowSummary(false);
-  };
+  setShowSummary(false);
+};
 
   const checkScore = () => {
   setShowSummary(true);
@@ -472,165 +486,886 @@ function QuantumCircuitsModule() {
         </section>
 
         <section className="qcm-lesson-section" id="lesson">
-          <div className="qcm-section-heading">
-            <p className="qcm-section-label">LESSON 1</p>
-            <h2>What is a quantum circuit?</h2>
-            <p>
-              A quantum circuit is a visual and mathematical plan showing how
-              quantum gates are applied to qubits in a particular order.
-            </p>
+  <div className="qcm-section-heading">
+    <p className="qcm-section-label">LESSON 1</p>
+    <h2>What is a quantum circuit?</h2>
+    <p>
+      A quantum circuit is a visual and mathematical description of a quantum
+      program. It shows which qubits are used, which gates act on them, and in
+      what order those operations happen.
+    </p>
+  </div>
+
+  <div className="qcm-lesson-introduction">
+    <div className="qcm-introduction-icon">🧭</div>
+
+    <div>
+      <h3>A route for quantum information</h3>
+
+      <p>
+        Think of a quantum circuit like an assembly line. A qubit begins in a
+        starting state, passes through a sequence of gates, and is eventually
+        measured to produce a classical result.
+      </p>
+
+      <p>
+        The important difference is that the "thing" moving through the circuit
+        is a quantum state. Gates can therefore change superposition, phase,
+        interference, and relationships between multiple qubits.
+      </p>
+    </div>
+
+    <div className="qcm-key-idea">
+      <span>Key idea</span>
+      <strong>
+        A quantum circuit is not just a collection of gates. The order and
+        interaction of those gates are part of the computation.
+      </strong>
+    </div>
+  </div>
+
+  <div className="qcm-lesson-grid">
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">01</span>
+
+      <div>
+        <h3>Wires represent qubits</h3>
+
+        <p>
+          Each horizontal line in a quantum circuit represents a qubit being
+          tracked through the computation.
+        </p>
+
+        <p>
+          The line does not mean the qubit is literally traveling through a
+          physical wire. It is a visual way to show which operations affect
+          that qubit.
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
+          <div className="qcm-mini-wire" />
+          <span>time →</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">02</span>
+
+      <div>
+        <h3>Read gates from left to right</h3>
+
+        <p>
+          In the usual circuit convention, time moves from left to right.
+          Gates are applied in the order they appear.
+        </p>
+
+        <p>
+          The first gate transforms the starting state. The next gate then acts
+          on the state produced by the first one.
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
+
+          <div className="qcm-mini-wire qcm-wire-with-gates">
+            <strong>H</strong>
+            <strong>X</strong>
           </div>
 
-          <div className="qcm-lesson-introduction">
-            <div className="qcm-introduction-icon">🧭</div>
+          <span>output</span>
+        </div>
+      </div>
+    </article>
 
-            <div>
-              <h3>A route for quantum information</h3>
-              <p>
-                Think of a quantum circuit like a route on a map. The qubit is a
-                traveler, each gate is a stop that changes the traveler, and
-                measurement tells us where the traveler finishes.
-              </p>
-            </div>
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">03</span>
 
-            <div className="qcm-key-idea">
-              <span>Key idea</span>
-              <strong>
-                The order of quantum gates matters because each gate acts on
-                the state produced by the gates before it.
-              </strong>
-            </div>
+      <div>
+        <h3>Measurement produces classical output</h3>
+
+        <p>
+          A qubit can remain in a quantum state while gates are being applied.
+          When we measure it, we receive a classical result such as 0 or 1.
+        </p>
+
+        <p>
+          Measurement changes the quantum state, so programmers must decide
+          carefully when measurement should occur.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>Quantum state</span>
+          <strong>→</strong>
+          <span className="qcm-measurement-box">M</span>
+          <strong>→</strong>
+          <span>0 or 1</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">04</span>
+
+      <div>
+        <h3>Inputs tell us where the computation begins</h3>
+
+        <p>
+          On the left side of a circuit, we usually see the starting state of
+          each qubit.
+        </p>
+
+        <p>
+          For example, a single qubit may start in <strong>|0⟩</strong>. A
+          two-qubit system may begin in <strong>|00⟩</strong>.
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
+          <div className="qcm-mini-wire" />
+          <span>start</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">05</span>
+
+      <div>
+        <h3>Outputs may be probabilities, not one fixed answer</h3>
+
+        <p>
+          A quantum circuit can produce different measurement outcomes on
+          different runs.
+        </p>
+
+        <p>
+          For example, after a Hadamard gate, repeated measurements may produce
+          roughly half 0s and half 1s.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>H|0⟩</span>
+          <strong>→</strong>
+          <span>50% 0</span>
+          <strong>/</strong>
+          <span>50% 1</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">06</span>
+
+      <div>
+        <h3>Quantum circuits are programs we can visualize</h3>
+
+        <p>
+          A circuit diagram gives us a compact way to see the structure of a
+          quantum program.
+        </p>
+
+        <p>
+          We can identify the qubits, the sequence of operations, interactions
+          between qubits, and where measurement happens.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Think of it as</span>
+          <strong>
+            Input → gates → interactions → measurement → classical result
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">07</span>
+
+      <div>
+        <h3>Gate order can change the state</h3>
+
+        <p>
+          Quantum gates do not always behave the same way when their order is
+          reversed.
+        </p>
+
+        <p>
+          Starting from |0⟩, applying H then X produces a different quantum
+          state from applying X then H.
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
+
+          <div className="qcm-mini-wire qcm-wire-with-gates">
+            <strong>H</strong>
+            <strong>X</strong>
           </div>
 
-          <div className="qcm-lesson-grid">
-            <article className="qcm-lesson-card">
-              <span className="qcm-card-number">01</span>
+          <span>state A</span>
+        </div>
 
-              <div>
-                <h3>Qubits travel along wires</h3>
-                <p>
-                  Each horizontal line in a circuit diagram represents a qubit.
-                  The qubit begins on the left and moves through operations
-                  toward the right.
-                </p>
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
 
-                <div className="qcm-mini-circuit">
-                  <span>|0⟩</span>
-                  <div className="qcm-mini-wire" />
-                  <span>time →</span>
-                </div>
-              </div>
-            </article>
-
-            <article className="qcm-lesson-card">
-              <span className="qcm-card-number">02</span>
-
-              <div>
-                <h3>Gates are applied in sequence</h3>
-                <p>
-                  Gates are read from left to right. The first gate changes the
-                  starting state, and the next gate acts on that new state.
-                </p>
-
-                <div className="qcm-mini-circuit">
-                  <span>|0⟩</span>
-                  <div className="qcm-mini-wire qcm-wire-with-gates">
-                    <strong>H</strong>
-                    <strong>X</strong>
-                  </div>
-                  <span>output</span>
-                </div>
-              </div>
-            </article>
-
-            <article className="qcm-lesson-card">
-              <span className="qcm-card-number">03</span>
-
-              <div>
-                <h3>Measurement produces a classical result</h3>
-                <p>
-                  A qubit may be in superposition while moving through the
-                  circuit. Measurement converts its quantum state into a
-                  classical result such as 0 or 1.
-                </p>
-
-                <div className="qcm-measurement-example">
-                  <span>Quantum state</span>
-                  <strong>→</strong>
-                  <span className="qcm-measurement-box">M</span>
-                  <strong>→</strong>
-                  <span>0 or 1</span>
-                </div>
-              </div>
-            </article>
+          <div className="qcm-mini-wire qcm-wire-with-gates">
+            <strong>X</strong>
+            <strong>H</strong>
           </div>
 
-          <div className="qcm-reading-guide">
-            <div className="qcm-reading-guide-header">
-              <div>
-                <p className="qcm-section-label">HOW TO READ A CIRCUIT</p>
-                <h3>Follow the qubit from left to right</h3>
-              </div>
+          <span>state B</span>
+        </div>
+      </div>
+    </article>
 
-              <span>Example circuit</span>
-            </div>
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">08</span>
 
-            <div className="qcm-reading-circuit">
-              <div className="qcm-reading-label">
-                <small>Starting state</small>
-                <strong>|0⟩</strong>
-              </div>
+      <div>
+        <h3>H then X vs X then H</h3>
 
-              <div className="qcm-reading-wire">
-                <div className="qcm-reading-gate">
-                  <strong>H</strong>
-                  <small>Create superposition</small>
-                </div>
+        <p>
+          If H is applied first:
+        </p>
 
-                <div className="qcm-reading-arrow">→</div>
+        <p>
+          <strong>H|0⟩ = (|0⟩ + |1⟩) / √2</strong>
+        </p>
 
-                <div className="qcm-reading-gate">
-                  <strong>X</strong>
-                  <small>Flip basis states</small>
-                </div>
+        <p>
+          Applying X afterward keeps this particular balanced superposition in
+          the same form.
+        </p>
 
-                <div className="qcm-reading-arrow">→</div>
+        <p>
+          But if X is applied first:
+        </p>
 
-                <div className="qcm-reading-gate qcm-measure-gate">
-                  <strong>M</strong>
-                  <small>Measure</small>
-                </div>
-              </div>
+        <p>
+          <strong>X|0⟩ = |1⟩</strong>
+        </p>
 
-              <div className="qcm-reading-label">
-                <small>Classical result</small>
-                <strong>0 or 1</strong>
-              </div>
-            </div>
+        <p>
+          and then:
+        </p>
 
-            <div className="qcm-reading-steps">
-              <div>
-                <span>1</span>
-                <p>Identify the starting state.</p>
-              </div>
+        <p>
+          <strong>H|1⟩ = (|0⟩ - |1⟩) / √2</strong>
+        </p>
 
-              <div>
-                <span>2</span>
-                <p>Read each gate from left to right.</p>
-              </div>
+        <div className="qcm-key-idea">
+          <span>Important</span>
+          <strong>
+            The probabilities may look the same immediately, but the phase is
+            different and later gates can reveal that difference.
+          </strong>
+        </div>
+      </div>
+    </article>
 
-              <div>
-                <span>3</span>
-                <p>Track how every gate changes the state.</p>
-              </div>
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">09</span>
 
-              <div>
-                <span>4</span>
-                <p>Interpret the final measurement.</p>
-              </div>
-            </div>
+      <div>
+        <h3>Non-commutativity</h3>
+
+        <p>
+          When changing the order of two operations changes the result, we say
+          the operations <strong>do not commute</strong>.
+        </p>
+
+        <p>
+          This is common in quantum computing, which means circuit order must
+          be designed carefully.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Simple analogy</span>
+          <strong>
+            Socks then shoes is not the same as shoes then socks.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">10</span>
+
+      <div>
+        <h3>Multi-qubit circuits</h3>
+
+        <p>
+          Quantum circuits can contain many qubits, with each qubit represented
+          by its own horizontal line.
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>q0 |0⟩</span>
+          <div className="qcm-mini-wire" />
+          <span />
+        </div>
+
+        <div className="qcm-mini-circuit">
+          <span>q1 |0⟩</span>
+          <div className="qcm-mini-wire" />
+          <span />
+        </div>
+
+        <p>
+          Some gates act on just one qubit, while other gates connect the
+          behavior of multiple qubits.
+        </p>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">11</span>
+
+      <div>
+        <h3>CNOT connects two qubits</h3>
+
+        <p>
+          The CNOT gate uses one qubit as a <strong>control</strong> and another
+          as a <strong>target</strong>.
+        </p>
+
+        <p>
+          If the control is |0⟩, the target stays unchanged. If the control is
+          |1⟩, the target flips.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>CNOT rule</span>
+          <strong>
+            Control = 1 → flip target. Control = 0 → leave target alone.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">12</span>
+
+      <div>
+        <h3>Two-qubit gates enable new behavior</h3>
+
+        <p>
+          CNOT becomes especially important when the control qubit is in
+          superposition.
+        </p>
+
+        <p>
+          In that case, the two qubits can become connected through a shared
+          quantum state called <strong>entanglement</strong>.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Preview</span>
+          <strong>
+            Entanglement is one of the most important multi-qubit effects in
+            quantum computing.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">13</span>
+
+      <div>
+        <h3>Why we usually measure near the end</h3>
+
+        <p>
+          Gates may create superposition, interference, or entanglement that
+          later parts of the circuit still need.
+        </p>
+
+        <p>
+          Measuring too early can destroy that quantum state before the
+          computation is finished.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Programming idea</span>
+          <strong>
+            Prepare first, transform next, measure when you are ready to read
+            the result.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">14</span>
+
+      <div>
+        <h3>Repeated runs reveal probabilities</h3>
+
+        <p>
+          Quantum circuits are often executed many times. These repeated runs
+          are commonly called <strong>shots</strong>.
+        </p>
+
+        <p>
+          Instead of looking at only one measurement, programmers inspect how
+          often each result appears.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>1000 shots</span>
+          <strong>→</strong>
+          <span>503 zeros</span>
+          <strong>+</strong>
+          <span>497 ones</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">15</span>
+
+      <div>
+        <h3>Quantum circuits can create interference</h3>
+
+        <p>
+          Consider this simple sequence:
+        </p>
+
+        <div className="qcm-mini-circuit">
+          <span>|0⟩</span>
+
+          <div className="qcm-mini-wire qcm-wire-with-gates">
+            <strong>H</strong>
+            <strong>H</strong>
           </div>
-        </section>
+
+          <span>|0⟩</span>
+        </div>
+
+        <p>
+          The first H creates superposition. The second H causes the amplitudes
+          to interfere and returns the state to |0⟩.
+        </p>
+
+        <p>
+          This shows that superposition is not simply random guessing. Later
+          gates can combine quantum amplitudes in useful ways.
+        </p>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">16</span>
+
+      <div>
+        <h3>Classical circuits use definite bits</h3>
+
+        <p>
+          Classical logic circuits work with bits that have definite values:
+          0 or 1.
+        </p>
+
+        <p>
+          Gates such as NOT, AND, OR, and XOR transform those definite values
+          according to fixed rules.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Example</span>
+          <strong>NOT 0 → 1</strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">17</span>
+
+      <div>
+        <h3>Quantum circuits manipulate richer state</h3>
+
+        <p>
+          Quantum circuits work with qubits that can involve superposition,
+          phase, interference, and entanglement.
+        </p>
+
+        <p>
+          Their standard gates are also reversible before measurement.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Key difference</span>
+          <strong>
+            Classical circuits process definite bit values. Quantum circuits
+            transform quantum states.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">18</span>
+
+      <div>
+        <h3>Classical and quantum behavior differ</h3>
+
+        <p>
+          A normal deterministic classical circuit gives the same output for
+          the same input.
+        </p>
+
+        <p>
+          A quantum circuit can instead produce a probability distribution when
+          measured.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>Classical</span>
+          <strong>→</strong>
+          <span>definite output</span>
+        </div>
+
+        <div className="qcm-measurement-example">
+          <span>Quantum</span>
+          <strong>→</strong>
+          <span>possible outcomes + probabilities</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">19</span>
+
+      <div>
+        <h3>The Bell state circuit</h3>
+
+        <p>
+          One of the most famous small quantum circuits starts with two qubits
+          in |00⟩.
+        </p>
+
+        <p>
+          First, apply H to the first qubit. Then use that qubit as the control
+          of a CNOT.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Bell circuit</span>
+          <strong>|00⟩ → H on q0 → CNOT → entangled pair</strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">20</span>
+
+      <div>
+        <h3>What the Bell circuit produces</h3>
+
+        <p>
+          The ideal final state is:
+        </p>
+
+        <p>
+          <strong>(|00⟩ + |11⟩) / √2</strong>
+        </p>
+
+        <p>
+          This is a <strong>Bell state</strong>, one of the simplest and most
+          important examples of entanglement.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>Measure both</span>
+          <strong>→</strong>
+          <span>00 or 11</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">21</span>
+
+      <div>
+        <h3>Why the Bell circuit matters</h3>
+
+        <p>
+          This tiny circuit demonstrates several major quantum ideas at once:
+          superposition, controlled interaction, entanglement, and measurement.
+        </p>
+
+        <p>
+          Bell states are important in areas such as quantum communication and
+          quantum teleportation.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Pattern</span>
+          <strong>
+            Superposition → CNOT → entanglement → correlated measurement
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">22</span>
+
+      <div>
+        <h3>Tracing quantum circuits requires new thinking</h3>
+
+        <p>
+          In classical programming, we can often track one exact variable value
+          after each instruction.
+        </p>
+
+        <p>
+          In a quantum circuit, we may instead need to track amplitudes, phase,
+          probabilities, and relationships between qubits.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Tracing question</span>
+          <strong>
+            Not just "What is the qubit?" but "What quantum state has the
+            circuit created?"
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">23</span>
+
+      <div>
+        <h3>Circuits are the language of quantum algorithms</h3>
+
+        <p>
+          A quantum algorithm describes a strategy for solving a problem.
+        </p>
+
+        <p>
+          The quantum circuit translates that strategy into gates that a
+          quantum computer can execute.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>From idea to machine</span>
+          <strong>
+            Algorithm → circuit → gates → hardware → measurement results
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">24</span>
+
+      <div>
+        <h3>Famous algorithms become circuits</h3>
+
+        <p>
+          Algorithms such as Grover's search algorithm and Shor's factoring
+          algorithm can ultimately be expressed as carefully designed quantum
+          circuits.
+        </p>
+
+        <p>
+          Larger circuits may contain Hadamard gates, X gates, CNOT gates,
+          phase gates, controlled operations, and measurements.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Big idea</span>
+          <strong>
+            A quantum algorithm becomes executable when its strategy is
+            translated into a sequence of circuit operations.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">25</span>
+
+      <div>
+        <h3>Real hardware adds noise</h3>
+
+        <p>
+          Circuit diagrams describe ideal mathematical operations. Real
+          quantum computers must implement those operations physically.
+        </p>
+
+        <p>
+          Physical qubits and gates are affected by noise, which means real
+          measurements may not perfectly match the ideal prediction.
+        </p>
+
+        <div className="qcm-measurement-example">
+          <span>Ideal Bell circuit</span>
+          <strong>→</strong>
+          <span>00 and 11 only</span>
+        </div>
+
+        <div className="qcm-measurement-example">
+          <span>Noisy hardware</span>
+          <strong>→</strong>
+          <span>small unwanted outcomes may appear</span>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">26</span>
+
+      <div>
+        <h3>Efficient circuit design matters</h3>
+
+        <p>
+          More gates mean more opportunities for errors on current quantum
+          hardware.
+        </p>
+
+        <p>
+          Quantum programmers therefore care about using efficient gate
+          sequences whenever possible.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Route analogy</span>
+          <strong>
+            If two routes reach the same destination, the shorter and simpler
+            route may be easier to execute reliably.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">27</span>
+
+      <div>
+        <h3>The complete circuit picture</h3>
+
+        <p>
+          Quantum circuits bring together everything you have learned so far.
+        </p>
+
+        <p>
+          Qubits carry the quantum state. Gates transform it. Multi-qubit gates
+          allow qubits to interact. Interference changes amplitudes.
+          Measurement produces classical information.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Core flow</span>
+          <strong>
+            Prepare → transform → interact → interfere → measure → interpret
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="qcm-lesson-card">
+      <span className="qcm-card-number">28</span>
+
+      <div>
+        <h3>Key takeaway</h3>
+
+        <p>
+          A quantum circuit is both a visual diagram and a mathematical
+          description of a quantum program.
+        </p>
+
+        <p>
+          Wires identify qubits, gates transform quantum states in a specific
+          order, multi-qubit gates allow interaction, and measurement converts
+          the final quantum state into classical information.
+        </p>
+
+        <div className="qcm-key-idea">
+          <span>Remember</span>
+          <strong>
+            Learning to read and trace quantum circuits is one of the most
+            important skills for understanding quantum algorithms.
+          </strong>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div className="qcm-reading-guide">
+    <div className="qcm-reading-guide-header">
+      <div>
+        <p className="qcm-section-label">HOW TO READ A CIRCUIT</p>
+        <h3>Follow the qubit from left to right</h3>
+      </div>
+
+      <span>Example circuit</span>
+    </div>
+
+    <div className="qcm-reading-circuit">
+      <div className="qcm-reading-label">
+        <small>Starting state</small>
+        <strong>|0⟩</strong>
+      </div>
+
+      <div className="qcm-reading-wire">
+        <div className="qcm-reading-gate">
+          <strong>H</strong>
+          <small>Create superposition</small>
+        </div>
+
+        <div className="qcm-reading-arrow">→</div>
+
+        <div className="qcm-reading-gate">
+          <strong>X</strong>
+          <small>Transform the state</small>
+        </div>
+
+        <div className="qcm-reading-arrow">→</div>
+
+        <div className="qcm-reading-gate qcm-measure-gate">
+          <strong>M</strong>
+          <small>Measure</small>
+        </div>
+      </div>
+
+      <div className="qcm-reading-label">
+        <small>Classical result</small>
+        <strong>0 or 1</strong>
+      </div>
+    </div>
+
+    <div className="qcm-reading-steps">
+      <div>
+        <span>1</span>
+        <p>Identify each qubit's starting state.</p>
+      </div>
+
+      <div>
+        <span>2</span>
+        <p>Read the gates from left to right.</p>
+      </div>
+
+      <div>
+        <span>3</span>
+        <p>Track how the quantum state changes after each gate.</p>
+      </div>
+
+      <div>
+        <span>4</span>
+        <p>Look for interactions between multiple qubits.</p>
+      </div>
+
+      <div>
+        <span>5</span>
+        <p>Interpret the final measurement probabilities and results.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section className="qcm-builder-section" id="builder">
           <div className="qcm-section-heading">

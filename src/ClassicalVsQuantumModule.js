@@ -42,159 +42,168 @@ const approachData = {
 const quizQuestions = [
   {
     id: 1,
-    question: "What values can a classical bit hold at one time?",
+    question:
+      "Which statement best describes how a classical program usually represents information?",
     options: [
-      "Only 0 or 1",
-      "0 and 1 in superposition",
-      "Any decimal number",
-      "Only the value 1",
+      "Variables usually hold definite values at a given moment",
+      "Every variable is always in superposition",
+      "Variables can only store 0",
+      "Classical programs do not use state",
     ],
     answer: 0,
     explanation:
-      "A classical bit always has one definite value: either 0 or 1.",
+      "Classical programs usually represent state using variables with definite values, such as numbers, text, or Boolean values.",
   },
   {
     id: 2,
-    question: "What does a quantum program use to change qubits?",
+    question: "What does it mean when a classical program is deterministic?",
     options: [
-      "Web browsers",
-      "Quantum gates",
-      "Classical switches only",
-      "Image files",
+      "It always uses random numbers",
+      "The same input and instructions usually produce the same output",
+      "It can only run once",
+      "Its variables cannot change",
     ],
     answer: 1,
     explanation:
-      "Quantum programs apply quantum gates to change the state of qubits.",
+      "A deterministic program produces the same result when given the same input and the same sequence of instructions.",
   },
   {
     id: 3,
-    question: "What happens when a qubit is measured?",
+    question:
+      "What is one major difference between classical and quantum program state?",
     options: [
-      "It disappears forever",
-      "It always gives 0",
-      "It gives a classical result such as 0 or 1",
-      "It becomes a Python variable",
+      "Quantum state can involve superposition instead of only definite values",
+      "Classical state cannot be stored",
+      "Quantum programs do not use information",
+      "Classical variables are always random",
     ],
-    answer: 2,
+    answer: 0,
     explanation:
-      "Measurement turns the qubit's quantum state into a classical result such as 0 or 1.",
+      "Quantum programs can manipulate qubits in superposition, while classical programs usually work with definite variable values.",
   },
   {
     id: 4,
-    question: "Which statement is most accurate?",
+    question:
+      "Why can the same quantum circuit produce different measurement results on different runs?",
     options: [
-      "Quantum computers replace all classical computers",
-      "Quantum programs are useful for every task",
-      "Classical and quantum programs solve problems in different ways",
-      "Quantum programs do not use instructions",
-    ],
-    answer: 2,
-    explanation:
-      "Classical and quantum computers have different strengths and solve problems using different models.",
-  },
-  {
-    id: 5,
-    question: "What kind of values do classical programs usually work with?",
-    options: [
-      "Only quantum amplitudes",
-      "Definite values stored in variables",
-      "Only random values",
-      "Values that cannot be measured",
-    ],
-    answer: 1,
-    explanation:
-      "Classical programs usually work with definite values stored in variables, such as numbers, text, and true-or-false values.",
-  },
-  {
-    id: 6,
-    question: "What is a qubit able to represent before measurement?",
-    options: [
-      "Only the value 1",
-      "A web page and an image",
-      "Quantum possibilities involving both 0 and 1",
-      "Only a fixed classical value",
-    ],
-    answer: 2,
-    explanation:
-      "Before measurement, a qubit can be in a superposition containing quantum possibilities for both 0 and 1.",
-  },
-  {
-    id: 7,
-    question: "Which tool is commonly used to write quantum programs in Python?",
-    options: [
-      "Qiskit",
-      "Microsoft Paint",
-      "A spreadsheet formula",
-      "A web browser bookmark",
-    ],
-    answer: 0,
-    explanation:
-      "Qiskit is a Python-based framework used to create and work with quantum circuits and quantum programs.",
-  },
-  {
-    id: 8,
-    question: "What is the main purpose of measurement in a quantum program?",
-    options: [
-      "To create a new programming language",
-      "To turn a classical bit into a qubit",
-      "To delete the circuit",
-      "To obtain a classical result from the quantum state",
+      "The circuit changes its source code each time",
+      "The computer forgets the previous instructions",
+      "Qubits cannot be measured",
+      "Quantum measurements can be probabilistic",
     ],
     answer: 3,
     explanation:
-      "Measurement converts quantum information into a classical result that the program can record and use.",
+      "Quantum circuits can produce probabilistic outcomes, so repeated runs may produce different results according to the state's measurement probabilities.",
   },
   {
-    id: 9,
-    question: "Which statement best describes a classical program?",
+    id: 5,
+    question:
+      "Why does ordinary classical variable tracing not transfer directly to quantum programs?",
     options: [
-      "It follows instructions using definite data values",
-      "It always uses superposition",
-      "It can only run on a quantum computer",
-      "It never uses variables or conditions",
-    ],
-    answer: 0,
-    explanation:
-      "A classical program follows instructions while working with definite values, variables, conditions, loops, and functions.",
-  },
-  {
-    id: 10,
-    question: "Why do many quantum programs also include classical code?",
-    options: [
-      "Quantum gates cannot be represented in code",
-      "Classical code can prepare inputs and process measurement results",
-      "Classical code automatically creates entanglement",
-      "Quantum computers cannot perform any instructions",
-    ],
-    answer: 1,
-    explanation:
-      "Classical code is often used to prepare a quantum experiment, control repeated runs, and interpret the measurement results.",
-  },
-  {
-    id: 11,
-    question: "What does the Hadamard gate commonly do in a quantum program?",
-    options: [
-      "It prints text on the screen",
-      "It permanently measures the qubit",
-      "It can place a qubit into superposition",
-      "It converts Python into another language",
+      "Quantum programs never have steps",
+      "Classical tracing only works with websites",
+      "A qubit may not have one definite classical value before measurement",
+      "Quantum gates cannot be written down",
     ],
     answer: 2,
     explanation:
-      "The Hadamard gate is commonly used to create a superposition from a qubit that begins in a definite basis state.",
+      "Classical tracing assumes variables have definite values. A qubit can instead be in superposition, so the full quantum state must be considered.",
   },
   {
-    id: 12,
-    question: "Which task is usually better suited to a classical computer?",
+    id: 6,
+    question:
+      "Why is debugging a quantum program more difficult than simply printing every qubit's value?",
     options: [
-      "Displaying a website and editing a document",
-      "Creating every possible quantum state at once",
-      "Replacing all qubits with entangled pairs",
-      "Running only quantum gates",
+      "Quantum computers do not support any output",
+      "Measuring a qubit can change the quantum state being debugged",
+      "Qubits always display the wrong answer",
+      "Quantum programs cannot contain errors",
+    ],
+    answer: 1,
+    explanation:
+      "Measurement affects the quantum state, so programmers cannot freely inspect qubits without potentially disturbing the computation.",
+  },
+  {
+    id: 7,
+    question:
+      "What does reversibility mean for standard quantum gates before measurement?",
+    options: [
+      "The effect of a gate can be undone by an inverse operation",
+      "A quantum gate can never be applied twice",
+      "Every quantum program must run backward",
+      "Measurement can always be reversed",
     ],
     answer: 0,
     explanation:
-      "Everyday tasks such as browsing websites, editing documents, and running most applications are well suited to classical computers.",
+      "Quantum gates are reversible operations, meaning an inverse gate can undo the transformation before measurement.",
+  },
+  {
+    id: 8,
+    question:
+      "Which statement best compares control flow in classical and quantum programs?",
+    options: [
+      "Quantum programs never execute instructions",
+      "Classical programs cannot use loops",
+      "Quantum programs only use if-statements",
+      "Classical programs often branch on exact values, while quantum circuits often apply planned gate sequences before measurement",
+    ],
+    answer: 3,
+    explanation:
+      "Classical control flow commonly uses exact variable values for branches and loops, while quantum circuits often evolve a state through a sequence of gates.",
+  },
+  {
+    id: 9,
+    question: "Why is Shor's algorithm important in quantum computing?",
+    options: [
+      "It is used to design web pages",
+      "It proves quantum computers are faster at every task",
+      "It replaces Python with a new language",
+      "It shows a quantum approach to integer factoring that could affect some cryptographic systems",
+    ],
+    answer: 3,
+    explanation:
+      "Shor's algorithm provides an efficient quantum method for factoring large integers on a sufficiently capable quantum computer, which is important for cryptography.",
+  },
+  {
+    id: 10,
+    question:
+      "What kind of advantage does Grover's algorithm demonstrate?",
+    options: [
+      "It makes every search instantaneous",
+      "It can reduce the number of queries needed for certain unstructured search problems",
+      "It removes the need for qubits",
+      "It guarantees the first guess is correct",
+    ],
+    answer: 1,
+    explanation:
+      "Grover's algorithm provides a quadratic-style improvement for certain unstructured search problems, reducing the number of required queries.",
+  },
+  {
+    id: 11,
+    question: "What is Qiskit used for?",
+    options: [
+      "Editing images for quantum computers",
+      "Replacing all classical programming",
+      "Measuring classical bits only",
+      "Building and running quantum circuits using Python-based tools",
+    ],
+    answer: 3,
+    explanation:
+      "Qiskit is a software development kit that allows programmers to create, run, and analyze quantum circuits using Python.",
+  },
+  {
+    id: 12,
+    question:
+      "Why are many real quantum programs described as hybrid programs?",
+    options: [
+      "They combine classical code for setup and analysis with quantum circuits for quantum operations",
+      "They run two classical programs at once",
+      "They never use measurement",
+      "They avoid Python completely",
+    ],
+    answer: 0,
+    explanation:
+      "Many quantum applications use classical Python to prepare experiments and analyze results, while the quantum circuit performs operations on qubits.",
   },
 ];
 
@@ -342,124 +351,786 @@ function ClassicalVsQuantumModule() {
         </section>
 
         <section className="cvq-lesson-section" id="lesson">
-          <div className="cvq-section-heading">
-            <p className="cvq-section-label">LESSON 1</p>
-            <h2>Two ways to describe a computation</h2>
+  <div className="cvq-section-heading">
+    <p className="cvq-section-label">LESSON 1</p>
+    <h2>Classical vs Quantum Programming</h2>
+    <p>
+      Classical and quantum programs both give computers instructions, but
+      they represent information, execute operations, and produce results in
+      fundamentally different ways.
+    </p>
+  </div>
+
+  <div className="cvq-lesson-grid">
+    {/* CARD 01 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">01</span>
+
+      <div>
+        <h3>How classical programming works</h3>
+
+        <p>
+          <strong>Classical programming</strong> is the type of programming
+          used to create websites, mobile apps, games, operating systems, and
+          most software we use today.
+        </p>
+
+        <p>
+          Classical programs usually work with <strong>exact values</strong>.
+          A variable has one definite value at a particular moment. For
+          example, if a variable called <code>score</code> contains 10, then
+          its current value is 10 — not several different values at once.
+        </p>
+
+        <p>
+          Instructions are normally executed in a predictable sequence. The
+          computer moves from one instruction to the next unless something
+          like an <code>if</code> statement, function, or loop changes the
+          flow.
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">📝</span>
+
+          <div>
+            <strong>Think of following a recipe</strong>
             <p>
-              Classical and quantum programs both give computers instructions,
-              but they represent information differently.
+              A classical program is similar to following recipe
+              instructions: complete one step, update what you have, and then
+              continue to the next step.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 02 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">02</span>
+
+      <div>
+        <h3>Deterministic behavior</h3>
+
+        <p>
+          Many classical programs are <strong>deterministic</strong>. This
+          means that if you provide the same input and execute the same
+          instructions, you expect the same output.
+        </p>
+
+        <p>
+          For example, imagine a program that multiplies a number by two. If
+          the input is 4, the output will be 8 every time the same operation
+          is performed.
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">🧮</span>
+
+          <div>
+            <strong>Same instructions, same result</strong>
+            <p>
+              Input 4 → multiply by 2 → output 8. This predictable behavior
+              makes many classical programs straightforward to trace and
+              debug.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 03 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">03</span>
+
+      <div>
+        <h3>Classical programs have definite state</h3>
+
+        <p>
+          A program's <strong>state</strong> describes the information it
+          currently contains. In classical programming, we often represent
+          this information using variables.
+        </p>
+
+        <p>
+          Imagine that a program contains:
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">💻</span>
+
+          <div>
+            <strong>Example program state</strong>
+            <p>
+              <code>x = 3</code>
+              <br />
+              <code>y = 7</code>
+            </p>
+          </div>
+        </div>
+
+        <p>
+          We know exactly what each variable contains. If the program then
+          performs <code>x = x + 1</code>, we can trace the program and say
+          that <code>x</code> now contains 4.
+        </p>
+
+        <p>
+          This gives us one of the most useful questions in classical program
+          comprehension:
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">🔎</span>
+
+          <div>
+            <strong>What is the value of each variable after this line?</strong>
+            <p>
+              Because classical variables have definite values, programmers
+              can often understand a program by following those values step
+              by step.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 04 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">04</span>
+
+      <div>
+        <h3>Quantum programming changes the rules</h3>
+
+        <p>
+          <strong>Quantum programming</strong> works with qubits and quantum
+          states instead of relying only on ordinary classical variables.
+        </p>
+
+        <p>
+          A qubit can be in the state <strong>|0⟩</strong>, the state{" "}
+          <strong>|1⟩</strong>, or a <strong>superposition</strong> involving
+          both states.
+        </p>
+
+        <p>
+          Quantum programs transform these states using operations called{" "}
+          <strong>quantum gates</strong>.
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">⚛️</span>
+
+          <div>
+            <strong>A different programming question</strong>
+            <p>
+              Instead of only asking "What value does this variable have?",
+              a quantum programmer must ask "What quantum state have I
+              prepared, and how will the next gate transform it?"
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 05 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">05</span>
+
+      <div>
+        <h3>Reading |0⟩ and |1⟩</h3>
+
+        <p>
+          Quantum computing uses a notation called{" "}
+          <strong>Dirac notation</strong> to describe quantum states.
+        </p>
+
+        <p>
+          The two basic states of a qubit are:
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>0</span>
+            <strong>|0⟩</strong>
+            <p>Pronounced "ket zero."</p>
+          </div>
+
+          <div>
+            <span>1</span>
+            <strong>|1⟩</strong>
+            <p>Pronounced "ket one."</p>
+          </div>
+        </div>
+
+        <p>
+          A <strong>ket</strong> represents a quantum state. Mathematically,
+          these basic states can also be represented as vectors:
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">📐</span>
+
+          <div>
+            <strong>Kets as vectors</strong>
+            <p>
+              |0⟩ = [1, 0]ᵀ
+              <br />
+              |1⟩ = [0, 1]ᵀ
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 06 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">06</span>
+
+      <div>
+        <h3>What about bras?</h3>
+
+        <p>
+          You may also see quantum states written using symbols such as{" "}
+          <strong>⟨0|</strong> and <strong>⟨1|</strong>. These are called{" "}
+          <strong>bras</strong>.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>⚛️</span>
+            <strong>Ket</strong>
+            <p>|0⟩ represents a quantum state as a column vector.</p>
+          </div>
+
+          <div>
+            <span>📐</span>
+            <strong>Bra</strong>
+            <p>⟨0| is the corresponding row-vector form.</p>
+          </div>
+
+          <div>
+            <span>🧠</span>
+            <strong>For now</strong>
+            <p>
+              You only need to recognize the notation. We do not need
+              bra-ket calculations yet.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Bras and kets become useful when performing mathematical
+          calculations with quantum states. For now, remember the most
+          important idea:
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">⭐</span>
+
+          <div>
+            <strong>Kets describe quantum states.</strong>
+            <p>
+              When you see |0⟩ or |1⟩ in QuantumPath, read them as "ket zero"
+              and "ket one."
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 07 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">07</span>
+
+      <div>
+        <h3>Quantum outcomes can be probabilistic</h3>
+
+        <p>
+          Quantum programs can produce{" "}
+          <strong>probabilistic measurement outcomes</strong>.
+        </p>
+
+        <p>
+          Suppose a qubit begins in |0⟩ and a Hadamard gate places it into a
+          balanced superposition. When measured, it has equal probabilities
+          of producing 0 or 1.
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">📊</span>
+
+          <div>
+            <strong>One circuit, many runs</strong>
+            <p>
+              If we run the circuit many times, we might see approximately
+              50% of measurements produce 0 and 50% produce 1.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Repeated executions of a quantum circuit are commonly called{" "}
+          <strong>shots</strong>. Quantum programmers often examine the
+          distribution of results across many shots.
+        </p>
+      </div>
+    </article>
+
+    {/* CARD 08 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">08</span>
+
+      <div>
+        <h3>Control flow works differently</h3>
+
+        <p>
+          Classical programs commonly use control structures such as{" "}
+          <code>if</code> statements and loops to choose which instructions
+          execute next.
+        </p>
+
+        <p>
+          A quantum circuit is often designed as a sequence of gates that
+          transform a quantum state before the qubits are measured.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>💻</span>
+            <strong>Classical</strong>
+            <p>
+              Read values → make decisions → follow branches → update
+              variables.
             </p>
           </div>
 
-          <div className="cvq-lesson-grid">
-            <article className="cvq-lesson-card">
-              <span className="cvq-card-number">01</span>
-
-              <div>
-                <h3>Classical programming</h3>
-
-                <p>
-                  Classical programming is the type of programming used for
-                  websites, mobile apps, games, and most software.
-                </p>
-
-                <p>
-                  A classical program works with definite values. A bit is
-                  either <strong>0</strong> or <strong>1</strong>, and a
-                  variable contains one known value at a time.
-                </p>
-
-                <div className="cvq-analogy-box">
-                  <span aria-hidden="true">🚦</span>
-
-                  <div>
-                    <strong>Traffic light analogy</strong>
-                    <p>
-                      A traffic light shows one definite signal at a time. It
-                      might be red, yellow, or green, but it is not all three at
-                      once.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className="cvq-lesson-card">
-              <span className="cvq-card-number">02</span>
-
-              <div>
-                <h3>Quantum programming</h3>
-
-                <p>
-                  Quantum programming gives instructions to qubits using
-                  operations called <strong>quantum gates</strong>.
-                </p>
-
-                <p>
-                  Before measurement, a qubit can be in a superposition. This
-                  means the program can represent quantum possibilities for
-                  both 0 and 1.
-                </p>
-
-                <div className="cvq-analogy-box cvq-analogy-purple">
-                  <span aria-hidden="true">🪙</span>
-
-                  <div>
-                    <strong>Spinning coin analogy</strong>
-                    <p>
-                      A resting coin is heads or tails. A spinning coin helps us
-                      imagine multiple possible outcomes before a final result
-                      is observed.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className="cvq-lesson-card cvq-wide-card">
-              <span className="cvq-card-number">03</span>
-
-              <div>
-                <h3>Different tools for different problems</h3>
-
-                <p>
-                  A quantum computer is not a replacement for your laptop or
-                  phone. Classical computers are still better for most everyday
-                  tasks.
-                </p>
-
-                <p>
-                  Quantum computers are being studied for specialized problems
-                  involving chemistry, optimization, simulation, and
-                  cryptography.
-                </p>
-
-                <div className="cvq-key-differences">
-                  <div>
-                    <span>💻</span>
-                    <strong>Classical programs</strong>
-                    <p>Use bits, variables, loops, and normal logic.</p>
-                  </div>
-
-                  <div>
-                    <span>⚛️</span>
-                    <strong>Quantum programs</strong>
-                    <p>Use qubits, gates, circuits, and measurement.</p>
-                  </div>
-
-                  <div>
-                    <span>🤝</span>
-                    <strong>Often work together</strong>
-                    <p>
-                      Many quantum programs also rely on classical code to
-                      prepare data and interpret results.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div>
+            <span>⚛️</span>
+            <strong>Quantum</strong>
+            <p>
+              Prepare qubits → apply gates → transform state → measure.
+            </p>
           </div>
-        </section>
+        </div>
+
+        <p>
+          Modern quantum programs can combine quantum operations with
+          classical decisions, but the quantum circuit itself requires a
+          different way of thinking about control.
+        </p>
+      </div>
+    </article>
+
+    {/* CARD 09 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">09</span>
+
+      <div>
+        <h3>Quantum gates are reversible</h3>
+
+        <p>
+          Another important difference is{" "}
+          <strong>reversibility</strong>. Ordinary classical operations can
+          erase information, but the standard quantum gates used before
+          measurement are reversible.
+        </p>
+
+        <p>
+          For example, the quantum X gate flips |0⟩ to |1⟩:
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>1</span>
+            <strong>|0⟩ → X → |1⟩</strong>
+            <p>The first X gate flips the qubit.</p>
+          </div>
+
+          <div>
+            <span>2</span>
+            <strong>|1⟩ → X → |0⟩</strong>
+            <p>Applying X again reverses the operation.</p>
+          </div>
+        </div>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">↩️</span>
+
+          <div>
+            <strong>Think of an undo button</strong>
+            <p>
+              Quantum gates have inverse operations. If you know which gate
+              transformed the state, its inverse can undo that
+              transformation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 10 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">10</span>
+
+      <div>
+        <h3>Why quantum debugging is difficult</h3>
+
+        <p>
+          When debugging a classical program, programmers can print or
+          inspect variables to see exactly what they contain.
+        </p>
+
+        <p>
+          Quantum programs make this harder because{" "}
+          <strong>measurement changes the quantum state</strong>.
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">🐞</span>
+
+          <div>
+            <strong>You cannot freely peek inside</strong>
+            <p>
+              If a qubit is in superposition, measuring it just to check its
+              value changes the state you were trying to inspect.
+            </p>
+          </div>
+        </div>
+
+        <p>
+          Quantum programmers therefore need debugging and visualization
+          techniques that respect how quantum information behaves.
+        </p>
+      </div>
+    </article>
+
+    {/* CARD 11 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">11</span>
+
+      <div>
+        <h3>Why classical tracing does not directly transfer</h3>
+
+        <p>
+          Classical program tracing works well because variables have exact
+          values. We can create a table showing the value of each variable
+          after every instruction.
+        </p>
+
+        <p>
+          A quantum state can instead involve superposition, probability
+          amplitudes, and eventually entanglement between multiple qubits.
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">🔍</span>
+
+          <div>
+            <strong>The tracing problem</strong>
+            <p>
+              Asking "Is this qubit currently 0 or 1?" may be the wrong
+              question before measurement. We need to understand the entire
+              quantum state and how gates transform it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 12 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">12</span>
+
+      <div>
+        <h3>Visualization becomes especially important</h3>
+
+        <p>
+          Because quantum states are difficult to inspect directly,
+          programmers use visual tools to understand how quantum programs
+          behave.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>🔌</span>
+            <strong>Circuit diagrams</strong>
+            <p>Show which gates act on each qubit and in what order.</p>
+          </div>
+
+          <div>
+            <span>📊</span>
+            <strong>Probability histograms</strong>
+            <p>Show how often different measurement outcomes occur.</p>
+          </div>
+
+          <div>
+            <span>🌐</span>
+            <strong>Bloch spheres</strong>
+            <p>Help visualize the state of a single qubit.</p>
+          </div>
+        </div>
+
+        <p>
+          Other tools can display statevectors or trace a circuit one gate at
+          a time. These visualizations help programmers reason about behavior
+          that cannot be understood by simply watching ordinary variables.
+        </p>
+      </div>
+    </article>
+
+    {/* CARD 13 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">13</span>
+
+      <div>
+        <h3>Shor's algorithm</h3>
+
+        <p>
+          <strong>Shor's algorithm</strong>, introduced by Peter Shor in
+          1994, is one of the most famous examples of quantum computing's
+          potential.
+        </p>
+
+        <p>
+          It provides an efficient quantum method for factoring large
+          integers on a sufficiently capable fault-tolerant quantum
+          computer.
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">🔐</span>
+
+          <div>
+            <strong>Why does that matter?</strong>
+            <p>
+              The security of some important cryptographic systems is related
+              to the difficulty of mathematical problems such as integer
+              factorization. Shor's algorithm showed that quantum computation
+              could change how we think about these problems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 14 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">14</span>
+
+      <div>
+        <h3>Grover's search algorithm</h3>
+
+        <p>
+          <strong>Grover's algorithm</strong> demonstrates another kind of
+          quantum advantage.
+        </p>
+
+        <p>
+          Imagine searching an unsorted collection containing many possible
+          items. A classical search may need to examine many possibilities
+          individually.
+        </p>
+
+        <p>
+          Grover's algorithm can reduce the number of queries needed for
+          certain unstructured search problems.
+        </p>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">🔎</span>
+
+          <div>
+            <strong>A useful speedup</strong>
+            <p>
+              Very roughly, a classical search may require work proportional
+              to N possibilities, while Grover's algorithm requires work
+              proportional to about √N queries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 15 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">15</span>
+
+      <div>
+        <h3>Quantum is not better for every program</h3>
+
+        <p>
+          Shor's and Grover's algorithms do not mean that quantum computers
+          make every program faster.
+        </p>
+
+        <p>
+          Classical computers remain extremely effective for everyday tasks
+          such as running websites, managing files, playing videos, writing
+          documents, and executing most software.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>💻</span>
+            <strong>Classical strength</strong>
+            <p>
+              Reliable, efficient general-purpose computation for everyday
+              applications.
+            </p>
+          </div>
+
+          <div>
+            <span>⚛️</span>
+            <strong>Quantum strength</strong>
+            <p>
+              Specialized algorithms that can exploit quantum properties for
+              particular problems.
+            </p>
+          </div>
+
+          <div>
+            <span>🤝</span>
+            <strong>Hybrid computing</strong>
+            <p>
+              Quantum and classical computers can work together rather than
+              one completely replacing the other.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 16 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">16</span>
+
+      <div>
+        <h3>What is Qiskit?</h3>
+
+        <p>
+          <strong>Qiskit</strong> is a software development kit for working
+          with quantum circuits and quantum computers.
+        </p>
+
+        <p>
+          It allows programmers to construct quantum circuits using{" "}
+          <strong>Python</strong>, making it easier to connect familiar
+          classical programming with quantum operations.
+        </p>
+
+        <div className="cvq-analogy-box">
+          <span aria-hidden="true">🐍</span>
+
+          <div>
+            <strong>A bridge from Python to quantum computing</strong>
+            <p>
+              With Qiskit, Python code can create qubits, construct circuits,
+              apply quantum gates, run experiments, and process measurement
+              results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    {/* CARD 17 */}
+    <article className="cvq-lesson-card">
+      <span className="cvq-card-number">17</span>
+
+      <div>
+        <h3>Quantum programs are often hybrid</h3>
+
+        <p>
+          A real quantum application often contains both{" "}
+          <strong>classical code</strong> and a{" "}
+          <strong>quantum circuit</strong>.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>1</span>
+            <strong>Python</strong>
+            <p>Create and configure the quantum circuit.</p>
+          </div>
+
+          <div>
+            <span>2</span>
+            <strong>Quantum circuit</strong>
+            <p>Apply gates and manipulate qubits.</p>
+          </div>
+
+          <div>
+            <span>3</span>
+            <strong>Measurement</strong>
+            <p>Convert quantum information into classical results.</p>
+          </div>
+
+          <div>
+            <span>4</span>
+            <strong>Python again</strong>
+            <p>Analyze, display, and interpret those results.</p>
+          </div>
+        </div>
+
+        <p>
+          This is one reason Qiskit is useful for learning: students can use
+          familiar Python concepts while gradually learning the quantum
+          programming model.
+        </p>
+      </div>
+    </article>
+
+    {/* CARD 18 */}
+    <article className="cvq-lesson-card cvq-wide-card">
+      <span className="cvq-card-number">18</span>
+
+      <div>
+        <h3>The biggest shift is how we understand a program</h3>
+
+        <p>
+          The most important difference between classical and quantum
+          programming is not the programming language or syntax. It is{" "}
+          <strong>how we reason about the state of a computation</strong>.
+        </p>
+
+        <div className="cvq-key-differences">
+          <div>
+            <span>💻</span>
+            <strong>Classical thinking</strong>
+            <p>"What exact value does this variable contain?"</p>
+          </div>
+
+          <div>
+            <span>⚛️</span>
+            <strong>Quantum thinking</strong>
+            <p>"What quantum state have I prepared?"</p>
+          </div>
+
+          <div>
+            <span>📊</span>
+            <strong>Measurement thinking</strong>
+            <p>"What outcomes and probabilities should I expect?"</p>
+          </div>
+        </div>
+
+        <div className="cvq-analogy-box cvq-analogy-purple">
+          <span aria-hidden="true">⭐</span>
+
+          <div>
+            <strong>Key takeaway</strong>
+            <p>
+              Quantum programming is not simply classical programming with
+              different commands. Qubits, superposition, measurement,
+              reversibility, and probabilistic outcomes create a different
+              model of computation — and therefore require new ways to trace,
+              visualize, debug, and understand programs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
 
         <section className="cvq-code-section" id="comparison">
           <div className="cvq-section-heading">

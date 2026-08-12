@@ -65,149 +65,169 @@ const gates = {
 const quizQuestions = [
   {
     id: 1,
-    question: "What does the X gate do to a qubit in state |0⟩?",
+    question:
+      "What is one important difference between standard quantum gates and many classical logic operations?",
     options: [
-      "Changes it to |1⟩",
-      "Creates two qubits",
-      "Measures the qubit",
-      "Deletes the qubit",
+      "Quantum gates can only work with the value 1",
+      "Standard quantum gates are reversible before measurement",
+      "Classical gates always use qubits",
+      "Quantum gates cannot be combined",
     ],
-    answer: 0,
+    answer: 1,
     explanation:
-      "The X gate flips |0⟩ to |1⟩ and flips |1⟩ back to |0⟩.",
+      "Standard quantum gates are reversible before measurement, meaning their transformations can be undone using an inverse operation.",
   },
   {
     id: 2,
-    question: "Which gate is commonly used to create superposition?",
-    options: ["CNOT gate", "AND gate", "Hadamard gate", "NOT gate"],
+    question: "What does the X gate do to the basic qubit states?",
+    options: [
+      "It measures both states",
+      "It creates a second qubit",
+      "It flips |0⟩ to |1⟩ and |1⟩ to |0⟩",
+      "It always creates superposition",
+    ],
     answer: 2,
     explanation:
-      "The Hadamard gate can create an equal superposition of |0⟩ and |1⟩.",
+      "The X gate is the quantum bit-flip gate. It changes |0⟩ to |1⟩ and |1⟩ to |0⟩.",
   },
   {
     id: 3,
-    question: "How many qubits does a CNOT gate act on?",
-    options: ["One", "Two", "Three", "Four"],
-    answer: 1,
+    question:
+      "What does the matrix representation of a quantum gate describe?",
+    options: [
+      "How the gate transforms a quantum state",
+      "The physical size of the quantum computer",
+      "How many times a qubit has been measured",
+      "The programming language used to build the circuit",
+    ],
+    answer: 0,
     explanation:
-      "A CNOT gate uses one control qubit and one target qubit.",
+      "A gate's matrix is a mathematical description of how that gate transforms a quantum state. For example, the X matrix swaps the |0⟩ and |1⟩ components.",
   },
   {
     id: 4,
     question:
-      "What is an important difference between classical and quantum gates?",
+      "What state is produced when a Hadamard gate is applied to |0⟩?",
     options: [
-      "Quantum gates can operate on superposition states",
-      "Classical gates only work at night",
-      "Quantum gates never change information",
-      "Classical gates use qubits",
+      "|1⟩ only",
+      "|0⟩ only",
+      "(|0⟩ - |1⟩) / √2",
+      "(|0⟩ + |1⟩) / √2",
     ],
-    answer: 0,
+    answer: 3,
     explanation:
-      "Quantum gates can transform superpositions and other quantum states, while classical gates operate on definite bits.",
+      "Applying H to |0⟩ creates the balanced superposition (|0⟩ + |1⟩) / √2, giving equal probabilities of measuring 0 or 1.",
   },
   {
     id: 5,
-    question: "What happens when the X gate is applied to |1⟩?",
+    question:
+      "How does H|1⟩ differ from H|0⟩?",
     options: [
-      "The qubit stays in |1⟩",
-      "The qubit enters superposition",
-      "The qubit changes to |0⟩",
-      "The qubit is measured",
+      "H|1⟩ contains a minus sign between the |0⟩ and |1⟩ components",
+      "H|1⟩ always produces |0⟩",
+      "H|1⟩ cannot be measured",
+      "There is no difference between the two quantum states",
     ],
-    answer: 2,
+    answer: 0,
     explanation:
-      "The X gate is a bit-flip gate, so it changes |1⟩ into |0⟩.",
+      "H|0⟩ = (|0⟩ + |1⟩)/√2, while H|1⟩ = (|0⟩ - |1⟩)/√2. The minus sign represents a phase difference that can affect later interference.",
   },
   {
     id: 6,
     question:
-      "If a Hadamard gate is applied to a qubit starting in |0⟩, what are the measurement probabilities?",
+      "What happens to the target qubit of a CNOT gate when its control qubit is |1⟩?",
     options: [
-      "100% for 0 and 0% for 1",
-      "50% for 0 and 50% for 1",
-      "25% for 0 and 75% for 1",
-      "0% for 0 and 100% for 1",
-    ],
-    answer: 1,
-    explanation:
-      "Applying a Hadamard gate to |0⟩ creates an equal superposition, so 0 and 1 each have a 50% measurement probability.",
-  },
-  {
-    id: 7,
-    question: "What is the role of the control qubit in a CNOT gate?",
-    options: [
-      "It decides whether the target qubit is flipped",
-      "It is always measured first",
-      "It is deleted after the gate runs",
-      "It always changes from |0⟩ to |1⟩",
-    ],
-    answer: 0,
-    explanation:
-      "The control qubit determines whether the target qubit is flipped. The target flips only when the control is |1⟩.",
-  },
-  {
-    id: 8,
-    question:
-      "What happens to the target qubit in a CNOT gate when the control qubit is |0⟩?",
-    options: [
-      "The target is always changed to |1⟩",
-      "The target enters superposition",
       "The target is measured",
-      "The target stays unchanged",
+      "The target is deleted",
+      "The target always becomes |1⟩",
+      "The target is flipped",
     ],
     answer: 3,
     explanation:
-      "When the control qubit is |0⟩, the CNOT gate does not flip the target qubit.",
+      "When the CNOT control is |1⟩, the target is flipped. A target of |0⟩ becomes |1⟩, while |1⟩ becomes |0⟩.",
+  },
+  {
+    id: 7,
+    question:
+      "Which gate sequence can create an entangled Bell state starting from |00⟩?",
+    options: [
+      "Measure both qubits immediately",
+      "Apply X to both qubits",
+      "Apply H to the first qubit, then use it as the control of CNOT",
+      "Apply two classical NOT gates",
+    ],
+    answer: 2,
+    explanation:
+      "Applying H to the first qubit creates superposition. A following CNOT can then produce the entangled Bell state (|00⟩ + |11⟩) / √2.",
+  },
+  {
+    id: 8,
+    question: "Why can the order of gates matter in a quantum circuit?",
+    options: [
+      "Different gate orders can produce different quantum states",
+      "Quantum gates stop working after the first gate",
+      "Every gate automatically measures the qubit",
+      "Gate order only changes how the circuit looks",
+    ],
+    answer: 0,
+    explanation:
+      "Each gate acts on the state produced by earlier gates. Changing the order can therefore change amplitudes or phase and produce a different final quantum state.",
   },
   {
     id: 9,
     question:
-      "What happens to the target qubit in a CNOT gate when the control qubit is |1⟩?",
+      "Why is a classical AND gate not reversible?",
     options: [
-      "The target is deleted",
-      "The target is flipped",
-      "The target always becomes |0⟩",
-      "Nothing happens to either qubit",
+      "AND gates always output 1",
+      "Different input combinations can produce the same output, so information is lost",
+      "AND gates require three qubits",
+      "The AND gate creates superposition",
     ],
     answer: 1,
     explanation:
-      "When the control qubit is |1⟩, the CNOT gate flips the target qubit from |0⟩ to |1⟩ or from |1⟩ to |0⟩.",
+      "For example, 00, 01, and 10 all produce an AND output of 0. From that output alone, we cannot recover the original inputs.",
   },
   {
     id: 10,
-    question: "Which classical logic gate is most similar to the quantum X gate?",
-    options: ["AND gate", "OR gate", "NOT gate", "CNOT gate"],
-    answer: 2,
+    question:
+      "How does the Toffoli gate provide AND-like behavior while remaining reversible?",
+    options: [
+      "It measures its inputs before producing an answer",
+      "It preserves the control qubits and conditionally flips a target qubit",
+      "It converts all three qubits into classical bits",
+      "It permanently deletes the original inputs",
+    ],
+    answer: 1,
     explanation:
-      "The classical NOT gate and the quantum X gate both flip 0 to 1 and 1 to 0 for definite basis states.",
+      "The Toffoli gate has two controls and a target. It flips the target when both controls are 1 while preserving the control information, making the operation reversible.",
   },
   {
     id: 11,
-    question: "When does a classical AND gate output 1?",
+    question:
+      "Why is quantum interference important when building quantum algorithms?",
     options: [
-      "When at least one input is 1",
-      "When both inputs are 0",
-      "When the inputs are different",
-      "When both inputs are 1",
+      "It makes every measurement result equal to 1",
+      "It prevents quantum gates from interacting",
+      "It turns quantum circuits into classical circuits",
+      "It can reinforce useful amplitudes and cancel unwanted ones",
     ],
     answer: 3,
     explanation:
-      "A classical AND gate outputs 1 only when both of its input bits are 1.",
+      "Quantum algorithms can arrange gates so amplitudes interfere, increasing the probability of useful outcomes while reducing other possibilities.",
   },
   {
     id: 12,
     question:
-      "Why can quantum gates do more than classical logic gates in some situations?",
+      "Why are quantum gates considered the building blocks of quantum algorithms?",
     options: [
-      "They can transform amplitudes and superposition states",
-      "They never require qubits",
-      "They always produce the same output",
-      "They replace every classical program",
+      "Every quantum algorithm uses only the X gate",
+      "Quantum gates remove the need for qubits",
+      "A single gate automatically solves any quantum problem",
+      "Quantum algorithms are constructed from carefully arranged sequences of gate operations",
     ],
-    answer: 0,
+    answer: 3,
     explanation:
-      "Quantum gates can transform probability amplitudes and superposition states, which classical gates do not process.",
+      "Quantum algorithms are implemented as circuits containing carefully ordered quantum gates that manipulate qubits, superposition, phase, interference, and entanglement.",
   },
 ];
 
@@ -383,143 +403,744 @@ function QuantumGatesModule() {
         </section>
 
         <section className="qgm-lesson-section" id="lesson">
-          <div className="qgm-section-heading">
-            <p className="qgm-section-label">LESSON 1</p>
-            <h2>What are quantum gates?</h2>
-            <p>
-              Quantum gates are operations that change the state of one or more
-              qubits. They are the building blocks of quantum circuits.
-            </p>
-          </div>
+  <div className="qgm-section-heading">
+    <p className="qgm-section-label">LESSON 1</p>
+    <h2>What are quantum gates?</h2>
+    <p>
+      Quantum gates are operations that transform the state of one or more
+      qubits. They are the basic building blocks of quantum circuits and
+      quantum algorithms.
+    </p>
+  </div>
 
-          <div className="qgm-introduction-card">
-            <div className="qgm-introduction-icon">⚙️</div>
+  <div className="qgm-introduction-card">
+    <div className="qgm-introduction-icon">⚙️</div>
 
-            <div>
-              <h3>Instructions for qubits</h3>
+    <div>
+      <h3>Instructions for quantum states</h3>
 
-              <p>
-                In a classical program, logic gates transform ordinary bits.
-                For example, a NOT gate changes 0 into 1.
-              </p>
+      <p>
+        In classical computing, logic gates such as NOT, AND, and OR transform
+        ordinary bits. Quantum gates also transform information, but they act
+        on qubits and quantum states.
+      </p>
 
-              <p>
-                Quantum gates also transform information, but they act on
-                qubits. Since qubits can be in superposition, quantum gates can
-                create and manipulate combinations of possible states.
-              </p>
-            </div>
+      <p>
+        Because qubits can be in superposition or become entangled, quantum
+        gates must be able to transform more than just definite 0 and 1 values.
+        They can change amplitudes, phase relationships, and correlations
+        between qubits.
+      </p>
 
-            <div className="qgm-lesson-highlight">
-              <span>Key idea</span>
-              <strong>
-                Quantum gates change probability amplitudes, not just ordinary
-                0 and 1 values.
-              </strong>
-            </div>
-          </div>
+      <p>
+        Standard quantum gates are also <strong>reversible</strong> before
+        measurement. This means their transformations can be undone by an
+        inverse gate.
+      </p>
+    </div>
 
-          <div className="qgm-gate-lesson-grid">
-            <article className="qgm-gate-lesson-card qgm-x-card">
-              <div className="qgm-gate-card-top">
-                <span className="qgm-gate-symbol">X</span>
-                <span className="qgm-gate-number">01</span>
-              </div>
+    <div className="qgm-lesson-highlight">
+      <span>Key idea</span>
+      <strong>
+        Quantum gates do not simply change bits. They transform entire quantum
+        states in a reversible way.
+      </strong>
+    </div>
+  </div>
 
-              <h3>X Gate</h3>
-              <p className="qgm-gate-subtitle">The quantum bit flip</p>
+  <div className="qgm-gate-lesson-grid">
+    <article className="qgm-gate-lesson-card qgm-x-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">X</span>
+        <span className="qgm-gate-number">01</span>
+      </div>
 
-              <p>
-                The X gate changes <strong>|0⟩ into |1⟩</strong> and changes{" "}
-                <strong>|1⟩ into |0⟩</strong>.
-              </p>
+      <h3>X Gate</h3>
+      <p className="qgm-gate-subtitle">The quantum bit flip</p>
 
-              <div className="qgm-analogy-box">
-                <span>💡</span>
+      <p>
+        The X gate is one of the simplest quantum gates. It flips the two basic
+        qubit states:
+      </p>
 
-                <div>
-                  <strong>Light switch analogy</strong>
-                  <p>
-                    The X gate behaves like flipping a switch from off to on or
-                    from on to off.
-                  </p>
-                </div>
-              </div>
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>X</strong>
+        <span>|1⟩</span>
+      </div>
 
-              <div className="qgm-mini-equation">
-                <span>|0⟩</span>
-                <strong>X</strong>
-                <span>|1⟩</span>
-              </div>
-            </article>
+      <div className="qgm-mini-equation">
+        <span>|1⟩</span>
+        <strong>X</strong>
+        <span>|0⟩</span>
+      </div>
 
-            <article className="qgm-gate-lesson-card qgm-h-card">
-              <div className="qgm-gate-card-top">
-                <span className="qgm-gate-symbol">H</span>
-                <span className="qgm-gate-number">02</span>
-              </div>
+      <p>
+        This makes the X gate similar to the classical NOT gate when the input
+        is definitely |0⟩ or |1⟩.
+      </p>
 
-              <h3>Hadamard Gate</h3>
-              <p className="qgm-gate-subtitle">The superposition maker</p>
+      <div className="qgm-analogy-box">
+        <span>💡</span>
 
-              <p>
-                The Hadamard gate can transform a definite qubit into a
-                superposition with equal probabilities of measuring 0 or 1.
-              </p>
+        <div>
+          <strong>Light switch analogy</strong>
+          <p>
+            Think of |0⟩ as OFF and |1⟩ as ON. The X gate flips the switch in
+            either direction.
+          </p>
+        </div>
+      </div>
 
-              <div className="qgm-analogy-box qgm-purple-analogy">
-                <span>🪙</span>
+      <p>
+        Quantum gates can be represented using matrices. The X gate is written
+        as:
+      </p>
 
-                <div>
-                  <strong>Spinning coin analogy</strong>
-                  <p>
-                    It is like changing a resting coin into a spinning coin
-                    with two possible outcomes.
-                  </p>
-                </div>
-              </div>
+      <div className="qgm-mini-equation">
+        <span>X =</span>
+        <strong>[0 1; 1 0]</strong>
+      </div>
 
-              <div className="qgm-mini-equation">
-                <span>|0⟩</span>
-                <strong>H</strong>
-                <span>50% / 50%</span>
-              </div>
-            </article>
+      <p>
+        You do not need to multiply matrices yet. For now, think of this matrix
+        as a rule that swaps the |0⟩ and |1⟩ parts of a quantum state.
+      </p>
+    </article>
 
-            <article className="qgm-gate-lesson-card qgm-cnot-card">
-              <div className="qgm-gate-card-top">
-                <span className="qgm-gate-symbol">CX</span>
-                <span className="qgm-gate-number">03</span>
-              </div>
+    <article className="qgm-gate-lesson-card qgm-h-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">H</span>
+        <span className="qgm-gate-number">02</span>
+      </div>
 
-              <h3>CNOT Gate</h3>
-              <p className="qgm-gate-subtitle">The controlled bit flip</p>
+      <h3>Hadamard Gate</h3>
+      <p className="qgm-gate-subtitle">The superposition gate</p>
 
-              <p>
-                CNOT acts on two qubits. It flips the target qubit only when
-                the control qubit is in state |1⟩.
-              </p>
+      <p>
+        The Hadamard gate is one of the most important gates in quantum
+        computing because it can create superposition.
+      </p>
 
-              <div className="qgm-analogy-box qgm-blue-analogy">
-                <span>🔐</span>
+      <p>
+        If a qubit starts in |0⟩:
+      </p>
 
-                <div>
-                  <strong>Key and lock analogy</strong>
-                  <p>
-                    The target switch works only when the control key is
-                    activated.
-                  </p>
-                </div>
-              </div>
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>H</strong>
+        <span>(|0⟩ + |1⟩) / √2</span>
+      </div>
 
-              <div className="qgm-mini-equation">
-                <span>|10⟩</span>
-                <strong>CX</strong>
-                <span>|11⟩</span>
-              </div>
-            </article>
-          </div>
-        </section>
+      <p>
+        This state gives equal probabilities of measuring 0 or 1.
+      </p>
+
+      <p>
+        If the qubit starts in |1⟩:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|1⟩</span>
+        <strong>H</strong>
+        <span>(|0⟩ - |1⟩) / √2</span>
+      </div>
+
+      <p>
+        Both states have 50/50 measurement probabilities, but the plus and
+        minus signs represent a difference in <strong>quantum phase</strong>.
+        That difference can affect later interference.
+      </p>
+
+      <div className="qgm-analogy-box qgm-purple-analogy">
+        <span>🌊</span>
+
+        <div>
+          <strong>Wave analogy</strong>
+          <p>
+            Quantum amplitudes can reinforce or cancel like waves. The
+            Hadamard gate helps create states that later gates can interfere in
+            useful ways.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Applying H twice returns the qubit to its original state, which is
+        another example of reversibility.
+      </p>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-cnot-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">CX</span>
+        <span className="qgm-gate-number">03</span>
+      </div>
+
+      <h3>CNOT Gate</h3>
+      <p className="qgm-gate-subtitle">The controlled bit flip</p>
+
+      <p>
+        The CNOT gate acts on <strong>two qubits</strong>. One is the{" "}
+        <strong>control</strong> qubit and the other is the{" "}
+        <strong>target</strong> qubit.
+      </p>
+
+      <p>
+        The rule is simple:
+      </p>
+
+      <div className="qgm-analogy-box qgm-blue-analogy">
+        <span>🎛️</span>
+
+        <div>
+          <strong>Control and target</strong>
+          <p>
+            If the control qubit is |0⟩, leave the target unchanged. If the
+            control qubit is |1⟩, flip the target.
+          </p>
+        </div>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>|00⟩</span>
+        <strong>CX</strong>
+        <span>|00⟩</span>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>|01⟩</span>
+        <strong>CX</strong>
+        <span>|01⟩</span>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>|10⟩</span>
+        <strong>CX</strong>
+        <span>|11⟩</span>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>|11⟩</span>
+        <strong>CX</strong>
+        <span>|10⟩</span>
+      </div>
+
+      <p>
+        CNOT becomes especially important when the control qubit is in
+        superposition. In that case, it can help create entanglement.
+      </p>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">H+CX</span>
+        <span className="qgm-gate-number">04</span>
+      </div>
+
+      <h3>Creating entanglement with H and CNOT</h3>
+      <p className="qgm-gate-subtitle">A powerful two-gate pattern</p>
+
+      <p>
+        One of the most important introductory quantum circuit patterns uses a
+        Hadamard gate followed by a CNOT gate.
+      </p>
+
+      <p>
+        Start with two qubits in:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|00⟩</span>
+        <strong>Start</strong>
+        <span>Two separate qubits</span>
+      </div>
+
+      <p>
+        Apply H to the first qubit:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|00⟩</span>
+        <strong>H</strong>
+        <span>(|00⟩ + |10⟩) / √2</span>
+      </div>
+
+      <p>
+        Then use the first qubit as the control of a CNOT:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>(|00⟩ + |10⟩) / √2</span>
+        <strong>CX</strong>
+        <span>(|00⟩ + |11⟩) / √2</span>
+      </div>
+
+      <div className="qgm-analogy-box qgm-purple-analogy">
+        <span>🔗</span>
+
+        <div>
+          <strong>Bell state</strong>
+          <p>
+            The result is an entangled state called a Bell state. Measuring
+            both qubits gives correlated outcomes such as 00 or 11.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">→</span>
+        <span className="qgm-gate-number">05</span>
+      </div>
+
+      <h3>Quantum gates combine into circuits</h3>
+      <p className="qgm-gate-subtitle">Sequences of transformations</p>
+
+      <p>
+        A useful quantum program normally contains many gates arranged in a
+        sequence. Together, those gates form a <strong>quantum circuit</strong>.
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>H → X → H</strong>
+        <span>Measure</span>
+      </div>
+
+      <p>
+        Each gate acts on the state produced by the gates before it. This means
+        the circuit is a chain of transformations rather than a collection of
+        unrelated instructions.
+      </p>
+
+      <div className="qgm-analogy-box">
+        <span>🧩</span>
+
+        <div>
+          <strong>Building a sequence</strong>
+          <p>
+            A single gate is like one instruction. A circuit combines many
+            instructions into a complete quantum computation.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">↔</span>
+        <span className="qgm-gate-number">06</span>
+      </div>
+
+      <h3>Why gate order matters</h3>
+      <p className="qgm-gate-subtitle">H then X is not always the same as X then H</p>
+
+      <p>
+        In quantum circuits, changing the order of gates can change the final
+        quantum state.
+      </p>
+
+      <p>
+        Starting with |0⟩, consider H followed by X:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>H → X</strong>
+        <span>(|0⟩ + |1⟩) / √2</span>
+      </div>
+
+      <p>
+        Now reverse the order:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>X → H</strong>
+        <span>(|0⟩ - |1⟩) / √2</span>
+      </div>
+
+      <p>
+        The measurement probabilities may look the same at this point, but the
+        phase is different. Later gates can reveal that difference.
+      </p>
+
+      <div className="qgm-lesson-highlight">
+        <span>Important</span>
+        <strong>
+          Quantum gates do not always commute. The order in which you apply
+          them can matter.
+        </strong>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-x-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">NOT</span>
+        <span className="qgm-gate-number">07</span>
+      </div>
+
+      <h3>Classical NOT vs quantum X</h3>
+      <p className="qgm-gate-subtitle">Similar behavior, different model</p>
+
+      <p>
+        A classical NOT gate flips:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>0</span>
+        <strong>NOT</strong>
+        <span>1</span>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>1</span>
+        <strong>NOT</strong>
+        <span>0</span>
+      </div>
+
+      <p>
+        The X gate behaves the same way for the basic quantum states:
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>|0⟩</span>
+        <strong>X</strong>
+        <span>|1⟩</span>
+      </div>
+
+      <p>
+        But X can also act on superpositions. It swaps the |0⟩ and |1⟩
+        components of the entire quantum state.
+      </p>
+
+      <div className="qgm-analogy-box">
+        <span>⚖️</span>
+
+        <div>
+          <strong>The key difference</strong>
+          <p>
+            Classical NOT only handles definite bits. Quantum X must also
+            preserve amplitudes and phase relationships.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-cnot-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">AND</span>
+        <span className="qgm-gate-number">08</span>
+      </div>
+
+      <h3>Classical AND is not reversible</h3>
+      <p className="qgm-gate-subtitle">Information can be lost</p>
+
+      <p>
+        A classical AND gate outputs 1 only when both inputs are 1.
+      </p>
+
+      <div className="qgm-mini-equation">
+        <span>00, 01, 10</span>
+        <strong>AND</strong>
+        <span>0</span>
+      </div>
+
+      <div className="qgm-mini-equation">
+        <span>11</span>
+        <strong>AND</strong>
+        <span>1</span>
+      </div>
+
+      <p>
+        If we only know that the output was 0, we cannot tell whether the
+        original input was 00, 01, or 10. Information has been lost.
+      </p>
+
+      <div className="qgm-lesson-highlight">
+        <span>Key difference</span>
+        <strong>
+          Standard quantum gates must preserve enough information for the
+          operation to be reversible.
+        </strong>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">CCX</span>
+        <span className="qgm-gate-number">09</span>
+      </div>
+
+      <h3>The Toffoli gate: reversible AND-like logic</h3>
+      <p className="qgm-gate-subtitle">Two controls and one target</p>
+
+      <p>
+        The <strong>Toffoli gate</strong> is a three-qubit gate with two
+        control qubits and one target qubit.
+      </p>
+
+      <p>
+        The target flips only when both controls are |1⟩.
+      </p>
+
+      <div className="qgm-analogy-box qgm-blue-analogy">
+        <span>🔐</span>
+
+        <div>
+          <strong>Two-key lock analogy</strong>
+          <p>
+            Imagine a lock that changes the target switch only when two
+            separate keys are both activated.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        Unlike a classical AND gate, the Toffoli gate keeps the original
+        control information. Because the information is preserved, the
+        operation is reversible.
+      </p>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">🌊</span>
+        <span className="qgm-gate-number">10</span>
+      </div>
+
+      <h3>Quantum gates control interference</h3>
+      <p className="qgm-gate-subtitle">Shaping useful probabilities</p>
+
+      <p>
+        Quantum algorithms do not simply create superposition and hope for the
+        correct answer.
+      </p>
+
+      <p>
+        Gates are arranged so that quantum amplitudes can interfere. Some
+        possibilities reinforce each other while others cancel.
+      </p>
+
+      <div className="qgm-analogy-box qgm-purple-analogy">
+        <span>🌊</span>
+
+        <div>
+          <strong>Think about overlapping waves</strong>
+          <p>
+            Waves that line up become stronger. Waves that oppose each other
+            can cancel. Quantum gates can create similar interference effects
+            between amplitudes.
+          </p>
+        </div>
+      </div>
+
+      <p>
+        A quantum algorithm may therefore use gates to increase the probability
+        of useful answers and reduce the probability of unwanted ones before
+        measurement.
+      </p>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">ALG</span>
+        <span className="qgm-gate-number">11</span>
+      </div>
+
+      <h3>Gates are the building blocks of quantum algorithms</h3>
+      <p className="qgm-gate-subtitle">From simple operations to useful computation</p>
+
+      <p>
+        Just as classical programs combine instructions into larger
+        applications, quantum algorithms combine gates into carefully designed
+        circuits.
+      </p>
+
+      <div className="qgm-key-differences">
+        <div>
+          <span>🔐</span>
+          <strong>Shor's algorithm</strong>
+          <p>
+            Uses structured quantum operations to solve problems related to
+            integer factoring.
+          </p>
+        </div>
+
+        <div>
+          <span>🔎</span>
+          <strong>Grover's algorithm</strong>
+          <p>
+            Uses superposition and interference to improve certain search
+            problems.
+          </p>
+        </div>
+
+        <div>
+          <span>🧪</span>
+          <strong>Quantum simulation</strong>
+          <p>
+            Uses gate sequences to model molecules and other quantum systems.
+          </p>
+        </div>
+
+        <div>
+          <span>🛡️</span>
+          <strong>Error correction</strong>
+          <p>
+            Uses large networks of gates to detect and correct certain quantum
+            errors.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">HW</span>
+        <span className="qgm-gate-number">12</span>
+      </div>
+
+      <h3>From circuit diagrams to real hardware</h3>
+      <p className="qgm-gate-subtitle">Software instructions become physical actions</p>
+
+      <p>
+        In a circuit diagram, a quantum gate looks like a simple box. On real
+        quantum hardware, that gate must be implemented as a physical control
+        operation.
+      </p>
+
+      <p>
+        Different technologies use different kinds of qubits, including
+        superconducting circuits, trapped ions, neutral atoms, and photons.
+      </p>
+
+      <div className="qgm-key-differences">
+        <div>
+          <span>1</span>
+          <strong>Algorithm</strong>
+          <p>Describe the quantum computation we want to perform.</p>
+        </div>
+
+        <div>
+          <span>2</span>
+          <strong>Circuit</strong>
+          <p>Express the algorithm as a sequence of quantum gates.</p>
+        </div>
+
+        <div>
+          <span>3</span>
+          <strong>Hardware</strong>
+          <p>
+            Translate the gates into physical control signals such as
+            microwave or laser pulses.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">✓</span>
+        <span className="qgm-gate-number">13</span>
+      </div>
+
+      <h3>Why gate accuracy matters</h3>
+      <p className="qgm-gate-subtitle">Real quantum gates are not perfect</p>
+
+      <p>
+        The gates we study in theory perform exact mathematical
+        transformations. Physical quantum computers must approximate those
+        operations in the real world.
+      </p>
+
+      <p>
+        Qubits are sensitive to noise and unwanted interactions, so each gate
+        can introduce a small error.
+      </p>
+
+      <p>
+        If a circuit contains many gates, those errors can accumulate. That is
+        why researchers work on:
+      </p>
+
+      <div className="qgm-key-differences">
+        <div>
+          <span>🎯</span>
+          <strong>Gate fidelity</strong>
+          <p>Making each gate as accurate as possible.</p>
+        </div>
+
+        <div>
+          <span>🔇</span>
+          <strong>Noise reduction</strong>
+          <p>Protecting qubits from unwanted environmental effects.</p>
+        </div>
+
+        <div>
+          <span>✂️</span>
+          <strong>Shorter circuits</strong>
+          <p>Using fewer operations when possible.</p>
+        </div>
+
+        <div>
+          <span>🛡️</span>
+          <strong>Error correction</strong>
+          <p>Detecting and correcting errors in larger quantum systems.</p>
+        </div>
+      </div>
+    </article>
+
+    <article className="qgm-gate-lesson-card qgm-wide-card">
+      <div className="qgm-gate-card-top">
+        <span className="qgm-gate-symbol">⭐</span>
+        <span className="qgm-gate-number">14</span>
+      </div>
+
+      <h3>Three gates to remember</h3>
+      <p className="qgm-gate-subtitle">Your core quantum gate toolkit</p>
+
+      <div className="qgm-key-differences">
+        <div>
+          <span>X</span>
+          <strong>X Gate</strong>
+          <p>
+            Flips |0⟩ and |1⟩. Think: <strong>flip</strong>.
+          </p>
+        </div>
+
+        <div>
+          <span>H</span>
+          <strong>Hadamard Gate</strong>
+          <p>
+            Creates superposition and enables interference. Think:{" "}
+            <strong>superposition</strong>.
+          </p>
+        </div>
+
+        <div>
+          <span>CX</span>
+          <strong>CNOT Gate</strong>
+          <p>
+            Flips a target depending on a control qubit. Think:{" "}
+            <strong>controlled flip</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div className="qgm-lesson-highlight">
+        <span>Key takeaway</span>
+        <strong>
+          Quantum algorithms are built from carefully ordered sequences of
+          reversible gates that manipulate amplitudes, phase, superposition,
+          and correlations between qubits.
+        </strong>
+      </div>
+    </article>
+  </div>
+</section>
 
         <section className="qgm-explorer-section" id="explorer">
           <div className="qgm-section-heading">

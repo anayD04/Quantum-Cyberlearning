@@ -51,12 +51,12 @@ const quizQuestions = [
     question:
       "What makes a quantum computer fundamentally different from a classical computer?",
     options: [
-      "It uses quantum states such as superposition and entanglement",
       "It always runs every program faster",
       "It does not use information",
+      "It uses quantum states such as superposition and entanglement",
       "It only works without instructions",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
       "Quantum computers use quantum states and effects such as superposition, interference, and entanglement, which gives them a different model of computation.",
   },
@@ -64,12 +64,12 @@ const quizQuestions = [
     id: 2,
     question: "Which is a possible real-world application of quantum computing?",
     options: [
-      "Changing the color of a keyboard",
       "Drug discovery and molecular simulation",
+      "Changing the color of a keyboard",
       "Replacing every smartphone app",
       "Making web pages load instantly",
     ],
-    answer: 1,
+    answer: 0,
     explanation:
       "Quantum computers may eventually help simulate molecules and materials, which could support drug discovery and chemistry research.",
   },
@@ -80,10 +80,10 @@ const quizQuestions = [
     options: [
       "Quantum computers cannot perform mathematics",
       "Cryptography only works on quantum computers",
-      "Large quantum computers could affect some current encryption methods",
       "Quantum computers automatically make every password secure",
+      "Large quantum computers could affect some current encryption methods",
     ],
-    answer: 2,
+    answer: 3,
     explanation:
       "Some important cryptographic systems rely on problems that sufficiently powerful quantum computers could solve differently, which is why post-quantum cryptography is being developed.",
   },
@@ -94,10 +94,10 @@ const quizQuestions = [
     options: [
       "That classical computers should replace physics experiments",
       "That quantum computers were already ready for everyday use",
-      "That all encryption should be removed",
       "That quantum systems might be better simulated by computers using quantum rules",
+      "That all encryption should be removed",
     ],
-    answer: 3,
+    answer: 2,
     explanation:
       "Feynman argued that simulating quantum physics with ordinary computers could be difficult and suggested using computers based on quantum principles.",
   },
@@ -105,12 +105,12 @@ const quizQuestions = [
     id: 5,
     question: "What is the main difference between a classical bit and a qubit?",
     options: [
-      "A classical bit stores a definite 0 or 1, while a qubit can exist in a quantum state involving both possibilities",
       "A qubit can only store the number 2",
       "A classical bit uses entanglement",
       "A qubit is just a faster version of a normal bit",
+      "A classical bit stores a definite 0 or 1, while a qubit can exist in a quantum state involving both possibilities",
     ],
-    answer: 0,
+    answer: 3,
     explanation:
       "A classical bit has one definite value at a time, while a qubit can exist in a superposition involving both |0⟩ and |1⟩ before measurement.",
   },
@@ -133,11 +133,11 @@ const quizQuestions = [
     question: "What does superposition mean more accurately?",
     options: [
       "A qubit is secretly either 0 or 1 and nothing else",
-      "A qubit has no state until a computer turns on",
       "A qubit can have quantum possibilities for both 0 and 1, including information that can interfere",
+      "A qubit has no state until a computer turns on",
       "A qubit always produces both 0 and 1 when measured",
     ],
-    answer: 2,
+    answer: 1,
     explanation:
       "Superposition means the qubit's quantum state can involve both |0⟩ and |1⟩ possibilities, along with amplitude and phase information that affects interference.",
   },
@@ -159,12 +159,12 @@ const quizQuestions = [
     id: 9,
     question: "What happens when a qubit in superposition is measured?",
     options: [
-      "It produces a definite classical result such as 0 or 1",
       "It reveals every possible value at once",
       "It becomes permanently entangled",
+      "It produces a definite classical result such as 0 or 1",
       "It turns into a classical computer",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
       "Measurement produces a definite classical outcome, such as 0 or 1, from the qubit's quantum state.",
   },
@@ -187,12 +187,12 @@ const quizQuestions = [
     question:
       "Which statement best describes the relationship between classical and quantum computers?",
     options: [
+      "They are different computing models with different strengths",
       "Quantum computers will replace every classical computer",
       "Classical computers cannot solve useful problems",
-      "They are different computing models with different strengths",
       "Quantum computers are only useful for browsing the internet",
     ],
-    answer: 2,
+    answer: 0,
     explanation:
       "Classical and quantum computers use different models of computation and are suited to different kinds of problems.",
   },
@@ -201,12 +201,12 @@ const quizQuestions = [
     question:
       "What is the most important question when thinking about quantum advantage?",
     options: [
+      "For which problems can quantum methods outperform the best classical approaches?",
       "Can a quantum computer make every task faster?",
       "Can a quantum computer replace all laptops?",
       "Can a quantum computer avoid measurement?",
-      "For which problems can quantum methods outperform the best classical approaches?",
     ],
-    answer: 3,
+    answer: 0,
     explanation:
       "Quantum computing is not about universal speed. The key question is which problems have structure that quantum algorithms can exploit better than classical methods.",
   },

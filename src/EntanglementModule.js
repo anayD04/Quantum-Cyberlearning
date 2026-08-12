@@ -5,164 +5,171 @@ import { useProgress } from "./ProgressContext";
 const quizQuestions = [
   {
     id: 1,
-    question: "What is quantum entanglement?",
+    question:
+      "What is the best description of quantum entanglement?",
     options: [
-      "A shared quantum state involving multiple qubits",
-      "A broken quantum computer",
-      "A faster type of classical wire",
-      "A qubit that is always equal to 1",
-    ],
-    answer: 0,
-    explanation:
-      "Entangled qubits are described by one shared quantum state rather than completely independent states.",
-  },
-  {
-    id: 2,
-    question: "Which two gates can create a Bell pair from |00⟩?",
-    options: [
-      "Two measurement gates",
-      "Hadamard followed by CNOT",
-      "Only an X gate",
-      "AND followed by NOT",
+      "Two qubits that always store the same classical value",
+      "A shared quantum state involving multiple qubits whose outcomes can be strongly correlated",
+      "A faster type of classical connection",
+      "A measurement that copies one qubit into another",
     ],
     answer: 1,
     explanation:
-      "Applying H to the first qubit and then CNOT creates the Bell state (|00⟩ + |11⟩) / √2.",
+      "Entangled qubits are described by a shared quantum state, and their measurement outcomes can show correlations that cannot be understood by treating the qubits independently.",
+  },
+  {
+    id: 2,
+    question:
+      "Why did Einstein famously describe entanglement as 'spooky action at a distance'?",
+    options: [
+      "Because entangled particles can remain strongly correlated even when separated by large distances",
+      "Because quantum computers only work in darkness",
+      "Because entangled qubits always communicate messages instantly",
+      "Because measurement makes particles physically disappear",
+    ],
+    answer: 0,
+    explanation:
+      "Einstein was concerned by the fact that entangled systems can show strong correlations even when the particles are widely separated.",
   },
   {
     id: 3,
     question:
-      "What results can appear when the Bell pair in this lesson is measured?",
+      "Which sequence can create the Bell state (|00⟩ + |11⟩) / √2 starting from |00⟩?",
     options: [
-      "Only 01",
-      "Only 10",
-      "00 or 11",
-      "00, 01, 10, and 11 equally",
+      "Apply CNOT first, then measure both qubits",
+      "Apply X to both qubits",
+      "Apply H to the first qubit, then apply CNOT using it as the control",
+      "Apply two classical NOT gates",
     ],
     answer: 2,
     explanation:
-      "The Bell pair produces correlated outcomes: both qubits are measured as 0 or both are measured as 1.",
+      "The Hadamard gate first places the control qubit into superposition, and the following CNOT turns that into an entangled Bell state.",
   },
   {
     id: 4,
-    question: "Which statement about entanglement is correct?",
+    question:
+      "What is special about Bell states?",
     options: [
-      "It allows instant messages to be sent faster than light",
-      "It means both qubits always have known classical values",
-      "It is identical to copying two classical bits",
-      "It creates correlations that cannot be fully explained by predetermined classical values",
+      "They contain only one qubit",
+      "They are classical states stored twice",
+      "They can never be measured",
+      "They are maximally entangled states of two qubits",
     ],
     answer: 3,
     explanation:
-      "Entanglement produces genuinely quantum correlations, but it cannot be used by itself to send information faster than light.",
+      "Bell states are the simplest maximally entangled two-qubit states and are central to quantum information and communication.",
   },
   {
     id: 5,
-    question: "What is a Bell state?",
+    question:
+      "What measurement outcomes are possible for the Bell state (|01⟩ + |10⟩) / √2 in the computational basis?",
     options: [
-      "A maximally entangled state involving two qubits",
-      "A classical bit stored twice",
-      "A measurement device",
-      "A qubit that is always |0⟩",
+      "00 or 11",
+      "01 or 10",
+      "Only 00",
+      "All four outcomes equally",
     ],
-    answer: 0,
+    answer: 1,
     explanation:
-      "A Bell state is a maximally entangled two-qubit state with strong quantum correlations.",
+      "This Bell state produces opposite measurement results: if one qubit is measured as 0, the other is 1, and vice versa.",
   },
   {
     id: 6,
     question:
-      "What does the Hadamard gate do before the CNOT gate creates entanglement?",
+      "What does measurement do to an entangled pair in the standard introductory description?",
     options: [
-      "It measures both qubits",
-      "It places the control qubit into superposition",
-      "It deletes the target qubit",
-      "It turns both qubits into classical bits",
-    ],
-    answer: 1,
-    explanation:
-      "The Hadamard gate first places the control qubit into superposition, allowing the following CNOT gate to entangle the pair.",
-  },
-  {
-    id: 7,
-    question: "What is the role of the CNOT gate when creating a Bell pair?",
-    options: [
-      "It measures the first qubit",
       "It creates a third qubit",
-      "It flips the target depending on the control qubit",
-      "It removes superposition from every qubit",
+      "It always destroys both qubits",
+      "It causes the shared quantum state to collapse to an outcome consistent with the measurement",
+      "It reveals hidden classical values that were fixed from the beginning",
     ],
     answer: 2,
     explanation:
-      "The CNOT gate flips the target qubit when the control is |1⟩, linking the two qubits into a shared state.",
+      "Measurement is described as collapsing the joint entangled state to a result consistent with the observed outcome.",
+  },
+  {
+    id: 7,
+    question:
+      "Why is classical correlation different from quantum entanglement?",
+    options: [
+      "Classical correlation can often be explained by values that were already fixed, while entangled correlations cannot be reproduced by local hidden-variable models",
+      "Classical correlation always requires qubits",
+      "Entanglement only works when particles are touching",
+      "There is no meaningful difference",
+    ],
+    answer: 0,
+    explanation:
+      "Classical correlations can come from predetermined shared information, while Bell-test experiments show that entangled correlations cannot be explained by local hidden-variable theories.",
   },
   {
     id: 8,
     question:
-      "If one qubit in the Bell state (|00⟩ + |11⟩) / √2 is measured as 1, what will the other qubit be measured as?",
+      "Why does entanglement not allow faster-than-light communication?",
     options: [
-      "It must be 0",
-      "It could be any decimal number",
-      "It disappears",
-      "It will also be 1",
+      "Because entangled particles cannot be separated",
+      "Because the measurement outcome cannot be chosen or controlled to encode a message",
+      "Because CNOT gates are too slow",
+      "Because measurement always gives 0",
     ],
-    answer: 3,
+    answer: 1,
     explanation:
-      "In this Bell state, the measurement results are correlated, so measuring one qubit as 1 means the other is also measured as 1.",
+      "Each local measurement result is random, so a sender cannot choose an outcome to transmit information. Classical communication is still needed to compare results.",
   },
   {
     id: 9,
     question:
-      "How is classical correlation different from quantum entanglement?",
+      "Which statement best describes quantum teleportation?",
     options: [
-      "Classical correlation can be explained by values chosen in advance",
-      "Classical correlation always uses qubits",
-      "Entanglement is caused by ordinary wires",
-      "There is no difference",
+      "It transports matter instantly across space",
+      "It copies an unknown quantum state perfectly",
+      "It transfers a quantum state using entanglement, measurement, and classical communication",
+      "It sends information faster than light",
     ],
-    answer: 0,
+    answer: 2,
     explanation:
-      "Classically correlated objects can carry predetermined values, while entangled systems can produce correlations that cannot be fully explained that way.",
+      "Quantum teleportation transfers the information defining a quantum state using shared entanglement, measurement, and classical communication.",
   },
   {
     id: 10,
     question:
-      "Why does measuring one entangled qubit not allow faster-than-light communication?",
+      "What role does entanglement play in superdense coding?",
     options: [
-      "Entangled qubits cannot be measured",
-      "The individual result is random and cannot be controlled",
-      "The second qubit always disappears",
-      "CNOT gates are too slow",
+      "It allows a pre-shared entangled pair to help communicate two classical bits by sending one qubit",
+      "It removes the need to send any physical system",
+      "It guarantees unlimited communication speed",
+      "It converts every classical bit into two qubits",
     ],
-    answer: 1,
+    answer: 0,
     explanation:
-      "Although the results are correlated, a person cannot choose the outcome of an individual measurement, so no controllable message is sent.",
+      "With a shared entangled pair, superdense coding allows two classical bits of information to be communicated by sending one qubit under the protocol.",
   },
   {
     id: 11,
-    question: "Why is entanglement useful in quantum computing?",
+    question:
+      "Which is a real area where entanglement can be useful?",
     options: [
-      "It makes every calculation instantly correct",
-      "It replaces all classical computers",
-      "It allows qubits to share correlations used by quantum algorithms",
-      "It prevents qubits from changing",
-    ],
-    answer: 2,
-    explanation:
-      "Entanglement allows quantum algorithms to coordinate information across multiple qubits in ways classical systems cannot directly reproduce.",
-  },
-  {
-    id: 12,
-    question: "Which application can use quantum entanglement?",
-    options: [
-      "Ordinary text formatting only",
-      "Classical light switches",
-      "Saving a normal image file",
-      "Quantum teleportation and quantum communication",
+      "Making ordinary web pages load instantly",
+      "Replacing all classical encryption with no communication",
+      "Preventing every type of quantum error automatically",
+      "Quantum key distribution, quantum networks, and quantum sensing",
     ],
     answer: 3,
     explanation:
-      "Entanglement is an important resource in quantum teleportation, quantum communication, and several quantum algorithms.",
+      "Entanglement is an important resource in areas such as quantum communication, networked quantum systems, and precision sensing.",
+  },
+  {
+    id: 12,
+    question:
+      "Which statement about entanglement and quantum computing speedup is most accurate?",
+    options: [
+      "Entanglement alone guarantees every quantum algorithm is faster",
+      "Entanglement is useless for algorithms",
+      "Entanglement can be an important resource, but speedup usually depends on how it is combined with interference, superposition, and algorithm design",
+      "Quantum speedup comes only from measuring qubits more often",
+    ],
+    answer: 2,
+    explanation:
+      "Entanglement can contribute to quantum advantage, but it does not automatically create a speedup. Useful algorithms depend on carefully designed combinations of quantum effects.",
   },
 ];
 
@@ -449,214 +456,690 @@ function EntanglementModule() {
           </div>
         </section>
 
-        <section className="em-lesson-section" id="lesson">
-          <div className="em-section-heading">
-            <p className="em-section-label">LESSON 1</p>
-            <h2>What is entanglement?</h2>
-            <p>
-              Entanglement occurs when multiple qubits share a combined quantum
-              state that cannot be fully described by treating each qubit
-              independently.
-            </p>
+<section className="em-lesson-section" id="lesson">
+  <div className="em-section-heading">
+    <p className="em-section-label">LESSON 1</p>
+    <h2>What is entanglement?</h2>
+    <p>
+      Entanglement occurs when two or more qubits share a quantum state that
+      cannot be fully described by treating each qubit independently.
+    </p>
+  </div>
+
+  <div className="em-introduction-card">
+    <div className="em-introduction-icon">🔗</div>
+
+    <div>
+      <h3>One shared quantum state</h3>
+
+      <p>
+        Normally, we imagine separate objects as having separate states.
+        Entangled qubits are different: the most complete description belongs
+        to the <strong>combined system</strong>, not to each qubit by itself.
+      </p>
+
+      <p>
+        This shared state can produce correlations that are stronger than what
+        can be explained by ordinary classical models based on local,
+        predetermined values.
+      </p>
+
+      <p>
+        Albert Einstein famously described this behavior as{" "}
+        <strong>"spooky action at a distance"</strong> because the correlations
+        remain even when the particles are widely separated.
+      </p>
+    </div>
+
+    <div className="em-key-idea">
+      <span>Key idea</span>
+      <strong>
+        Entanglement is a property of a shared quantum state. It does not mean
+        that a controllable signal is sent instantly from one qubit to another.
+      </strong>
+    </div>
+  </div>
+
+  <div className="em-lesson-grid">
+    <article className="em-lesson-card">
+      <span className="em-card-number">01</span>
+
+      <div>
+        <h3>How entanglement is created</h3>
+
+        <p>
+          A common way to create entanglement starts with two qubits in:
+        </p>
+
+        <div className="em-formula-box">
+          |00⟩
+        </div>
+
+        <p>
+          First, apply a Hadamard gate to the first qubit. This creates
+          superposition:
+        </p>
+
+        <div className="em-formula-box">
+          (|00⟩ + |10⟩) / √2
+        </div>
+
+        <p>
+          Next, apply a CNOT gate using the first qubit as the control and the
+          second as the target.
+        </p>
+
+        <div className="em-formula-box">
+          (|00⟩ + |11⟩) / √2
+        </div>
+
+        <p>
+          The final state cannot be separated into independent states for the
+          two qubits. The pair is now entangled.
+        </p>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">02</span>
+
+      <div>
+        <h3>Why H followed by CNOT works</h3>
+
+        <p>
+          The Hadamard gate creates a superposition in the control qubit.
+          CNOT then links the target qubit to that control.
+        </p>
+
+        <div className="em-result-pair">
+          <div>
+            <span>Control branch</span>
+            <strong>0</strong>
           </div>
 
-          <div className="em-introduction-card">
-            <div className="em-introduction-icon">🔗</div>
+          <span>→</span>
 
-            <div>
-              <h3>One shared quantum description</h3>
+          <div>
+            <span>Target</span>
+            <strong>unchanged</strong>
+          </div>
+        </div>
 
-              <p>
-                When two qubits are entangled, we describe them as one combined
-                system. Measuring one qubit reveals information about the result
-                of measuring the other.
-              </p>
-
-              <p>
-                This does not mean that each qubit secretly carried a known
-                classical answer from the beginning. Experiments show that
-                quantum correlations are stronger than classical hidden-value
-                explanations can reproduce.
-              </p>
-            </div>
-
-            <div className="em-key-idea">
-              <span>Key idea</span>
-              <strong>
-                Entanglement is about a shared quantum state, not a physical
-                rope, signal, or instant message between particles.
-              </strong>
-            </div>
+        <div className="em-result-pair">
+          <div>
+            <span>Control branch</span>
+            <strong>1</strong>
           </div>
 
-          <div className="em-lesson-grid">
-            <article className="em-lesson-card">
-              <span className="em-card-number">01</span>
+          <span>→</span>
 
-              <div>
-                <h3>A combined state</h3>
+          <div>
+            <span>Target</span>
+            <strong>flipped</strong>
+          </div>
+        </div>
 
-                <p>
-                  Consider the Bell state:
-                </p>
+        <p>
+          Because both control possibilities are present in superposition,
+          CNOT creates a combined two-qubit state rather than one independent
+          state for each qubit.
+        </p>
+      </div>
+    </article>
 
-                <div className="em-formula-box">
-                  (|00⟩ + |11⟩) / √2
-                </div>
+    <article className="em-lesson-card">
+      <span className="em-card-number">03</span>
 
-                <p>
-                  This state represents two qubits together. The possible
-                  measurement results are 00 and 11.
-                </p>
-              </div>
-            </article>
+      <div>
+        <h3>Bell states</h3>
 
-            <article className="em-lesson-card">
-              <span className="em-card-number">02</span>
+        <p>
+          <strong>Bell states</strong> are the simplest maximally entangled
+          states of two qubits.
+        </p>
 
-              <div>
-                <h3>Matching measurements</h3>
+        <p>
+          There are four Bell states:
+        </p>
 
-                <p>
-                  If the first qubit is measured as 0, the second is also found
-                  as 0. If the first is measured as 1, the second is also 1.
-                </p>
+        <div className="em-formula-box">
+          Φ⁺ = (|00⟩ + |11⟩) / √2
+        </div>
 
-                <div className="em-result-pair">
-                  <div>
-                    <span>Possible result</span>
-                    <strong>00</strong>
-                  </div>
+        <div className="em-formula-box">
+          Φ⁻ = (|00⟩ - |11⟩) / √2
+        </div>
 
-                  <span>or</span>
+        <div className="em-formula-box">
+          Ψ⁺ = (|01⟩ + |10⟩) / √2
+        </div>
 
-                  <div>
-                    <span>Possible result</span>
-                    <strong>11</strong>
-                  </div>
-                </div>
-              </div>
-            </article>
+        <div className="em-formula-box">
+          Ψ⁻ = (|01⟩ - |10⟩) / √2
+        </div>
+      </div>
+    </article>
 
-            <article className="em-lesson-card">
-              <span className="em-card-number">03</span>
+    <article className="em-lesson-card">
+      <span className="em-card-number">04</span>
 
-              <div>
-                <h3>Not faster-than-light messaging</h3>
+      <div>
+        <h3>What the Bell states represent</h3>
 
-                <p>
-                  Each individual measurement still appears random. A person
-                  measuring one qubit cannot choose whether the result will be 0
-                  or 1.
-                </p>
+        <p>
+          The Φ states produce matching results when measured in the standard
+          computational basis:
+        </p>
 
-                <div className="em-warning-box">
-                  <span>!</span>
-
-                  <p>
-                    Entanglement creates correlations, but it cannot be used
-                    alone to send a controllable message faster than light.
-                  </p>
-                </div>
-              </div>
-            </article>
+        <div className="em-result-pair">
+          <div>
+            <span>Possible result</span>
+            <strong>00</strong>
           </div>
 
-          <div className="em-analogy-section">
-            <div className="em-analogy-heading">
-              <p className="em-section-label">A SIMPLE ANALOGY</p>
-              <h3>Two mystery cards</h3>
-            </div>
+          <span>or</span>
 
-            <div className="em-analogy-layout">
-              <div className="em-analogy-card">
-                <span>Classical cards</span>
+          <div>
+            <span>Possible result</span>
+            <strong>11</strong>
+          </div>
+        </div>
 
-                <div className="em-card-pair">
-                  <div>Red</div>
-                  <div>Blue</div>
-                </div>
+        <p>
+          The Ψ states produce opposite results:
+        </p>
 
-                <p>
-                  Imagine placing one red card and one blue card into two
-                  envelopes. Opening one envelope tells you which card was in
-                  the other because both colors were fixed beforehand.
-                </p>
-              </div>
-
-              <div className="em-analogy-divider">VS</div>
-
-              <div className="em-analogy-card em-quantum-analogy">
-                <span>Entangled qubits</span>
-
-                <div className="em-card-pair">
-                  <div>?</div>
-                  <div>?</div>
-                </div>
-
-                <p>
-                  Entangled qubits are not simply ordinary cards with
-                  predetermined values. Quantum experiments reveal correlations
-                  that cannot be reproduced by that classical envelope story.
-                </p>
-              </div>
-            </div>
-
-            <div className="em-analogy-note">
-              <span>Remember</span>
-
-              <p>
-                Analogies help us begin, but no everyday object behaves exactly
-                like an entangled quantum system.
-              </p>
-            </div>
+        <div className="em-result-pair">
+          <div>
+            <span>Possible result</span>
+            <strong>01</strong>
           </div>
 
-          <div className="em-computing-uses">
-            <div className="em-computing-heading">
-              <p className="em-section-label">WHY IT MATTERS</p>
-              <h3>Entanglement in quantum computing</h3>
-            </div>
+          <span>or</span>
 
-            <div className="em-use-grid">
-              <article>
-                <span>🧮</span>
-                <h4>Quantum algorithms</h4>
-                <p>
-                  Entanglement helps quantum algorithms coordinate information
-                  across multiple qubits.
-                </p>
-              </article>
-
-              <article>
-                <span>📡</span>
-                <h4>Quantum teleportation</h4>
-                <p>
-                  Entanglement can help transfer a quantum state when combined
-                  with classical communication.
-                </p>
-              </article>
-
-              <article>
-                <span>🔐</span>
-                <h4>Quantum communication</h4>
-                <p>
-                  Entangled systems can support security tests that reveal
-                  certain kinds of interference or eavesdropping.
-                </p>
-              </article>
-
-              <article>
-                <span>🧪</span>
-                <h4>Quantum simulation</h4>
-                <p>
-                  Entangled qubits can represent relationships found in
-                  molecules and quantum materials.
-                </p>
-              </article>
-            </div>
+          <div>
+            <span>Possible result</span>
+            <strong>10</strong>
           </div>
-        </section>
+        </div>
+
+        <p>
+          The plus and minus signs encode differences in{" "}
+          <strong>relative phase</strong>, which can affect later interference.
+        </p>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">05</span>
+
+      <div>
+        <h3>Measuring an entangled pair</h3>
+
+        <p>
+          Consider the Bell state:
+        </p>
+
+        <div className="em-formula-box">
+          (|00⟩ + |11⟩) / √2
+        </div>
+
+        <p>
+          If the first qubit is measured as 0, the joint state becomes
+          consistent with |00⟩. Measuring the second qubit in the same basis
+          then gives 0.
+        </p>
+
+        <p>
+          If the first qubit is measured as 1, the joint state becomes
+          consistent with |11⟩, and the second gives 1.
+        </p>
+
+        <div className="em-key-idea">
+          <span>Important</span>
+          <strong>
+            The individual result is random, but the relationship between the
+            two results is highly structured.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">06</span>
+
+      <div>
+        <h3>Collapse of the shared state</h3>
+
+        <p>
+          In the standard introductory description, measurement causes the
+          quantum state to <strong>collapse</strong> to a result compatible
+          with the measurement.
+        </p>
+
+        <p>
+          For an entangled pair, it is better to think about collapse of the
+          <strong>joint state</strong> rather than two separate qubits acting
+          independently.
+        </p>
+
+        <div className="em-warning-box">
+          <span>!</span>
+
+          <p>
+            Saying that one measurement "instantly sends a value" to the other
+            qubit is misleading. The two qubits were already described by one
+            shared quantum state.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">07</span>
+
+      <div>
+        <h3>Classical correlation</h3>
+
+        <p>
+          Imagine placing a red card in one envelope and a blue card in
+          another, then sending the envelopes to different locations.
+        </p>
+
+        <p>
+          If you open one envelope and find red, you immediately know the other
+          contains blue.
+        </p>
+
+        <p>
+          That is a classical correlation because the values were fixed from
+          the beginning. You simply did not know which envelope contained
+          which card.
+        </p>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">08</span>
+
+      <div>
+        <h3>Quantum correlation is fundamentally different</h3>
+
+        <p>
+          Entangled qubits cannot generally be explained by saying that every
+          possible measurement result was secretly predetermined in advance.
+        </p>
+
+        <p>
+          Experiments based on <strong>Bell's inequalities</strong> show that
+          quantum correlations can violate limits obeyed by theories based on
+          <strong>local hidden variables</strong>.
+        </p>
+
+        <div className="em-key-idea">
+          <span>Key distinction</span>
+          <strong>
+            Classical correlation can come from shared hidden information.
+            Entanglement can produce correlations that local hidden-variable
+            models cannot reproduce.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">09</span>
+
+      <div>
+        <h3>Quantum teleportation</h3>
+
+        <p>
+          Quantum teleportation transfers the{" "}
+          <strong>quantum state of a qubit</strong> from one location to
+          another.
+        </p>
+
+        <p>
+          It requires three ingredients:
+        </p>
+
+        <div className="em-result-pair">
+          <div>
+            <span>1</span>
+            <strong>Entanglement</strong>
+          </div>
+
+          <span>+</span>
+
+          <div>
+            <span>2</span>
+            <strong>Measurement</strong>
+          </div>
+        </div>
+
+        <div className="em-result-pair">
+          <div>
+            <span>3</span>
+            <strong>Classical communication</strong>
+          </div>
+
+          <span>→</span>
+
+          <div>
+            <span>Result</span>
+            <strong>State reconstructed</strong>
+          </div>
+        </div>
+
+        <p>
+          No matter or person is teleported. The information defining the
+          quantum state is transferred according to the protocol.
+        </p>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">10</span>
+
+      <div>
+        <h3>Superdense coding</h3>
+
+        <p>
+          Entanglement can also be used in a protocol called{" "}
+          <strong>superdense coding</strong>.
+        </p>
+
+        <p>
+          If two parties already share an entangled pair, sending one qubit
+          can be used to communicate two classical bits under the protocol.
+        </p>
+
+        <div className="em-key-idea">
+          <span>Important</span>
+          <strong>
+            The entanglement must already be shared beforehand. It is a
+            resource that the communication protocol consumes.
+          </strong>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">11</span>
+
+      <div>
+        <h3>Entanglement in quantum algorithms</h3>
+
+        <p>
+          Quantum algorithms can deliberately create entanglement so that
+          multiple qubits participate in a shared quantum state.
+        </p>
+
+        <p>
+          This can represent relationships between parts of a computation that
+          have no simple independent classical description.
+        </p>
+
+        <p>
+          However, entanglement by itself does not guarantee a speedup.
+          Quantum advantage usually comes from combining:
+        </p>
+
+        <div className="em-result-pair">
+          <div>
+            <span>Quantum resource</span>
+            <strong>Superposition</strong>
+          </div>
+
+          <span>+</span>
+
+          <div>
+            <span>Quantum resource</span>
+            <strong>Interference</strong>
+          </div>
+        </div>
+
+        <div className="em-result-pair">
+          <div>
+            <span>Quantum resource</span>
+            <strong>Entanglement</strong>
+          </div>
+
+          <span>+</span>
+
+          <div>
+            <span>Design</span>
+            <strong>Algorithm structure</strong>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">12</span>
+
+      <div>
+        <h3>Not faster-than-light communication</h3>
+
+        <p>
+          One of the most common misconceptions is that entanglement allows
+          instant messaging across any distance.
+        </p>
+
+        <p>
+          It does not.
+        </p>
+
+        <p>
+          If Alice measures her qubit, she cannot choose whether the result is
+          0 or 1. Bob's local result is also random from his perspective.
+        </p>
+
+        <div className="em-warning-box">
+          <span>!</span>
+
+          <p>
+            Alice and Bob must compare their results using ordinary classical
+            communication before they can observe the correlation.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">13</span>
+
+      <div>
+        <h3>Entanglement does not mean "same value"</h3>
+
+        <p>
+          Some entangled states produce matching measurement results, but
+          others produce opposite results.
+        </p>
+
+        <div className="em-formula-box">
+          (|00⟩ + |11⟩) / √2 → matching
+        </div>
+
+        <div className="em-formula-box">
+          (|01⟩ + |10⟩) / √2 → opposite
+        </div>
+
+        <p>
+          Entanglement describes a relationship in a joint quantum state, not
+          simply equality between two bits.
+        </p>
+      </div>
+    </article>
+
+    <article className="em-lesson-card">
+      <span className="em-card-number">14</span>
+
+      <div>
+        <h3>Entanglement does not copy quantum information</h3>
+
+        <p>
+          Quantum mechanics includes the <strong>no-cloning theorem</strong>,
+          which says an arbitrary unknown quantum state cannot be copied
+          perfectly.
+        </p>
+
+        <p>
+          Even quantum teleportation does not create an independent duplicate
+          of the original state.
+        </p>
+
+        <div className="em-key-idea">
+          <span>Remember</span>
+          <strong>
+            Entanglement can transfer and correlate quantum information, but it
+            does not allow perfect copying of arbitrary unknown states.
+          </strong>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div className="em-analogy-section">
+    <div className="em-analogy-heading">
+      <p className="em-section-label">CLASSICAL VS QUANTUM CORRELATION</p>
+      <h3>Why the envelope analogy eventually breaks down</h3>
+    </div>
+
+    <div className="em-analogy-layout">
+      <div className="em-analogy-card">
+        <span>Classical envelopes</span>
+
+        <div className="em-card-pair">
+          <div>Red</div>
+          <div>Blue</div>
+        </div>
+
+        <p>
+          Put one red card and one blue card into separate envelopes. Opening
+          one tells you what is in the other because the values were fixed
+          beforehand.
+        </p>
+
+        <p>
+          The correlation comes from ordinary shared information that already
+          existed.
+        </p>
+      </div>
+
+      <div className="em-analogy-divider">VS</div>
+
+      <div className="em-analogy-card em-quantum-analogy">
+        <span>Entangled qubits</span>
+
+        <div className="em-card-pair">
+          <div>?</div>
+          <div>?</div>
+        </div>
+
+        <p>
+          Entangled systems can produce correlations that cannot be reproduced
+          by assigning each particle a set of predetermined local answers.
+        </p>
+
+        <p>
+          Bell-test experiments are what distinguish this quantum behavior from
+          the simple envelope explanation.
+        </p>
+      </div>
+    </div>
+
+    <div className="em-analogy-note">
+      <span>Remember</span>
+
+      <p>
+        The envelope analogy is useful for understanding ordinary correlation,
+        but it is specifically what entanglement goes beyond.
+      </p>
+    </div>
+  </div>
+
+  <div className="em-computing-uses">
+    <div className="em-computing-heading">
+      <p className="em-section-label">WHY ENTANGLEMENT MATTERS</p>
+      <h3>Entanglement as a quantum resource</h3>
+    </div>
+
+    <div className="em-use-grid">
+      <article>
+        <span>📡</span>
+        <h4>Quantum teleportation</h4>
+        <p>
+          Shared entanglement, measurement, and classical communication can
+          transfer an unknown quantum state between locations.
+        </p>
+      </article>
+
+      <article>
+        <span>📨</span>
+        <h4>Superdense coding</h4>
+        <p>
+          A pre-shared entangled pair can be used in a protocol where sending
+          one qubit communicates two classical bits.
+        </p>
+      </article>
+
+      <article>
+        <span>🔐</span>
+        <h4>Quantum key distribution</h4>
+        <p>
+          Some QKD protocols use entangled systems to establish keys and test
+          whether the quantum channel has been disturbed.
+        </p>
+      </article>
+
+      <article>
+        <span>🌐</span>
+        <h4>Quantum networks</h4>
+        <p>
+          Future quantum networks may distribute entanglement between distant
+          processors using quantum memories and repeaters.
+        </p>
+      </article>
+
+      <article>
+        <span>🧭</span>
+        <h4>Quantum sensing</h4>
+        <p>
+          Entangled systems can improve the precision of some measurements of
+          time, fields, acceleration, and other physical quantities.
+        </p>
+      </article>
+
+      <article>
+        <span>🧮</span>
+        <h4>Quantum algorithms</h4>
+        <p>
+          Entanglement can help encode relationships across multiple qubits as
+          part of a larger algorithmic strategy.
+        </p>
+      </article>
+
+      <article>
+        <span>🔗</span>
+        <h4>Distributed quantum computing</h4>
+        <p>
+          Entanglement may allow smaller quantum processors to cooperate as
+          parts of a larger distributed quantum system.
+        </p>
+      </article>
+
+      <article>
+        <span>🧪</span>
+        <h4>Quantum experiments</h4>
+        <p>
+          Bell-state experiments test some of the deepest predictions of
+          quantum mechanics and the limits of classical explanations.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
         <section className="em-visualizer-section" id="visualizer">
           <div className="em-section-heading">
