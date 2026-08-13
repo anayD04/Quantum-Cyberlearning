@@ -107,8 +107,7 @@ function HomePage() {
 
         <nav className="nav-links" aria-label="Main navigation">
           <Link to="/modules">Modules</Link>
-          <a href="#about">About</a>
-          <Link to="/progress">My Progress</Link>
+          <Link to="/progress">Progress</Link>
         </nav>
 
         <div className="navbar-actions">
@@ -160,10 +159,6 @@ function HomePage() {
                 Begin Your Journey
                 <span aria-hidden="true">→</span>
               </button>
-
-              <a className="secondary-button" href="#about">
-                How It Works
-              </a>
             </div>
 
             <div className="hero-features">
