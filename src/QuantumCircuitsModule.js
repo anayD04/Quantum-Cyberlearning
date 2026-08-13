@@ -1879,6 +1879,89 @@ function QuantumCircuitsModule() {
             </div>
           )}
         </section>
+        <section className="qcm-further-reading" id="further-reading">
+  <div className="qcm-section-heading">
+    <p className="qcm-section-label">KEEP EXPLORING</p>
+    <h2>Further Readings</h2>
+    <p>
+      Continue exploring how quantum circuits represent computations,
+      how circuit diagrams are read, and how circuits are executed on
+      quantum computers.
+    </p>
+  </div>
+
+  <div className="qcm-reading-grid">
+    <a
+      className="qcm-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/concepts-circuits"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qcm-reading-card-top">
+        <span className="qcm-reading-source">Microsoft Learn</span>
+        <span className="qcm-reading-level">Beginner</span>
+      </div>
+
+      <h3>Quantum Circuit Diagram Conventions</h3>
+
+      <p>
+        Learn how to read quantum circuit diagrams, including qubit
+        wires, gate order, controlled operations, measurement, inputs,
+        and outputs.
+      </p>
+
+      <span className="qcm-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="qcm-reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information/quantum-circuits/introduction"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qcm-reading-card-top">
+        <span className="qcm-reading-source">IBM Quantum</span>
+        <span className="qcm-reading-level">Beginner+</span>
+      </div>
+
+      <h3>Introduction to Quantum Circuits</h3>
+
+      <p>
+        Explore the quantum circuit model and learn how circuit
+        diagrams represent operations performed on quantum states.
+      </p>
+
+      <span className="qcm-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="qcm-reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/quantum-computing-in-practice/running-quantum-circuits"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qcm-reading-card-top">
+        <span className="qcm-reading-source">IBM Quantum</span>
+        <span className="qcm-reading-level">Go Deeper</span>
+      </div>
+
+      <h3>Running Quantum Circuits</h3>
+
+      <p>
+        See how quantum circuits move from diagrams to executable
+        programs using qubits, gates, multi-qubit operations, and
+        measurements.
+      </p>
+
+      <span className="qcm-reading-link">Open resource ↗</span>
+    </a>
+  </div>
+
+  <p className="qcm-reading-disclaimer">
+    These optional resources are provided by external organizations.
+    QuantumPath is not affiliated with or endorsed by these providers.
+  </p>
+</section>
         {showSummary && (
             <section className="qcm-complete-section">
             <div>

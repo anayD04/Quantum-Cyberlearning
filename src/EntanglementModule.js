@@ -1770,6 +1770,90 @@ function EntanglementModule() {
             </div>
           )}
         </section>
+        <section className="em-further-reading" id="further-reading">
+  <div className="em-section-heading">
+    <p className="em-section-label">KEEP EXPLORING</p>
+    <h2>Further Readings</h2>
+    <p>
+      Continue exploring quantum entanglement, Bell states, quantum
+      correlations, and the powerful applications that entanglement
+      makes possible.
+    </p>
+  </div>
+
+  <div className="em-reading-grid">
+    <a
+      className="em-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/concepts-entanglement"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="em-reading-card-top">
+        <span className="em-reading-source">Microsoft Learn</span>
+        <span className="em-reading-level">Beginner</span>
+      </div>
+
+      <h3>Entanglement and Correlations</h3>
+
+      <p>
+        Learn what quantum entanglement means, how entangled qubits
+        behave when measured, how Bell states are created, and how
+        quantum correlations differ from classical correlations.
+      </p>
+
+      <span className="em-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="em-reading-card"
+      href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/multiple-systems"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="em-reading-card-top">
+        <span className="em-reading-source">IBM Quantum</span>
+        <span className="em-reading-level">Beginner+</span>
+      </div>
+
+      <h3>Multiple Systems and Bell States</h3>
+
+      <p>
+        Go deeper into systems containing multiple qubits and explore
+        the four Bell states, some of the most important examples of
+        quantum entanglement.
+      </p>
+
+      <span className="em-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="em-reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information/entanglement-in-action/introduction"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="em-reading-card-top">
+        <span className="em-reading-source">IBM Quantum</span>
+        <span className="em-reading-level">Go Deeper</span>
+      </div>
+
+      <h3>Entanglement in Action</h3>
+
+      <p>
+        Discover how entanglement becomes a useful computational
+        resource through quantum teleportation, superdense coding,
+        and other quantum information protocols.
+      </p>
+
+      <span className="em-reading-link">Open resource ↗</span>
+    </a>
+  </div>
+
+  <p className="em-reading-disclaimer">
+    These optional resources are provided by external organizations.
+    QuantumPath is not affiliated with or endorsed by these providers.
+  </p>
+</section>
         {showSummary && (
             <section className="em-complete-section">
             <div>

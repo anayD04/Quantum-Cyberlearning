@@ -1349,6 +1349,87 @@ function IntroModule() {
             </div>
           )}
         </section>
+        <section className="intro-further-reading" id="further-reading">
+  <div className="lesson-section-heading">
+    <p className="intro-section-label">KEEP EXPLORING</p>
+    <h2>Further Readings</h2>
+    <p>
+      Want to explore quantum computing beyond this lesson? These
+      trusted resources are a great place to continue.
+    </p>
+  </div>
+
+  <div className="further-reading-grid">
+    <a
+      className="reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/quantum-business-foundations/quantum-computing-fundamentals"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="reading-card-top">
+        <span className="reading-source">IBM Quantum</span>
+        <span className="reading-level beginner">Beginner</span>
+      </div>
+
+      <h3>Quantum Computing Fundamentals</h3>
+
+      <p>
+        Explore the foundations of quantum computing, including
+        qubits, superposition, gates, circuits, and how quantum
+        computing differs from classical computing.
+      </p>
+
+      <span className="reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/concepts-the-qubit"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="reading-card-top">
+        <span className="reading-source">Microsoft Learn</span>
+        <span className="reading-level beginner-plus">Beginner+</span>
+      </div>
+
+      <h3>The Qubit in Quantum Computing</h3>
+
+      <p>
+        Go deeper into qubits, superposition, measurement, quantum
+        state representation, and the Bloch sphere.
+      </p>
+
+      <span className="reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/basics-of-quantum-information"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="reading-card-top">
+        <span className="reading-source">IBM Quantum</span>
+        <span className="reading-level deeper">Go Deeper</span>
+      </div>
+
+      <h3>Basics of Quantum Information</h3>
+
+      <p>
+        Continue with a more rigorous introduction to quantum states,
+        measurement, circuits, and entanglement.
+      </p>
+
+      <span className="reading-link">Open resource ↗</span>
+    </a>
+  </div>
+
+  <p className="further-reading-disclaimer">
+    These optional resources are provided by external organizations.
+    QuantumPath is not affiliated with or endorsed by these providers.
+  </p>
+</section>
         {showSummary && (
           <section className="lesson-complete-section">
             <div>

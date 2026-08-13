@@ -1512,6 +1512,89 @@ function ClassicalVsQuantumModule() {
             </div>
           )}
         </section>
+        <section className="cvq-further-reading" id="further-reading">
+  <div className="cvq-section-heading">
+    <p className="cvq-section-label">KEEP EXPLORING</p>
+    <h2>Further Readings</h2>
+    <p>
+      Continue exploring how classical and quantum programming differ
+      with these trusted external resources.
+    </p>
+  </div>
+
+  <div className="cvq-reading-grid">
+    <a
+      className="cvq-reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/modules/quantum-mechanics/get-started-with-qiskit"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="cvq-reading-card-top">
+        <span className="cvq-reading-source">IBM Quantum</span>
+        <span className="cvq-reading-level">Beginner</span>
+      </div>
+
+      <h3>Get Started with Qiskit</h3>
+
+      <p>
+        Learn how Qiskit represents qubits, gates, measurements, and
+        quantum circuits while getting an introduction to the quantum
+        programming workflow.
+      </p>
+
+      <span className="cvq-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="cvq-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/hybrid-computing-concepts"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="cvq-reading-card-top">
+        <span className="cvq-reading-source">Microsoft Learn</span>
+        <span className="cvq-reading-level">Beginner+</span>
+      </div>
+
+      <h3>Hybrid Quantum Computing Concepts</h3>
+
+      <p>
+        Explore how classical and quantum computers can work together,
+        with each type of processor handling the tasks it is best
+        suited for.
+      </p>
+
+      <span className="cvq-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="cvq-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/qsharp-overview"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="cvq-reading-card-top">
+        <span className="cvq-reading-source">Microsoft Learn</span>
+        <span className="cvq-reading-level">Go Deeper</span>
+      </div>
+
+      <h3>Introduction to Quantum Programming with Q#</h3>
+
+      <p>
+        See how a language designed for quantum programming represents
+        quantum operations and integrates classical and quantum
+        computation.
+      </p>
+
+      <span className="cvq-reading-link">Open resource ↗</span>
+    </a>
+  </div>
+
+  <p className="cvq-reading-disclaimer">
+    These optional resources are provided by external organizations.
+    QuantumPath is not affiliated with or endorsed by these providers.
+  </p>
+</section>
         {showSummary && (
           <section className="cvq-complete-section">
             <div>

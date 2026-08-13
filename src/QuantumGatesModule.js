@@ -1668,6 +1668,89 @@ function QuantumGatesModule() {
             </div>
           )}
         </section>
+        <section className="qgm-further-reading" id="further-reading">
+  <div className="qgm-section-heading">
+    <p className="qgm-section-label">KEEP EXPLORING</p>
+    <h2>Further Readings</h2>
+    <p>
+      Continue exploring quantum gates, multi-qubit operations, and
+      how gates are combined inside quantum circuits.
+    </p>
+  </div>
+
+  <div className="qgm-reading-grid">
+    <a
+      className="qgm-reading-card"
+      href="https://quantum.cloud.ibm.com/learning/en/courses/utility-scale-quantum-computing/bits-gates-and-circuits"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qgm-reading-card-top">
+        <span className="qgm-reading-source">IBM Quantum</span>
+        <span className="qgm-reading-level">Beginner</span>
+      </div>
+
+      <h3>Bits, Gates, and Circuits</h3>
+
+      <p>
+        Explore quantum gates including X, Hadamard, and CNOT,
+        their mathematical representations, and how they transform
+        qubit states using practical Qiskit examples.
+      </p>
+
+      <span className="qgm-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="qgm-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/concepts-multiple-qubits"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qgm-reading-card-top">
+        <span className="qgm-reading-source">Microsoft Learn</span>
+        <span className="qgm-reading-level">Beginner+</span>
+      </div>
+
+      <h3>Multiple-Qubit Operations</h3>
+
+      <p>
+        Go deeper into CNOT, controlled operations, two-qubit gates,
+        and how quantum gates can connect and transform systems
+        containing multiple qubits.
+      </p>
+
+      <span className="qgm-reading-link">Open resource ↗</span>
+    </a>
+
+    <a
+      className="qgm-reading-card"
+      href="https://learn.microsoft.com/en-us/azure/quantum/concepts-circuits"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className="qgm-reading-card-top">
+        <span className="qgm-reading-source">Microsoft Learn</span>
+        <span className="qgm-reading-level">Go Deeper</span>
+      </div>
+
+      <h3>Quantum Circuit Diagram Conventions</h3>
+
+      <p>
+        See how quantum gates are represented in circuit diagrams,
+        including single-qubit gates, controlled gates, CNOT,
+        measurement, and sequences of operations.
+      </p>
+
+      <span className="qgm-reading-link">Open resource ↗</span>
+    </a>
+  </div>
+
+  <p className="qgm-reading-disclaimer">
+    These optional resources are provided by external organizations.
+    QuantumPath is not affiliated with or endorsed by these providers.
+  </p>
+</section>
         {showSummary && (
           <section className="qgm-complete-section">
             <div>

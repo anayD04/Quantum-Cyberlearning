@@ -1673,3 +1673,109 @@ a {
   cursor: default;
   opacity: 1;
 }
+/* ================================
+   Further Readings
+================================ */
+
+.intro-further-reading {
+  padding: 80px 8%;
+}
+
+.further-reading-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+
+.reading-card {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border: 1px solid rgba(124, 92, 255, 0.18);
+  border-radius: 18px;
+  background: #ffffff;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.reading-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 92, 255, 0.5);
+  box-shadow: 0 14px 35px rgba(79, 70, 229, 0.12);
+}
+
+.reading-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.reading-source {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #6d5dfc;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.reading-level {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.reading-level.beginner {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.reading-level.beginner-plus {
+  color: #7c3aed;
+  background: #f5f3ff;
+}
+
+.reading-level.deeper {
+  color: #9333ea;
+  background: #faf5ff;
+}
+
+.reading-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  color: #1e1b4b;
+}
+
+.reading-card p {
+  margin: 0 0 24px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.reading-link {
+  margin-top: auto;
+  font-weight: 700;
+  color: #6d5dfc;
+}
+
+@media (max-width: 900px) {
+  .further-reading-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.further-reading-disclaimer {
+  margin: 24px auto 0;
+  max-width: 850px;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: #7c819f;
+  opacity: 0.9;
+}
