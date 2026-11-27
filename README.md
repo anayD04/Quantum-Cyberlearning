@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# QuantumPath
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive web platform that teaches quantum computing to learners with no prior background in physics, linear algebra, or quantum mechanics.
 
-## Available Scripts
+**Live site:** https://quantum-cyberlearning.vercel.app
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+QuantumPath was built as an Undergraduate Summer Scholars research project at Miami University, under the mentorship of Dr. Hakam Alomari in the Department of Computer Science and Software Engineering.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The research question behind it: can classical program comprehension techniques — structured tracing, visualization, and program slicing — be adapted to help novices understand quantum programs?
 
-### `npm test`
+Quantum computing is usually taught assuming a physics or mathematics background, which filters out most beginners before they start. Computing education has decades of techniques for helping novices read unfamiliar programs. This project tests whether those techniques transfer.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Modules
 
-### `npm run build`
+1. **Introduction to Quantum Computing** — qubits, superposition, and measurement
+2. **Classical vs Quantum Programming** — determinism, state representation, and the limits of classical intuition
+3. **Quantum Gates** — the X, Hadamard, and CNOT gates, compared to classical logic gates
+4. **Quantum Circuits** — reading circuit diagrams, gate ordering, and measurement
+5. **Entanglement** — Bell states, correlated measurement, and common misconceptions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Each module combines lesson content with embedded interactive components, a 12-question assessment, and links to further reading.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Interactive components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Qubit state tracer** — step through gate operations one at a time and watch the state evolve as a probability distribution rather than a definite value
+- **Circuit builder** — construct one-qubit circuits from X and Hadamard gates and trace them step by step
+- **Gate explorer** — inspect how each gate transforms qubit state, with the corresponding Qiskit syntax
+- **Bell pair visualizer** — create an entangled pair and observe that individual outcomes stay random while the pair stays perfectly correlated
+- **Side-by-side comparisons** — every quantum concept paired with its nearest classical analogue
 
-### `npm run eject`
+## Progress system
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Modules unlock sequentially so learners cannot skip foundational material. Assessments award 2 points per correct answer, with a 6-point bonus for a perfect module quiz and a 10-point first-completion bonus, to a maximum of 160 points across four levels: Novice, Explorer, Analyst, and Expert. Retakes update to a learner's best score. Progress persists via React Context and local storage.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Findings
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The techniques did not transfer uniformly:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Tracing adapts**, but only once "state" is redefined. Classical tracing tracks one definite value per variable; a qubit in superposition has none, so the tracer displays a probability distribution that updates at each gate.
+- **Visualization must be rebuilt** rather than adapted. Superposition has no classical counterpart to draw, and representations resembling classical variable diagrams teach the misconception that a qubit is secretly 0 or 1.
+- **Program slicing does not transfer.** Slicing isolates what affects a given output, which requires dependencies to be separable. Entanglement removes separability — an entangled qubit has no independent state to slice back toward.
 
-## Learn More
+A usability evaluation with novice learners is ongoing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React (Create React App), React Router for client-side routing, Context API with local storage for progress persistence. Deployed on Vercel with continuous deployment from `main`.
 
-### Code Splitting
+## Running locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+npm start
+```
 
-### Analyzing the Bundle Size
+Runs at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Author
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Anay Dikshit** — B.S. Computer Science, Miami University
+[LinkedIn](https://www.linkedin.com/in/anay-dikshit)
